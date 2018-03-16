@@ -1,19 +1,279 @@
 /* Application CSS - HTML Tags */
 body{
-    margin:0 !important;
+    width:95%;
+    color:#555;
+    margin:0 auto 0 auto !important;
     font-family:'Raleway', sans-serif;
 }
+h3{
+    margin-bottom:8px;
+}
+h2{
+    margin-bottom:8px;
+}
+b{
+    font-family:'Roboto', sans-serif;
+}
+img{
+    opacity:0.8;
+}
 /* Application CSS - General Configuration CSS */
+.application{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
 .application-menu{
-    background:red;
+    background-color:#3b5998;
 }
 .application-menu ul{
     padding:0;
 }
 .application-menu ul li{
     list-style:none;
-    padding:18px;
-    background:blue;
-    margin-right:10px;
+    padding:22px 14px 22px 14px;
+    font-weight:500;
+    margin-right:5px;
+    margin-left:5px;
     display:inline-block;
+    font-family:'Roboto', sans-serif;
+}
+.application-menu ul a{
+    color:#F7F7F7;
+    text-decoration:none;
+}
+.application-menu ul a:hover{
+    font-weight:bold;
+    /*background-color:#6D9DD1;*/
+}
+.application-body{
+    padding:6px 18px 35px 25px;
+}
+.application-footer{
+    height:105px;
+    background-color:#3b5998;
+}
+/* Application CSS - Web (Index) */
+.events-calendar-configuration{
+    width:55%;
+    display:inline-block;
+    border-right:1px dotted #C0C0C0;
+}
+.event-information{
+    width:42.5%;
+    padding:0 0 0 15px;
+}
+.event-box{
+    width:23%;
+    height:250px;
+    margin-right:6px;
+    margin-left:6px;
+    border-radius:4px;
+    border:1px solid #6D9DD1;
+}
+.event-box-header{
+    height:45px;
+    padding:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color:#6D9DD1;
+}
+.event-box-body{
+    padding:6px;
+}
+/* Application CSS - FullCalendar Configuration */
+#events-calendar{
+    width:95%;
+    padding-right:30px;
+    margin:0 auto 0 auto;
+    font-family: 'Roboto', sans-serif;
+}
+#events-calendar h2{
+    color:#444;
+    margin-top:6px;
+    margin-left:-40px;
+    font-size:19px !important;
+}
+#events-calendar .fc-day-header{
+    background:#7E45D3;
+    color:#F8F8F8;
+    font-weight:500;
+    border-style:none !important;
+    padding:18px !important;
+}
+#events-calendar .fc-day-top{
+    color:#444;
+}
+#events-calendar .fc-day{
+    cursor:pointer;
+}
+/* Application CSS - Text Align */
+.text-justify{
+    text-align:justify;
+}
+.text-center{
+    text-align:center;
+}
+.text-left{
+    text-align:left;
+}
+.text-right{
+    text-align:right;
+}
+/* Application CSS - Float */
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+/* Application CSS - Display */
+.inline-block{
+    display:inline-block;
+}
+.block{
+    display:block;
+}
+/* Application CSS - Vertical Align */
+.align-top{
+    vertical-align:top;
+}
+.align-middle{
+    vertical-align:middle;
+}
+.align-bottom{
+    vertical-align:bottom;
+}
+/* Application CSS - Font Family */
+.roboto{
+    font-family:'Roboto', sans-serif;
+}
+.raleway{
+    font-family:'Raleway', sans-serif;
+}
+/* Application CSS - Header */
+.header{
+    padding-bottom:6px;
+    border-bottom:1px solid #E0E0E0;
+}
+/* Application CSS - Margin */
+.m-t-sm{
+    margin-top:6px;
+}
+.m-t-md{
+    margin-top:12px;
+}
+.m-b-sm{
+    margin-bottom:6px;
+}
+.m-b-lg{
+    margin-bottom:20px;
+}
+.m-l-sm{
+    margin-left:6px;
+}
+.m-r-md{
+    margin-right:12px;
+}
+/* Application CSS - Padding */
+.p-sm{
+    padding:6px;
+}
+/* Application CSS - Circle Image */
+.small-circular-image{
+    width: 95px;
+    height: 95px;
+    display: flex;
+    padding: 12px;
+    margin: 6px auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    text-align: center;
+}
+/* Application CSS - Shadow */
+.shadow{
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+/* Application CSS - Buttons */
+.button{
+    border:none;
+    padding:9px;
+    cursor:pointer;
+    border-radius:2px;
+    font-size:13.5px;
+    font-family:'Roboto', sans-serif;
+}
+.button-danger{
+    background-color:#C44D58;
+    color:#FFF !important;
+}
+.button-success{
+    background-color:#728D72;
+    color:#FFF !important;
+}
+.button-info{
+    background-color:#43B5DE;
+    color:#FFF !important;
+}
+/* Application CSS - Dots */
+.dots{
+    white-space:nowrap;
+    overflow:hidden !important;
+    text-overflow:ellipsis;
+}
+/* Application CSS - Colors */
+.white{
+    color:#FFF !important;
+}
+.black{
+    color:#444 !important;
+}
+.red{
+    color:#C44D58 !important;
+}
+.green{
+    color:#728D72 !important;
+}
+.facebook-blue{
+    color:#3b5998 !important;
+}
+.silver {
+    color: #c0c0c0;
+}
+.gold{
+    color: #F4A460;
+}
+.bronze {
+    color: #cd7f32;
+}
+/* Application CSS - Background Colors */
+.background-in-a-fever{
+    background-color:#E73F3F !important;
+}
+.background-weak-orange{
+    background-color:#F76C27 !important;
+}
+.background-goldilocks{
+    background-color:#E7E737 !important;
+}
+.background-weak-blue{
+    background-color:#6D9DD1 !important;
+}
+.background-purple-shine{
+    background-color:#7E45D3 !important;
+}
+.background-black{
+    background-color:#444 !important;
+}
+.background-gold{
+    background-color:#F4A460 !important;
+}
+.background-silver{
+    background-color:#c0c0c0 !important;
+}
+.background-bronze{
+    background-color:#cd7f32 !important;
 }
