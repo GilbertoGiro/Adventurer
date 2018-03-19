@@ -20,6 +20,24 @@
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
                 </div>
+                <div class="block m-t-md">
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Participantes:</b> 45 usuários
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Duração:</b> 2 horas
+                    </span>
+
+                    <span class="block margin-center m-b-md">
+                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
+                    </span>
+                </div>
             </div>
         </div>
         <div class="event-box shadow inline-block align-top">
@@ -29,6 +47,24 @@
             <div class="event-box-body">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
+                </div>
+                <div class="block m-t-md">
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Participantes:</b> 45 usuários
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Duração:</b> 2 horas
+                    </span>
+
+                    <span class="block margin-center m-b-md">
+                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -40,6 +76,24 @@
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
                 </div>
+                <div class="block m-t-md">
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Participantes:</b> 45 usuários
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Duração:</b> 2 horas
+                    </span>
+
+                    <span class="block margin-center m-b-md">
+                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
+                    </span>
+                </div>
             </div>
         </div>
         <div class="event-box shadow inline-block align-top">
@@ -49,6 +103,24 @@
             <div class="event-box-body">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
+                </div>
+                <div class="block m-t-md">
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Participantes:</b> 45 usuários
+                    </span>
+                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                        <b>Duração:</b> 2 horas
+                    </span>
+
+                    <span class="block margin-center m-b-md">
+                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
+                    </span>
                 </div>
             </div>
         </div>
@@ -67,7 +139,7 @@
         <div id="events-calendar"></div>
     </div>
     <div class="event-information inline-block align-top">
-        <h3 class="roboto header">Semana de Tecnologia - Faculdade de Tecnologia de Jundiaí</h3>
+        <h2 class="roboto dots">Semana de Tecnologia - Faculdade de Tecnologia de Jundiaí Faculdade de Tecnologia de Jundiaí Faculdade de Tecnologia de Jundiaí</h2>
 
         <div class="block p-sm text-justify">
             <span class="block">
@@ -82,10 +154,33 @@
             </span>
         </div>
 
-        <div class="block action-buttons m-t-md text-right">
-            <button type="button" class="button black left" style="margin-top:4px;">Participar <i class="fa fa-user-plus black"></i></button>
-            <button type="button" class="button button-danger">Não Gostei <i class="fa fa-thumbs-down white"></i></button>
-            <button type="button" class="button button-success m-l-sm">Gostei <i class="fa fa-thumbs-up white"></i></button>
+        <div class="p-sm">
+            <h2 class="roboto dots" style="margin-left:-8px">Tem interesse em Participar do Evento?</h2>
+
+            <form class="event-inscription m-t-md">
+                <div class="form-group m-t-md">
+                    <label for="email">Qual o seu e-mail?</label>
+                    <input type="email" name="email" class="form-input" id="email" placeholder="exemplo@exemplo.com.br">
+                </div>
+
+                <div class="form-group m-t-md">
+                    <label for="nome">Qual seu nome?</label>
+                    <input type="text" name="nome" class="form-input" id="nome" placeholder="Exemplo">
+                </div>
+
+                <div class="form-group m-t-md">
+                    <label for="flaluno">É um aluno da Faculdade?</label>
+                    <select name="flaluno" class="form-input" id="flaluno">
+                        <option value="">Selecione uma opção</option>
+                        <option value="s">Sim</option>
+                        <option value="n">Não</option>
+                    </select>
+                </div>
+
+                <div class="form-group m-t-md">
+                    <button type="submit" class="button button-success form-input">Submeter Inscrição <i class="fa fa-graduation-cap"></i></button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

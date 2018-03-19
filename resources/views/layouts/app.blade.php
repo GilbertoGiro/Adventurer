@@ -13,9 +13,6 @@
 
         <!-- FullCalendar CSS -->
         <link rel='stylesheet' href='{{ asset('fullcalendar/fullcalendar.css') }}' />
-
-        <!-- Google Fonts -->
-        <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Roboto%3A300%2C400%7CRaleway%3A400%2C500%2C900&#038;ver=3.1' type='text/css' media='all'/>
     </head>
     <body>
         <div class="application">
@@ -43,7 +40,7 @@
                         </a>
                     </li>
                     <li class="right" style="margin-top:4px;">
-                        <a href="">
+                        <a href="{{ route('web.login') }}">
                             Login/Cadastro <i class="fa fa-user-secret"></i>
                         </a>
                     </li>
@@ -57,9 +54,9 @@
 
             <!-- Application Body -->
             <div class="application-footer">
-                <div class="icons">
-                    <i class="fab fa-facebook-square facebook-blue"></i>
-                </div>
+                {{--<div class="icons">--}}
+                    {{--<i class="fab fa-facebook-square facebook-blue"></i>--}}
+                {{--</div>--}}
             </div>
         </div>
     </body>

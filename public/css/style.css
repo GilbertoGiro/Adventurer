@@ -1,3 +1,11 @@
+@font-face {
+    font-family:'Roboto';
+    src: url("../fonts/Roboto/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family:'Raleway';
+    src: url("../fonts/Raleway/Raleway-Regular.ttf");
+}
 /* Application CSS - HTML Tags */
 body{
     width:95%;
@@ -22,7 +30,7 @@ img{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .application-menu{
-    background-color:#3b5998;
+    background-color:#3C4B5F;
 }
 .application-menu ul{
     padding:0;
@@ -49,7 +57,7 @@ img{
 }
 .application-footer{
     height:105px;
-    background-color:#3b5998;
+    background-color:#3C4B5F;
 }
 /* Application CSS - Web (Index) */
 .events-calendar-configuration{
@@ -63,7 +71,7 @@ img{
 }
 .event-box{
     width:23%;
-    height:250px;
+    min-height:280px;
     margin-right:6px;
     margin-left:6px;
     border-radius:4px;
@@ -94,7 +102,7 @@ img{
     font-size:19px !important;
 }
 #events-calendar .fc-day-header{
-    background:#7E45D3;
+    background:#52738F;
     color:#F8F8F8;
     font-weight:500;
     border-style:none !important;
@@ -105,6 +113,21 @@ img{
 }
 #events-calendar .fc-day{
     cursor:pointer;
+}
+#events-calendar .fc-event{
+    cursor:pointer;
+    min-height:35px !important;
+}
+/* Application CSS - Form */
+.form-input{
+    width:100%;
+    padding:10px;
+    display:block;
+    margin-top:6px;
+    font-size:14px;
+    color:#444 !important;
+    font-family:'Raleway', sans-serif;
+    border:1px solid #C0C0C0;
 }
 /* Application CSS - Text Align */
 .text-justify{
@@ -118,6 +141,10 @@ img{
 }
 .text-right{
     text-align:right;
+}
+/* Application CSS - Margin Center */
+.margin-center{
+    margin:0 auto 0 auto;
 }
 /* Application CSS - Float */
 .left{
@@ -165,6 +192,9 @@ img{
 .m-b-sm{
     margin-bottom:6px;
 }
+.m-b-md{
+    margin-bottom:12px;
+}
 .m-b-lg{
     margin-bottom:20px;
 }
@@ -200,7 +230,7 @@ img{
 /* Application CSS - Buttons */
 .button{
     border:none;
-    padding:9px;
+    padding:12px;
     cursor:pointer;
     border-radius:2px;
     font-size:13.5px;
@@ -215,7 +245,7 @@ img{
     color:#FFF !important;
 }
 .button-info{
-    background-color:#43B5DE;
+    background-color:#7095E4;
     color:#FFF !important;
 }
 /* Application CSS - Dots */
@@ -250,6 +280,9 @@ img{
     color: #cd7f32;
 }
 /* Application CSS - Background Colors */
+.background-red{
+    background-color:#C44D58 !important;
+}
 .background-in-a-fever{
     background-color:#E73F3F !important;
 }
