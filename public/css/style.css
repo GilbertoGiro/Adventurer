@@ -208,6 +208,9 @@ img{
 .p-sm{
     padding:6px;
 }
+.p-md{
+    padding:12px;
+}
 /* Application CSS - Circle Image */
 .small-circular-image{
     width: 95px;
@@ -220,6 +223,26 @@ img{
     background-color: #f0f0f0;
     border-radius: 50%;
     text-align: center;
+}
+/* Application CSS - Card */
+.card{
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+}
+.card-header{
+    padding:14px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+}
+.card-footer{
+    padding:14px;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+}
+/* Application CSS - Icons Size */
+.medium{
+    font-size:28px;
 }
 /* Application CSS - Shadow */
 .shadow{
@@ -246,6 +269,10 @@ img{
 }
 .button-info{
     background-color:#7095E4;
+    color:#FFF !important;
+}
+.button-warning{
+    background-color:#F4A86D;
     color:#FFF !important;
 }
 /* Application CSS - Dots */
