@@ -25,12 +25,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('web.event') }}">
                             Eventos Disponíveis <i class="fa fa-calendar-check"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('web.suggest') }}">
                             Sugestão de Temas <i class="fa fa-book"></i>
                         </a>
                     </li>

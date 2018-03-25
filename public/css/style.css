@@ -129,6 +129,18 @@ img{
     font-family:'Raleway', sans-serif;
     border:1px solid #C0C0C0;
 }
+.form-text-area{
+    width:100%;
+    padding:10px;
+    display:block;
+    margin-top:6px;
+    font-size:14px;
+    resize:none;
+    height:145px;
+    color:#444 !important;
+    font-family:'Raleway', sans-serif;
+    border:1px solid #C0C0C0;
+}
 /* Application CSS - Text Align */
 .text-justify{
     text-align:justify;
@@ -201,6 +213,12 @@ img{
 .m-l-sm{
     margin-left:6px;
 }
+.m-l-md{
+    margin-left:12px;
+}
+.m-r-sm{
+    margin-right:6px;
+}
 .m-r-md{
     margin-right:12px;
 }
@@ -240,6 +258,10 @@ img{
     border-bottom-left-radius:3px;
     border-bottom-right-radius:3px;
 }
+/* Application CSS - Font Weight */
+.bold{
+    font-weight:bold;
+}
 /* Application CSS - Icons Size */
 .medium{
     font-size:28px;
@@ -257,7 +279,7 @@ img{
     cursor:pointer;
     border-radius:2px;
     font-size:13.5px;
-    font-family:'Roboto', sans-serif;
+    font-family:'Raleway', sans-serif;
 }
 .button-danger{
     background-color:#C44D58;
@@ -274,6 +296,13 @@ img{
 .button-warning{
     background-color:#F4A86D;
     color:#FFF !important;
+}
+/* Application CSS - Circles */
+.small-circle{
+    width:16px;
+    height:16px;
+    display:inline-block;
+    border-radius:50%;
 }
 /* Application CSS - Dots */
 .dots{
@@ -297,14 +326,17 @@ img{
 .facebook-blue{
     color:#3b5998 !important;
 }
+.strong-blue{
+    color:#52738F !important;
+}
 .silver {
-    color: #c0c0c0;
+    color: #c0c0c0 !important;
 }
 .gold{
-    color: #F4A460;
+    color: #F4A460 !important;
 }
 .bronze {
-    color: #cd7f32;
+    color: #cd7f32 !important;
 }
 /* Application CSS - Background Colors */
 .background-red{
@@ -319,8 +351,14 @@ img{
 .background-goldilocks{
     background-color:#E7E737 !important;
 }
+.background-warning{
+    background-color:#ffffdd !important;
+}
 .background-weak-blue{
     background-color:#6D9DD1 !important;
+}
+.background-strong-blue{
+    background-color:#52738F !important;
 }
 .background-purple-shine{
     background-color:#7E45D3 !important;
@@ -336,4 +374,7 @@ img{
 }
 .background-bronze{
     background-color:#cd7f32 !important;
+}
+.background-green{
+    background-color:#728D72 !important;
 }

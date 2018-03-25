@@ -13,3 +13,5 @@
 
 Route::get('/', 'IndexController@index')->name('web.index');
 Route::get('/login', 'LoginController@index')->name('web.login');
+Route::get('/sugestao-de-temas', 'IndexController@suggest')->name('web.suggest');
+Route::get('/eventos-disponiveis', 'IndexController@event')->name('web.event');

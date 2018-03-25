@@ -12,9 +12,11 @@
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/046-ticket.png') }}" width="70px">
                 </div>
-                
-                <div class="block p-sm">
 
+                <div class="block text-justify p-md">
+                    Verificou algum evento/palestra que gerou um certo interesse? Para inscrever-se na mesma você apenas precisa entrar
+                    na página de informações desta e clicar em <b>Participar</b> (Caso tenha uma conta). Não possui uma conta? Fique tranquilo,
+                    você pode inscrever-se em quaisquer eventos não privados sem precisar criar uma. E aí? Agora qual é a sua desculpa para não participar?
                 </div>
             </div>
         </div>
@@ -25,11 +27,13 @@
             </div>
             <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/046-ticket.png') }}" width="70px">
+                    <img src="{{ asset('img/event/png/036-microphone.png') }}" width="70px">
                 </div>
 
-                <div class="block p-sm">
-
+                <div class="block text-justify p-md">
+                    Aqui você (Usuário) tem uma participação indiscutível. Suas <b>ideias</b> de temas podem se tornar realidade. Funciona mais ou menos assim:
+                    Você cadastra sua ideia, nossos administradores verificam a mesma e aprovam e/ou reprovam (Dependendo da ideia) e a partir dessa momento ela
+                    tem a possibilidade de ficar disponível para todos os usuários. Os seus temas favoritos também são os nossos.
                 </div>
             </div>
         </div>
@@ -43,8 +47,10 @@
                     <img src="{{ asset('img/event/png/018-list.png') }}" width="70px">
                 </div>
 
-                <div class="block p-sm">
-
+                <div class="block text-justify p-md">
+                    Fique tranquilo! Você não precisará entrar na aplicação para ficar por dentro de tudo que está acontecendo. Nosso sistema disponibiliza
+                    um meio de enviar <b>notificações</b> sempre que novos eventos de determinadas matérias, ou não, forem disponibilizados. Aqui nós nos responsabilizamos
+                    pelo "trabalho duro" e você só precisa aproveitar. <b>Obs:</b> Você precisa habilitar essa opção.
                 </div>
             </div>
         </div>
@@ -58,8 +64,9 @@
                     <img src="{{ asset('img/event/png/007-present.png') }}" width="70px">
                 </div>
 
-                <div class="block p-sm">
-
+                <div class="block text-justify p-md">
+                    Espera aí, por incrível que pareça ainda não acabou. Além de tudo isso que mostramos, você ainda receberá pontos por sua participação nos eventos. E adivinha só! Esses pontos
+                    podem ser utilizados pelos nossos administradores como um meio de seleção de alunos para a participação em eventos futuros. Sua participação nos eventos realmente importa para nós.
                 </div>
             </div>
         </div>
@@ -79,11 +86,11 @@
 
                 <form class="block p-md" method="post" action="">
                     <div class="form-group">
-                        <input type="email" name="email" class="form-input" id="email" placeholder="E-mail">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senha" class="form-input" id="senha" placeholder="Senha">
+                        <input type="password" name="senha" class="form-input" placeholder="Senha">
                     </div>
 
                     <div class="form-group m-t-sm">
@@ -118,15 +125,15 @@
 
                 <form class="block p-md" method="post" action="">
                     <div class="form-group">
-                        <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome">
+                        <input type="text" name="nome" class="form-input" placeholder="Nome">
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="email" class="form-input" id="email" placeholder="E-mail">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail">
                     </div>
 
                     <div class="form-group">
-                        <select name="curso" class="form-input" id="curso">
+                        <select name="curso" class="form-input">
                             <option value="">Curso</option>
                             <option value="ads">Análise e Desenvolvimento de Sistemas</option>
                             <option value="gti">Gestão da Tecnologia da Informação</option>
@@ -136,11 +143,11 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senha" class="form-input" id="senha" placeholder="Senha">
+                        <input type="password" name="senha" class="form-input" placeholder="Senha">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="repeticao" class="form-input" id="repeticao" placeholder="Repita a Senha">
+                        <input type="password" name="repeticao" class="form-input" placeholder="Repita a Senha">
                     </div>
 
                     <div class="form-group m-t-sm">
@@ -175,15 +182,15 @@
 
                 <form class="block p-md" method="post" action="">
                     <div class="form-group">
-                        <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome">
+                        <input type="text" name="nome" class="form-input" placeholder="Nome">
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="email" class="form-input" id="email" placeholder="E-mail">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail">
                     </div>
 
                     <div class="form-group">
-                        <select name="curso" class="form-input" id="curso">
+                        <select name="curso" class="form-input">
                             <option value="">Curso</option>
                             <option value="ads">Análise e Desenvolvimento de Sistemas</option>
                             <option value="gti">Gestão da Tecnologia da Informação</option>
