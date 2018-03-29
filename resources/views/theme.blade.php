@@ -15,7 +15,7 @@
                     <img src="{{ asset('img/tasks/png/003-mail.png') }}" width="65px">
                 </div>
                 <figcaption class="m-t-sm">
-                    <b>Você nos mostra sua ideia</b>
+                    Você nos mostra sua <b>ideia</b>
                 </figcaption>
             </figure>
         </div>
@@ -28,7 +28,7 @@
                     <img src="{{ asset('img/tasks/png/018-clipboard-1.png') }}" width="65px">
                 </div>
                 <figcaption class="m-t-sm">
-                    <b>Ela passa por uma Análise e Aprovação</b>
+                    Ela passa por uma <b>Análise</b> e <b>Aprovação</b>
                 </figcaption>
             </figure>
         </div>
@@ -38,10 +38,10 @@
         <div class="inline-block align-middle" style="width:250px;">
             <figure class="m-b-sm m-t-sm m-l-sm">
                 <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/023-balloons.png') }}" width="65px">
+                    <img src="{{ asset('img/tasks/png/008-notes-8.png') }}" width="65px">
                 </div>
                 <figcaption class="m-t-sm">
-                    <b>E caso <span class="green">aprovada</span>, um evento é criado</b>
+                    E caso <span class="green bold">aprovada</span>, um evento é criado
                 </figcaption>
             </figure>
         </div>
@@ -51,10 +51,10 @@
         <div class="inline-block align-middle" style="width:250px;">
             <figure class="m-b-sm m-t-sm m-l-sm">
                 <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/045-champagne-1.png') }}" width="75px">
+                    <img src="{{ asset('img/tasks/png/022-whiteboard.png') }}" width="65px">
                 </div>
                 <figcaption class="m-t-sm">
-                    <b>Em seguida basta inscrever-se e aproveitar</b>
+                    Em seguida basta <b>inscrever-se</b> e <b>aproveitar</b>
                 </figcaption>
             </figure>
         </div>

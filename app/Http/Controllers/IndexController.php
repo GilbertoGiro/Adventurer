@@ -31,8 +31,23 @@ class IndexController extends Controller{
         return view('theme');
     }
 
+    /**
+     * Method to show Events Calendar
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function event()
     {
         return view('event');
+    }
+
+    /**
+     * Method to show About Us Information
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function aboutUs()
+    {
+        return view('about-us');
     }
 }

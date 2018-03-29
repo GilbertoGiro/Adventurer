@@ -8,7 +8,7 @@
             <div class="card-header text-center background-red">
                 <h3 class="m-t-sm white">Inscrição Facilitada</h3>
             </div>
-            <div class="card-body p-sm m-t-sm">
+            <div class="card-body p-sm m-t-sm" style="min-height:365px">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/046-ticket.png') }}" width="70px">
                 </div>
@@ -25,7 +25,7 @@
             <div class="card-header text-center background-gold">
                 <h3 class="m-t-sm white">Sugestão de Temas</h3>
             </div>
-            <div class="card-body p-sm m-t-sm">
+            <div class="card-body p-sm m-t-sm" style="min-height:365px">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/036-microphone.png') }}" width="70px">
                 </div>
@@ -42,7 +42,7 @@
             <div class="card-header text-center background-bronze">
                 <h3 class="m-t-sm white">Relatórios Semanais</h3>
             </div>
-            <div class="card-body p-sm m-t-sm">
+            <div class="card-body p-sm m-t-sm" style="min-height:365px">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/018-list.png') }}" width="70px">
                 </div>
@@ -59,7 +59,7 @@
             <div class="card-header text-center background-goldilocks">
                 <h3 class="m-t-sm white">Pontos de Participação</h3>
             </div>
-            <div class="card-body p-sm m-t-sm">
+            <div class="card-body p-sm m-t-sm" style="min-height:365px">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/007-present.png') }}" width="70px">
                 </div>

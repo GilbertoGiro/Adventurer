@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="{{ route('web.about-us') }}">
                             Sobre nós <i class="fa fa-users"></i>
                         </a>
                     </li>
