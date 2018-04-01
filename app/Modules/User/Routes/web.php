@@ -13,8 +13,8 @@
 
 Route::group(['prefix' => 'usuario'], function (){
     Route::group(['middleware' => 'auth:user'], function() {
-
     });
+    Route::get('eventos', 'EventController@index')->name('user.event.index');
 
     Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@auth');

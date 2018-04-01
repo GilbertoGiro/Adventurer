@@ -119,6 +119,9 @@ img{
     min-height:35px !important;
 }
 /* Application CSS - Form */
+.form-label{
+    font-size:17px;
+}
 .form-input{
     width:100%;
     padding:10px;
@@ -208,6 +211,9 @@ img{
 }
 .m-t-md{
     margin-top:12px;
+}
+.m-t-lg{
+    margin-top:20px;
 }
 .m-b-sm{
     margin-bottom:6px;
