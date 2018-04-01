@@ -176,6 +176,10 @@ img{
 .block{
     display:block;
 }
+.flex{
+    display:flex;
+    justify-content:center;
+}
 /* Application CSS - Vertical Align */
 .align-top{
     vertical-align:top;
@@ -232,6 +236,35 @@ img{
 }
 .p-md{
     padding:12px;
+}
+/* Application CSS - Login Form */
+.login-form{
+    width:900px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    position:absolute;
+}
+.login-form-body{
+    border-left:1px solid #e0e0e0;
+    border-right:1px solid #e0e0e0;
+}
+.login-form-header{
+    width:260px;
+    height:355px;
+    padding:15px;
+    vertical-align:top;
+    display:inline-block;
+}
+.login-form-body-content{
+    width:575px;
+    padding:15px;
+    margin-left:-2px;
+    vertical-align:top;
+    display:inline-block;
+}
+.login-form-footer{
+    padding:20px;
 }
 /* Application CSS - Circle Image */
 .small-circular-image{
@@ -381,6 +414,9 @@ img{
 }
 .background-green{
     background-color:#728D72 !important;
+}
+.background-white{
+    background-color:#FFFFFF !important;
 }
 /* Application CSS - Different Screen Size Design */
 @media only screen and (max-width: 1440px){

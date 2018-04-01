@@ -1,78 +1,105 @@
 @extends('layouts.app')
 
 @section('content')
-    <h2 class="roboto header m-t-sm">Quais as funcionalidades da aplicação?</h2>
+    <div class="m-b-md m-l-sm">
+        <div class="inline-block align-middle">
+            <img src="{{ asset('img/tasks/png/009-notes-7.png') }}" width="75px">
+        </div>
 
-    <div class="p-sm text-center m-b-lg">
-        <div class="card block" style="width:24%;">
+        <div class="inline-block align-middle m-l-md">
+            <h2 class="roboto m-t-sm">Quais as benefícios da aplicação?</h2>
+            <p class="m-t-sm">Aqui você encontra informações referente a alguns <b>benefícios</b> proporcionados por nossa aplicação</p>
+        </div>
+    </div>
+
+    <div class="p-sm m-b-lg flex">
+        <div class="card block m-r-sm" style="width:24%;">
             <div class="card-header text-center background-red">
                 <h3 class="m-t-sm white">Inscrição Facilitada</h3>
             </div>
-            <div class="card-body p-sm m-t-sm" style="min-height:365px">
+            <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/046-ticket.png') }}" width="70px">
                 </div>
 
                 <div class="block text-justify p-md">
-                    Verificou algum evento/palestra que gerou um certo interesse? Para inscrever-se na mesma você apenas precisa entrar
-                    na página de informações desta e clicar em <b>Participar</b> (Caso tenha uma conta). Não possui uma conta? Fique tranquilo,
-                    você pode inscrever-se em quaisquer eventos não privados sem precisar criar uma. E aí? Agora qual é a sua desculpa para não participar?
+                    <ul style="padding-left:25px;">
+                        <li class="m-t-sm">Processos de cadastro simplificados</li>
+                        <li class="m-t-sm">As incrições podem ser realizadas de várias maneiras</li>
+                        <li class="m-t-sm"><b>Sem necessidade de uma conta</b></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="card block m-l-sm" style="width:24%;">
+        <div class="card block m-r-sm m-l-sm" style="width:24%;">
             <div class="card-header text-center background-gold">
                 <h3 class="m-t-sm white">Sugestão de Temas</h3>
             </div>
-            <div class="card-body p-sm m-t-sm" style="min-height:365px">
+            <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/036-microphone.png') }}" width="70px">
                 </div>
 
                 <div class="block text-justify p-md">
-                    Aqui você (Usuário) tem uma participação indiscutível. Suas <b>ideias</b> de temas podem se tornar realidade. Funciona mais ou menos assim:
-                    Você cadastra sua ideia, nossos administradores verificam a mesma e aprovam e/ou reprovam (Dependendo da ideia) e a partir dessa momento ela
-                    tem a possibilidade de ficar disponível para todos os usuários. Os seus temas favoritos também são os nossos.
+                    <ul style="padding-left:25px;">
+                        <li class="m-t-sm">Suas ideias viram palestras</li>
+                        <li class="m-t-sm">Qualquer tema é válido, desde que em contexto próprio</li>
+                        <li class="m-t-sm"><b>Sem necessidade de uma conta</b></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="card block m-l-sm" style="width:24%;">
+        <div class="card block m-l-sm m-r-sm" style="width:24%;">
             <div class="card-header text-center background-bronze">
                 <h3 class="m-t-sm white">Relatórios Semanais</h3>
             </div>
-            <div class="card-body p-sm m-t-sm" style="min-height:365px">
+            <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/018-list.png') }}" width="70px">
                 </div>
 
                 <div class="block text-justify p-md">
-                    Fique tranquilo! Você não precisará entrar na aplicação para ficar por dentro de tudo que está acontecendo. Nosso sistema disponibiliza
-                    um meio de enviar <b>notificações</b> sempre que novos eventos de determinadas matérias, ou não, forem disponibilizados. Aqui nós nos responsabilizamos
-                    pelo "trabalho duro" e você só precisa aproveitar. <b>Obs:</b> Você precisa habilitar essa opção.
+                    <ul style="padding-left:25px;">
+                        <li class="m-t-sm">Informações claras e bem estruturadas</li>
+                        <li class="m-t-sm">A responsabilidade de te manter atualizado é nossa</li>
+                        <li class="m-t-sm"><b>Sem necessidade de uma conta</b></li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <div class="card block m-l-sm" style="width:24%;">
+        <div class="card block m-l-sm m-r-sm" style="width:24%;">
             <div class="card-header text-center background-goldilocks">
                 <h3 class="m-t-sm white">Pontos de Participação</h3>
             </div>
-            <div class="card-body p-sm m-t-sm" style="min-height:365px">
+            <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
                     <img src="{{ asset('img/event/png/007-present.png') }}" width="70px">
                 </div>
 
                 <div class="block text-justify p-md">
-                    Espera aí, por incrível que pareça ainda não acabou. Além de tudo isso que mostramos, você ainda receberá pontos por sua participação nos eventos. E adivinha só! Esses pontos
-                    podem ser utilizados pelos nossos administradores como um meio de seleção de alunos para a participação em eventos futuros. Sua participação nos eventos realmente importa para nós.
+                    <ul style="padding-left:25px;">
+                        <li class="m-t-sm">A sua participação é importante para nós</li>
+                        <li class="m-t-sm">Pontos podem ser utilizados como meio de seleção</li>
+                        <li class="m-t-sm"><b>Necessário possuir conta</b></li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <h2 class="roboto header m-t-sm">Efetuar Login/Cadastro</h2>
+    <div class="m-b-lg m-l-sm m-t-md">
+        <div class="inline-block align-middle">
+            <img src="{{ asset('img/tasks/png/034-dossier-2.png') }}" width="75px">
+        </div>
+
+        <div class="inline-block align-middle m-l-md">
+            <h2 class="roboto m-t-sm">Efetuar Login/Cadastro</h2>
+            <p class="m-t-sm">Simples, rápido e uma grande gama de benefícios. E aí, está esperando o que para fazer seu cadastro?</p>
+        </div>
+    </div>
 
     <div class="p-sm text-center">
         <div class="card text-center block m-r-md" style="width:32%;">
@@ -139,15 +166,8 @@
                             <option value="gti">Gestão da Tecnologia da Informação</option>
                             <option value="gam">Gestão Ambiental</option>
                             <option value="eve">Eventos</option>
+                            <option value="adm">Administração</option>
                         </select>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" name="senha" class="form-input" placeholder="Senha">
-                    </div>
-
-                    <div class="form-group">
-                        <input type="password" name="repeticao" class="form-input" placeholder="Repita a Senha">
                     </div>
 
                     <div class="form-group m-t-sm">
@@ -196,6 +216,7 @@
                             <option value="gti">Gestão da Tecnologia da Informação</option>
                             <option value="gam">Gestão Ambiental</option>
                             <option value="eve">Eventos</option>
+                            <option value="adm">Administração</option>
                         </select>
                     </div>
 

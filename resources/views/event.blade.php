@@ -4,7 +4,7 @@
     <h2 class="header m-t-sm">Qual a programação desse mês?</h2>
 
     <div class="block text-center m-t-md m-b-md">
-        <div class="card inline-block background-warning m-r-md m-b-lg m-t-md" style="width:35%;min-height:220px;">
+        <div class="card inline-block background-warning m-r-md m-b-lg m-t-md" style="width:30%;min-height:220px;">
             <div class="card-body text-left p-md">
                 <h3 class="m-t-sm">Qual cor representa meu curso?</h3>
 
@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <div class="card inline-block background-warning m-b-lg m-t-md" style="width:26%;min-height:220px;">
+        <div class="card inline-block background-warning m-b-lg m-t-md" style="width:30%;min-height:220px;">
             <div class="card-body text-left p-md">
                 <h3 class="m-t-sm">Como saber se o evento é privado?</h3>
 
