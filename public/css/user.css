@@ -10,6 +10,7 @@ body{
     top:0;
     bottom:0;
     width:20%;
+    font-size:15px;
     position:fixed;
     background-color:#3C4B5F;
 }
@@ -22,16 +23,43 @@ body{
     display:block;
     list-style:none;
     padding:18px;
-    font-size:17px;
     margin:0;
     text-decoration:none;
-    border-top:1px solid #3A5369;
+    border-top:1px solid #44556C;
 }
 .application-header-content .application-header-list .application-header-list-item:hover{
     font-weight:bold;
 }
+.application-header .application-header-list .active{
+    font-weight:bold;
+    background-color:#6C87AB;
+}
 .application-body{
-    width:78.5% !important;
+    padding:0;
+    width:80% !important;
     margin-left:20%;
+}
+.application-body-header{
+    padding:10px;
+    text-align:right;
+    background-color:#253542;
+}
+.application-body-header .action{
+    padding:10px;
+    font-size:18px;
+    margin:auto;
+}
+.application-body-header .option{
     padding:12px;
+    font-size:15px;
+    list-style:none;
+}
+.application-body-header .option-icon{
+    padding:12px;
+    margin:0 -15px 0 -15px;
+    font-size:15px;
+    list-style:none;
+}
+.application-body-header .disabled-option{
+    color:#E0E0E0;
 }

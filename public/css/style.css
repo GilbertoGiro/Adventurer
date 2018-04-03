@@ -25,6 +25,14 @@ b{
 img{
     opacity:0.8;
 }
+table{
+    width:100%;
+    border-spacing:0;
+}
+table thead th{
+    padding:8px;
+    font-size:15px;
+}
 /* Application CSS - General Configuration CSS */
 .application{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -163,10 +171,10 @@ img{
 }
 /* Application CSS - Float */
 .left{
-    float:left;
+    float:left !important;
 }
 .right{
-    float:right;
+    float:right !important;
 }
 /* Application CSS - Text Decoration */
 .no-decoration{
@@ -182,6 +190,10 @@ img{
 .flex{
     display:flex;
     justify-content:center;
+}
+/* Application CSS - Cursor */
+.pointer{
+    cursor:pointer;
 }
 /* Application CSS - Vertical Align */
 .align-top{
@@ -306,6 +318,9 @@ img{
     font-weight:bold;
 }
 /* Application CSS - Icons Size */
+.small{
+    font-size:14px;
+}
 .medium{
     font-size:28px;
 }
@@ -354,6 +369,9 @@ img{
     text-overflow:ellipsis;
 }
 /* Application CSS - Colors */
+.milk{
+    color:#F4F4F4 !important;
+}
 .white{
     color:#FFF !important;
 }
