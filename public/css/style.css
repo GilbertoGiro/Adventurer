@@ -30,8 +30,11 @@ table{
     border-spacing:0;
 }
 table thead th{
-    padding:8px;
+    padding:9px;
     font-size:15px;
+}
+table tbody td{
+    padding:8px;
 }
 /* Application CSS - General Configuration CSS */
 .application{

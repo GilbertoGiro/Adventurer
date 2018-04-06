@@ -9,6 +9,9 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/user.css') }}">
 
+        <!-- C3 Styles -->
+        <link rel="stylesheet" href="{{ asset('c3/c3.css') }}">
+
         <!-- Font Awesome Javascript -->
         <script defer src="{{ asset('fontawesome/svg-with-js/js/fontawesome-all.js') }}"></script>
     </head>
@@ -86,6 +89,10 @@
 
     <!-- Jquery Knob Script -->
     <script src="{{ asset('js/knob/jquery.knob.min.js') }}"></script>
+
+    <!-- C3 Script -->
+    <script type="text/javascript" charset="utf-8" src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="{{ asset('c3/c3.min.js') }}"></script>
 
     @section('scripts')
     @show
