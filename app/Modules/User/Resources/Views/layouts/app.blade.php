@@ -3,7 +3,7 @@
         <meta charset="UTF-8">
         <title>Adventurer - Usuário</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {{--<meta name="viewport" content="width=device-width, initial-scale=1.0">--}}
 
         <!-- Personal Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -35,19 +35,19 @@
 
                     <div class="block m-t-lg">
                         <ul class="application-header-list m-t-sm">
-                            <a href="" class="application-header-list-item active">
+                            <a href="{{ route('user.dashboard') }}" class="application-header-list-item {{ (isset($dashboard)) ? 'active' : '' }}">
                                 <li>Página Inicial <i class="fas fa-home white"></i></li>
                             </a>
 
-                            <a href="" class="application-header-list-item">
+                            <a href="{{ route('user.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
                                 <li>Sugestão de Temas <i class="fa fa-question-circle white"></i></li>
                             </a>
 
-                            <a href="" class="application-header-list-item">
+                            <a href="" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
                                 <li>Lista de Eventos <i class="fa fa-address-book white"></i></li>
                             </a>
 
-                            <a href="" class="application-header-list-item">
+                            <a href="" class="application-header-list-item {{ (isset($configuration)) ? 'active' : '' }}">
                                 <li>Configurações <i class="fa fa-cogs white"></i></li>
                             </a>
                         </ul>
@@ -56,8 +56,8 @@
             </div>
 
             <div class="application-body">
-                <div class="application-body-header">
-                    <div class="path left milk">
+                <div class="application-body-header text-right">
+                    <div class="inline-block left path milk">
                         @yield('path')
                     </div>
 

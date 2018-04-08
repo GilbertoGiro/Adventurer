@@ -1,11 +1,17 @@
 <script>
     $(document).ready(function(){
         $('.past-week').knob({
-            fgColor:'#728D72'
+            fgColor:'#728D72',
+            format: function (v) {
+                return v + '%';
+            }
         });
 
         $('.past-month').knob({
-            fgColor:'#C44D58'
+            fgColor:'#C44D58',
+            format: function (v) {
+                return v + '%';
+            }
         });
 
         c3.generate({

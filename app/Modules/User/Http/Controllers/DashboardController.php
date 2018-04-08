@@ -4,11 +4,11 @@ namespace App\Modules\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class EventController extends Controller{
-
-    protected $model;
+class DashboardController extends Controller{
 
     protected $service;
+
+    protected $model;
 
     public function __construct()
     {
@@ -16,14 +16,14 @@ class EventController extends Controller{
     }
 
     /**
-     * Method to show Event index Page
+     * Method to show index Page
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function suggest()
+    public function index()
     {
-        $suggest = true;
+        $dashboard = true;
 
-        return view('user::event.suggest', compact('suggest'));
+        return view('user::dashboard.index', compact('dashboard'));
     }
 }

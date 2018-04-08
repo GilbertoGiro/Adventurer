@@ -14,7 +14,8 @@
 Route::group(['prefix' => 'usuario'], function (){
     Route::group(['middleware' => 'auth:user'], function() {
     });
-    Route::get('eventos', 'EventController@index')->name('user.event.index');
+    Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
+    Route::get('sugestao-de-temas', 'EventController@suggest')->name('user.suggest');
 
     Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@auth');
