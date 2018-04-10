@@ -12,6 +12,12 @@
         <!-- C3 Styles -->
         <link rel="stylesheet" href="{{ asset('c3/c3.css') }}">
 
+        <!-- Summernote Styles -->
+        <link rel="stylesheet" href="{{ asset('summernote/dist/summernote-lite.css') }}">
+
+        @section('styles')
+        @show
+
         <!-- Font Awesome Javascript -->
         <script defer src="{{ asset('fontawesome/svg-with-js/js/fontawesome-all.js') }}"></script>
     </head>
@@ -93,6 +99,9 @@
     <!-- C3 Script -->
     <script type="text/javascript" charset="utf-8" src="http://d3js.org/d3.v3.min.js"></script>
     <script src="{{ asset('c3/c3.min.js') }}"></script>
+
+    <!-- Summernote Script -->
+    <script type="text/javascript" src="{{ asset('summernote/dist/summernote-lite.js') }}"></script>
 
     @section('scripts')
     @show

@@ -38,7 +38,7 @@
                     </thead>
                     <tbody class="text-center">
                         <tr>
-                            <td>Gametech</td>g
+                            <td>Gametech</td>
                             <td>Análise e Desenvolvimento de Sistemas</td>
                             <td>Amanhã</td>
                             <td>

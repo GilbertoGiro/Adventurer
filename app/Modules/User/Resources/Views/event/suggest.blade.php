@@ -1,5 +1,9 @@
 @extends('user::layouts.app')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/steps.css') }}">
+@endsection
+
 @section('path')
     <li class="option disabled-option inline-block">Página Inicial</li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
@@ -28,23 +32,23 @@
             </div>
 
             <div class="card-body p-md" style="padding:6px 12px 6px 12px;">
-                <form action="" class="p-sm" style="padding-bottom:0">
-                    <h3 class="m-t-sm header">Informações Pessoais</h3>
+                <div class="steps p-sm" data-href="">
+                    <form action="" method="post" style="padding-bottom:0">
+                        <h3 class="m-t-sm header">Informações Pessoais</h3>
 
-                    <div class="p-sm">
                         <div class="form-group">
                             <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome">
+                            <input type="text" name="nome" class="form-input required" id="nome" placeholder="Nome">
                         </div>
 
                         <div class="form-group m-t-md">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" name="email" class="form-input" id="email" placeholder="E-mail">
+                            <input type="email" name="email" class="form-input required" id="email" placeholder="E-mail">
                         </div>
 
                         <div class="form-group m-t-md">
                             <label for="curso" class="form-label">Curso</label>
-                            <select name="curso" class="form-input" id="curso">
+                            <select name="curso" class="form-input required" id="curso">
                                 <option value="">Selecione o curso</option>
                                 <option value="all">Todos</option>
                                 <option value="ads">Análise e Desenvolvimento de Sistemas</option>
@@ -54,11 +58,11 @@
                                 <option value="adm">Administração</option>
                             </select>
                         </div>
-                    </div>
+                    </form>
 
-                    <h3 class="m-t-md header">Informações do Tema</h3>
+                    <form action="" method="post" style="padding-bottom:0">
+                        <h3 class="m-t-md header">Informações do Tema</h3>
 
-                    <div class="p-sm">
                         <div class="form-group">
                             <label for="tema" class="form-label">Nome do Tema</label>
                             <input name="tema" type="text" class="form-input" id="tema" placeholder="Nome do Tema">
@@ -66,16 +70,10 @@
 
                         <div class="form-group m-t-md">
                             <label for="descricao" class="form-label">Descrição do Tema</label>
-                            <textarea name="descricao" class="form-text-area" id="descricao" placeholder="Descrição do Tema"></textarea>
+                            <textarea name="descricao" class="form-text-area summernote" id="descricao" placeholder="Descrição do Tema"></textarea>
                         </div>
-                    </div>
-
-                    <div class="form-group text-right m-t-md">
-                        <button class="button button-success">
-                            Enviar Solicitação <i class="fa fa-rocket"></i>
-                        </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -246,4 +244,6 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('js/steps.js') }}"></script>
+    @include('user::event.javascript.suggest')
 @endsection

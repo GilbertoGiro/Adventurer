@@ -1,0 +1,46 @@
+/* Application CSS - Steps System */
+.steps .steps-titles{
+    margin-top:14px;
+    margin-bottom:12px;
+}
+.steps .steps-titles .step-title-box{
+    color:#FFF;
+    width:195px;
+    padding:11px;
+    cursor:pointer;
+    margin-right:4px;
+    border-radius:2px;
+    background-color:#F4AE69;
+    display:inline-block;
+}
+.steps .hidden{
+    display:none;
+}
+.steps .collapse{
+    background-color:#B0B0B0 !important;
+}
+.steps .actions{
+    padding:6px;
+    text-align:right;
+}
+.steps .button{
+    margin-top:5px;
+    margin-left:6px;
+    border-radius:2px;
+}
+.warning{
+    color:#C44D58 !important;
+    border:1px solid #C44D58 !important;
+}
+.invalid-field{
+    font-size:15px;
+    color:#C44D58;
+    margin:4px 0 0 0;
+}
+.steps .warning-specific{
+    border:1px solid #C44D58;
+}
+.steps .invalid-field-specific{
+    color:#C44D58;
+    margin:4px 0 0 0;
+}
