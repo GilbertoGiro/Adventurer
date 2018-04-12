@@ -26,4 +26,16 @@ class EventController extends Controller{
 
         return view('user::event.suggest', compact('suggest'));
     }
+
+    /**
+     * Method to show Events list Page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function events()
+    {
+        $event = true;
+
+        return view('user::event.events', compact('event'));
+    }
 }

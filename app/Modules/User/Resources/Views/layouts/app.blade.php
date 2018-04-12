@@ -15,6 +15,9 @@
         <!-- Summernote Styles -->
         <link rel="stylesheet" href="{{ asset('summernote/dist/summernote-lite.css') }}">
 
+        <!-- FullCalendar CSS -->
+        <link rel='stylesheet' href='{{ asset('fullcalendar/fullcalendar.css') }}' />
+
         @section('styles')
         @show
 
@@ -49,11 +52,11 @@
                                 <li>Sugestão de Temas <i class="fa fa-question-circle white"></i></li>
                             </a>
 
-                            <a href="" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
+                            <a href="{{ route('user.events') }}" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
                                 <li>Lista de Eventos <i class="fa fa-address-book white"></i></li>
                             </a>
 
-                            <a href="" class="application-header-list-item {{ (isset($configuration)) ? 'active' : '' }}">
+                            <a href="{{ route('user.configuration') }}" class="application-header-list-item {{ (isset($configuration)) ? 'active' : '' }}">
                                 <li>Configurações <i class="fa fa-cogs white"></i></li>
                             </a>
                         </ul>
@@ -97,11 +100,16 @@
     <script src="{{ asset('js/knob/jquery.knob.min.js') }}"></script>
 
     <!-- C3 Script -->
-    <script type="text/javascript" charset="utf-8" src="http://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ asset('c3/d3.v3.min.js') }}"></script>
     <script src="{{ asset('c3/c3.min.js') }}"></script>
 
     <!-- Summernote Script -->
     <script type="text/javascript" src="{{ asset('summernote/dist/summernote-lite.js') }}"></script>
+
+    <!-- FullCalendar Scripts -->
+    <script src='{{ asset('fullcalendar/lib/moment.min.js') }}'></script>
+    <script src='{{ asset('fullcalendar/fullcalendar.js') }}'></script>
+    <script src='{{ asset('fullcalendar/locale/pt-br.js') }}'></script>
 
     @section('scripts')
     @show

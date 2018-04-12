@@ -16,6 +16,8 @@ Route::group(['prefix' => 'usuario'], function (){
     });
     Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
     Route::get('sugestao-de-temas', 'EventController@suggest')->name('user.suggest');
+    Route::get('lista-de-eventos', 'EventController@events')->name('user.events');
+    Route::get('configuracoes', 'ConfigurationController@index')->name('user.configuration');
 
     Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@auth');

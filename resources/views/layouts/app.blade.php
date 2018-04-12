@@ -52,7 +52,7 @@
                 @yield('content')
             </div>
 
-            <!-- Application Body -->
+            <!-- Application Footer -->
             <div class="application-footer">
                 {{--<div class="icons">--}}
                     {{--<i class="fab fa-facebook-square facebook-blue"></i>--}}

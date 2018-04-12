@@ -50,7 +50,6 @@
                             <label for="curso" class="form-label">Curso</label>
                             <select name="curso" class="form-input required" id="curso">
                                 <option value="">Selecione o curso</option>
-                                <option value="all">Todos</option>
                                 <option value="ads">Análise e Desenvolvimento de Sistemas</option>
                                 <option value="gti">Gestão da Tecnologia da Informação</option>
                                 <option value="gam">Gestão Ambiental</option>
@@ -65,12 +64,12 @@
 
                         <div class="form-group">
                             <label for="tema" class="form-label">Nome do Tema</label>
-                            <input name="tema" type="text" class="form-input" id="tema" placeholder="Nome do Tema">
+                            <input name="tema" type="text" class="form-input required" id="tema" placeholder="Nome do Tema">
                         </div>
 
                         <div class="form-group m-t-md">
                             <label for="descricao" class="form-label">Descrição do Tema</label>
-                            <textarea name="descricao" class="form-text-area summernote" id="descricao" placeholder="Descrição do Tema"></textarea>
+                            <textarea name="descricao" class="form-text-area required-summernote summernote" id="descricao" placeholder="Descrição do Tema"></textarea>
                         </div>
                     </form>
                 </div>
