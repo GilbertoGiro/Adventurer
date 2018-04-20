@@ -42,11 +42,15 @@
                             <td>Análise e Desenvolvimento de Sistemas</td>
                             <td>Amanhã</td>
                             <td>
-                                <button class="button button-success circular-button">
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
+
                                     <i class="fa fa-thumbs-up"></i>
                                 </button>
 
-                                <button class="button button-danger circular-button" title="Cancelar Participação">
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
+
                                     <i class="fa fa-thumbs-down"></i>
                                 </button>
                             </td>
@@ -56,11 +60,15 @@
                             <td>Análise e Desenvolvimento de Sistemas</td>
                             <td>Semana que vem</td>
                             <td>
-                                <button class="button button-success circular-button">
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
+
                                     <i class="fa fa-thumbs-up"></i>
                                 </button>
 
-                                <button class="button button-danger circular-button" title="Cancelar Participação">
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
+
                                     <i class="fa fa-thumbs-down"></i>
                                 </button>
                             </td>
@@ -70,11 +78,15 @@
                             <td>Análise e Desenvolvimento de Sistemas</td>
                             <td>Semana que vem</td>
                             <td>
-                                <button class="button button-success circular-button">
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
+
                                     <i class="fa fa-thumbs-up"></i>
                                 </button>
 
-                                <button class="button button-danger circular-button" title="Cancelar Participação">
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
+
                                     <i class="fa fa-thumbs-down"></i>
                                 </button>
                             </td>
@@ -84,11 +96,15 @@
                             <td>Análise e Desenvolvimento de Sistemas</td>
                             <td>Mês que vem</td>
                             <td>
-                                <button class="button button-success circular-button">
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
+
                                     <i class="fa fa-thumbs-up"></i>
                                 </button>
 
-                                <button class="button button-danger circular-button" title="Cancelar Participação">
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
+
                                     <i class="fa fa-thumbs-down"></i>
                                 </button>
                             </td>

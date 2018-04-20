@@ -74,8 +74,42 @@
                         <i class="fa fa-user-circle milk"></i>
                     </div>
 
-                    <div class="inline-block m-r-md action pointer notifications">
+                    <div class="inline-block m-r-md action pointer notifications dropdown">
                         <i class="fa fa-bell milk"></i>
+
+                        <div class="dropdown-items text-left">
+                            <div class="block" style="border-bottom:1px solid #E0E0E0;padding:12px 3px 12px 3px;">
+                                <b class="block" style="font-size:18px;">Notificações</b>
+                            </div>
+
+                            <div class="notifications overflow-auto without-scroll">
+                                <div class="notification block">
+                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
+                                </div>
+
+                                <div class="notification block">
+                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
+                                </div>
+
+                                <div class="notification block">
+                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
+                                </div>
+
+                                <div class="notification block">
+                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
+                                </div>
+
+                                <div class="notification block">
+                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
+                                </div>
+                            </div>
+
+                            <div class="block" style="border-top:1px solid #E0E0E0;padding:15px 3px 15px 3px;">
+                                <span class="bold" style="font-size:15px;">
+                                    © Copyright <b class="strong-blue">Adventurer</b> Reserved
+                                </span>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="inline-block action">
@@ -94,7 +128,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
     <!-- Personal Scripts -->
-    <script src="{{ asset('js/user-module-configuration.js') }}"></script>
+    <script src="{{ asset('js/modules-configuration.js') }}"></script>
 
     <!-- Jquery Knob Script -->
     <script src="{{ asset('js/knob/jquery.knob.min.js') }}"></script>

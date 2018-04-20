@@ -18,7 +18,7 @@
 
     <div class="block p-md">
         <div class="card" style="width:100%">
-            <div class="card-header milk background-purple-shine">
+            <div class="card-header milk background-strong-blue">
                 <h3 class="m-t-sm">
                     Configurações Disponíveis
 
