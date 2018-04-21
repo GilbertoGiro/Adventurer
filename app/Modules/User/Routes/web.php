@@ -12,7 +12,10 @@
 */
 
 Route::group(['prefix' => 'usuario'], function (){
-    Route::group(['middleware' => 'auth:user'], function() {
+    Route::group(['middleware' => 'auth:user'], function(){
+        Route::get('exemplo', function(){
+            echo 2;exit;
+        });
     });
     Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
     Route::get('sugestao-de-temas', 'EventController@suggest')->name('user.suggest');
