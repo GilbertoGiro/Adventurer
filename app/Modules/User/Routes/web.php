@@ -17,6 +17,9 @@ Route::group(['prefix' => 'usuario'], function (){
         Route::get('sugestao-de-temas', 'EventController@suggest')->name('user.suggest');
         Route::get('lista-de-eventos', 'EventController@events')->name('user.events');
         Route::get('configuracoes', 'ConfigurationController@index')->name('user.configuration');
+
+        // Route for Logoff
+        Route::get('logout', 'LoginController@logout');
     });
 
     Route::get('/login', 'LoginController@index');

@@ -22,26 +22,6 @@ class IndexController extends Controller{
     }
 
     /**
-     * Method to show Theme Suggest page
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function suggest()
-    {
-        return view('theme');
-    }
-
-    /**
-     * Method to show Events Calendar
-     *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function event()
-    {
-        return view('event');
-    }
-
-    /**
      * Method to show About Us Information
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

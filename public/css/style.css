@@ -25,6 +25,9 @@ b{
 img{
     opacity:0.8;
 }
+select{
+    background-color:#FFF;
+}
 table{
     width:100%;
     border-spacing:0;
@@ -196,6 +199,9 @@ table tbody td{
 .flex{
     display:flex;
     justify-content:center;
+}
+.none{
+    display:none;
 }
 /* Application CSS - Cursor */
 .pointer{

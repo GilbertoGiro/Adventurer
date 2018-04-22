@@ -113,7 +113,7 @@
                     </div>
 
                     <div class="inline-block action">
-                        <a href="" class="no-decoration milk">Sair <i class="fa fa-sign-out-alt"></i></a>
+                        <a href="{{ url('usuario/logout') }}" class="no-decoration milk">Sair <i class="fa fa-sign-out-alt"></i></a>
                     </div>
                 </div>
 

@@ -19,7 +19,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Method to log-in user
+     * Method to login user
      *
      * @param Request $request
      * @return $this|\Illuminate\Http\RedirectResponse
@@ -33,5 +33,17 @@ class LoginController extends Controller
         }
 
         return redirect()->back()->withErrors(['message' => 'As credenciais não estão corretas.', 'type' => 'danger'])->withInput($request->except('password'));
+    }
+
+    /**
+     * Method to logoff user
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        Auth::guard('user')->logout();
+
+        return redirect()->to('usuario/login');
     }
 }

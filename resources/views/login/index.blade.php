@@ -152,15 +152,24 @@
 
                 <form class="block p-md" method="post" action="">
                     <div class="form-group">
-                        <input type="text" name="nome" class="form-input" placeholder="Nome">
+                        <input type="text" name="nome" class="form-input" placeholder="Nome" value="{{ old('nome') }}">
                     </div>
 
                     <div class="form-group">
-                        <input type="email" name="email" class="form-input" placeholder="E-mail">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail" value="{{ old('email') }}">
                     </div>
 
                     <div class="form-group">
-                        <select name="curso" class="form-input">
+                        <select name="flexterno" class="form-input">
+                            <option value="">Aluno externo?</option>
+                            @foreach(App\Utilities\Arrays::conditional() as $key => $value)
+                                <option value="{{ $value }}" {{ ($value == old('')) }}>{{ $key }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="curso" class="form-input none">
                             <option value="">Curso</option>
                             <option value="ads">Análise e Desenvolvimento de Sistemas</option>
                             <option value="gti">Gestão da Tecnologia da Informação</option>

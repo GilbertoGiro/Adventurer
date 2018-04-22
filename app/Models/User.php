@@ -33,11 +33,11 @@ class User extends Authenticatable
     ];
 
     /**
-     * Method to get Password
+     * Method to get Auth Password
      *
-     * @return mixed
+     * @return mixed|string
      */
-    public function getPasswordAttribute()
+    public function getAuthPassword()
     {
         return $this->attributes['senha'];
     }
@@ -60,5 +60,21 @@ class User extends Authenticatable
     public function paper()
     {
         return $this->hasOne(Paper::class, 'id', 'idpapel');
+    }
+
+    /**
+     * Overrides the method to ignore the remember token.
+     *
+     * @param string $key
+     * @param mixed $value
+     * @return $this|void
+     */
+    public function setAttribute($key, $value)
+    {
+        $isRememberTokenAttribute = $key == $this->getRememberTokenName();
+        if (!$isRememberTokenAttribute)
+        {
+            parent::setAttribute($key, $value);
+        }
     }
 }
