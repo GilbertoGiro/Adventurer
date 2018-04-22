@@ -10,12 +10,17 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * @var string
+     */
+    protected $table = 'usuario';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nome', 'email', 'senha', 'idcurso', 'idpapel', 'flemail', 'calendia', 'calensem', 'calenmes', 'flexterno'
     ];
 
     /**
@@ -24,6 +29,36 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'senha'
     ];
+
+    /**
+     * Method to get Password
+     *
+     * @return mixed
+     */
+    public function getPasswordAttribute()
+    {
+        return $this->attributes['senha'];
+    }
+
+    /**
+     * Method to get related Course
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function course()
+    {
+        return $this->hasOne(Course::class, 'id', 'idcurso');
+    }
+
+    /**
+     * Method to get related Course
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function paper()
+    {
+        return $this->hasOne(Paper::class, 'id', 'idpapel');
+    }
 }

@@ -115,6 +115,12 @@
 
                 <div class="application-body-content p-md">
                     @yield('content')
+
+                    @if($errors->any())
+                        <div class="alert alert-{{ $errors->first('type') }}">
+                            {{ $errors->first('message') }}
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

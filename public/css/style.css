@@ -373,6 +373,38 @@ table tbody td{
     font-size:13px !important;
     border-radius:50% !important;
 }
+/* Application CSS - Alerts */
+.alert{
+    width:20%;
+    display:block;
+    padding:18px;
+    position:fixed;
+    border-radius:3px;
+    top:15px;
+    right:15px;
+    animation:hide 1.5s;
+}
+.alert-danger{
+    color:#F4F4F4;
+    background-color:#C44D58;
+}
+.alert-warning{
+    color:#F4F4F4;
+    background-color:#F4A86D;
+}
+.alert-success{
+    color:#F4F4F4;
+    background-color:#728D72;
+}
+.alert-info{
+    color:#F4F4F4;
+    background-color:#7095E4;
+}
+@keyframes hide{
+    0%{
+        background-color:#F4F4F4;
+    }
+}
 /* Application CSS - Tooltip */
 .tooltip{
     position: relative;

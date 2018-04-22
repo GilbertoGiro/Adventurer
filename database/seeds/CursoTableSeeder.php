@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use \Illuminate\Support\Facades\DB as DB;
 
 class CursoTableSeeder extends Seeder
 {
@@ -34,6 +35,6 @@ class CursoTableSeeder extends Seeder
             ],
         ];
 
-        \DB::table('curso')->insert($rows);
+        DB::table('curso')->insert($rows);
     }
 }
