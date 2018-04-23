@@ -20,10 +20,10 @@ class CreateUsuarioTable extends Migration
             $table->string('senha', 200);
             $table->integer('idcurso');
             $table->integer('idpapel');
-            $table->string('flemail', 1);
-            $table->string('calendia', 1);
-            $table->string('calensem', 1);
-            $table->string('calenmes', 1);
+            $table->string('flemail', 1)->default('s');
+            $table->string('calendia', 1)->default('s');
+            $table->string('calensem', 1)->default('s');
+            $table->string('calenmes', 1)->default('s');
             $table->string('flexterno', 1);
 
             $table->foreign('idcurso')

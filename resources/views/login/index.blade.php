@@ -111,13 +111,15 @@
                     <img src="{{ asset('img/event/png/016-graduation-hat.png') }}" width="65px">
                 </div>
 
-                <form class="block p-md" method="post" action="">
+                <form class="block p-md" action="{{ url('usuario/login') }}" method="post">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
-                        <input type="email" name="email" class="form-input" placeholder="E-mail">
+                        <input type="email" name="email" class="form-input" placeholder="E-mail" value="{{ old('email') }}">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" name="senha" class="form-input" placeholder="Senha">
+                        <input type="password" name="password" class="form-input" placeholder="Senha" value="{{ old('senha') }}">
                     </div>
 
                     <div class="form-group m-t-sm">
@@ -151,6 +153,8 @@
                 </div>
 
                 <form class="block p-md" method="post" action="">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
                         <input type="text" name="nome" class="form-input" placeholder="Nome" value="{{ old('nome') }}">
                     </div>
@@ -163,19 +167,17 @@
                         <select name="flexterno" class="form-input">
                             <option value="">Aluno externo?</option>
                             @foreach(App\Utilities\Arrays::conditional() as $key => $value)
-                                <option value="{{ $value }}" {{ ($value == old('')) }}>{{ $key }}</option>
+                                <option value="{{ $value }}" {{ ($value == old('flexterno')) }}>{{ $key }}</option>
                             @endforeach
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <select name="curso" class="form-input none">
+                        <select name="idcurso" class="form-input none">
                             <option value="">Curso</option>
-                            <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-                            <option value="gti">Gestão da Tecnologia da Informação</option>
-                            <option value="gam">Gestão Ambiental</option>
-                            <option value="eve">Eventos</option>
-                            <option value="adm">Administração</option>
+                            @foreach(App\Utilities\Arrays::courses() as $course)
+                                <option value="{{ $course['id'] }}" {{ ($course['id'] == old('idcurso')) }}>{{ $course['nome']  }}</option>
+                            @endforeach
                         </select>
                     </div>
 
@@ -210,6 +212,8 @@
                 </div>
 
                 <form class="block p-md" method="post" action="">
+                    {{ csrf_field() }}
+
                     <div class="form-group">
                         <input type="text" name="nome" class="form-input" placeholder="Nome">
                     </div>
@@ -219,13 +223,11 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="curso" class="form-input">
+                        <select name="idcurso" class="form-input">
                             <option value="">Curso</option>
-                            <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-                            <option value="gti">Gestão da Tecnologia da Informação</option>
-                            <option value="gam">Gestão Ambiental</option>
-                            <option value="eve">Eventos</option>
-                            <option value="adm">Administração</option>
+                            @foreach(App\Utilities\Arrays::courses() as $course)
+                                <option value="{{ $course['id'] }}" {{ ($course['id'] == old('idcurso')) }}>{{ $course['nome']  }}</option>
+                            @endforeach
                         </select>
                     </div>
 

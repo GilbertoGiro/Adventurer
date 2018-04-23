@@ -18,7 +18,7 @@ class CreateNotificacaoTable extends Migration
             $table->string('titulo');
             $table->text('corpo');
             $table->integer('idusuario');
-            $table->string('stnotificacao');
+            $table->string('stnotificacao', 3)->default('ati');
 
             $table->foreign('idusuario')
                 ->references('id')

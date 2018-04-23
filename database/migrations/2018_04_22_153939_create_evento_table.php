@@ -17,10 +17,10 @@ class CreateEventoTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->integer('idcurso');
-            $table->string('endereco');
-            $table->integer('numero');
-            $table->string('bairro');
-            $table->string('complemento');
+            $table->string('endereco')->nullable();
+            $table->integer('numero')->nullable();
+            $table->string('bairro')->nullable();
+            $table->string('complemento')->nullable();
             $table->string('duracao');
             $table->string('flaberto');
             $table->string('flexterno');

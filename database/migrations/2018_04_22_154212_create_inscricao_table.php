@@ -17,8 +17,8 @@ class CreateInscricaoTable extends Migration
             $table->increments('id');
             $table->integer('idusuario');
             $table->integer('idevento');
-            $table->string('stinscricao');
-            $table->text('motivorecusa');
+            $table->string('stinscricao', 3)->default('ati');
+            $table->text('motivorecusa')->nullable();
 
             $table->foreign('idusuario')
                 ->references('id')

@@ -50,14 +50,18 @@
             <!-- Application Body -->
             <div class="application-body">
                 @yield('content')
+
+                @if($errors->any())
+                    <div class="alert alert-{{ $errors->first('type') }}">
+                        <h4 style="margin:-2px 0 4px 0;"><b>Erros encontrados</b></h4>
+
+                        {{ $errors->first('message') }}
+                    </div>
+                @endif
             </div>
 
             <!-- Application Footer -->
-            <div class="application-footer">
-                {{--<div class="icons">--}}
-                    {{--<i class="fab fa-facebook-square facebook-blue"></i>--}}
-                {{--</div>--}}
-            </div>
+            <div class="application-footer"></div>
         </div>
     </body>
 
