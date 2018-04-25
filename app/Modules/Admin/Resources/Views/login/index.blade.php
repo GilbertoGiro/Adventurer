@@ -25,21 +25,25 @@
                     em aprender e/ou ensinar.
                 </div>
 
-                <form action="">
+                <form action="{{ url('administrador/login') }}" method="post">
+                    {{ csrf_field() }}
+
                     <div class="form-group m-t-md">
                         <label for="email" class="form-label bold">E-mail</label>
-                        <input type="email" class="form-input" id="email" placeholder="exemplo@exemplo.com.br">
+                        <input type="email" name="email" class="form-input" id="email" placeholder="exemplo@exemplo.com.br" value="{{ old('email') }}">
                     </div>
 
                     <div class="form-group m-t-md">
                         <label for="" class="form-label bold">Senha</label>
-                        <input type="password" class="form-input" placeholder="************">
+                        <input type="password" name="password" class="form-input" placeholder="************">
                     </div>
 
                     <div class="form-group m-t-md text-right">
                         <button class="button button-warning m-r-sm">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
                         <button class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
                     </div>
+
+                    <input type="hidden" name="idpapel" value="1">
                 </form>
             </div>
         </div>

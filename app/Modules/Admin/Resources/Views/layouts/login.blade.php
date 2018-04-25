@@ -8,5 +8,11 @@
     </head>
     <body style="background-color:#FFFAFA">
         @yield('content')
+
+        @if($errors->any())
+            <div class="alert alert-{{ $errors->first('type') }}">
+                {{ $errors->first('message') }}
+            </div>
+        @endif
     </body>
 </html>

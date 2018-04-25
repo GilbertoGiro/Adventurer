@@ -2,8 +2,10 @@
 
 namespace App\Services;
 
+use App\Mail\PasswordRequestMail;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class UserService extends AbstractService{
     /**
@@ -26,9 +28,11 @@ class UserService extends AbstractService{
     {
         DB::beginTransaction();
         try{
-            $data['senha'] = bcrypt($data['password']);
+            $data['senha'] = bcrypt(md5(uniqid(rand())));
 
             if($this->model->create($data)){
+                Mail::to($data['email'])->queue(new PasswordRequestMail($data));
+
                 DB::commit();
                 return ['status' => '00'];
             }

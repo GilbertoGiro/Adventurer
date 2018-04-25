@@ -13,6 +13,7 @@
 
 Route::get('/', 'IndexController@index')->name('web.index');
 Route::get('/login', 'LoginController@index')->name('web.login');
+Route::post('/login/user', 'LoginController@store');
 Route::get('/eventos-disponiveis', 'EventController@event')->name('web.event');
 Route::get('/sugestao-de-temas', 'EventController@suggest')->name('web.suggest');
 Route::get('/sobre-nos', 'IndexController@aboutUs')->name('web.about-us');

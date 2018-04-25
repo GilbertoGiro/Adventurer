@@ -43,15 +43,9 @@ class LoginController extends Controller{
         $condition = $this->service->create($request->all());
 
         if($condition['status'] === '00'){
-            $user = $request->only(['email', 'password', 'idpapel']);
-
-            if(Auth::guard('user')->attempt($user)){
-                return redirect()->route('user.dashboard');
-            }
-
-            return redirect()->back()->withErrors(['message' => 'A conta foi criada com sucesso, mas não foi possível efetuar o Login.'])->withInput($request->all());
+            return redirect()->back()->withErrors(['message' => 'Conta criada com sucesso', 'type' => 'success'])->withInput($request->all());
         }
 
-        return redirect()->back()->withErrors(['message' => 'Não foi possível criar a conta.'])->withInput($request->all());
+        return redirect()->back()->withErrors(['message' => 'Não foi possível criar a conta.', 'type' => 'danger'])->withInput($request->all());
     }
 }

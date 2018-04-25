@@ -42,6 +42,8 @@
                         <button class="button button-warning m-r-sm">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
                         <button type="submit" class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
                     </div>
+
+                    <input type="hidden" name="idpapel" value="2">
                 </form>
             </div>
         </div>

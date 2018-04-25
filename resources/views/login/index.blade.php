@@ -152,7 +152,7 @@
                     <img src="{{ asset('img/event/png/035-barrier.png') }}" width="65px">
                 </div>
 
-                <form class="block p-md" method="post" action="">
+                <form class="block p-md" method="post" action="{{ url('login/user') }}">
                     {{ csrf_field() }}
 
                     <div class="form-group">
@@ -164,7 +164,7 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="flexterno" class="form-input">
+                        <select name="flexterno" class="form-input external">
                             <option value="">Aluno externo?</option>
                             @foreach(App\Utilities\Arrays::conditional() as $key => $value)
                                 <option value="{{ $value }}" {{ ($value == old('flexterno')) }}>{{ $key }}</option>
@@ -173,13 +173,15 @@
                     </div>
 
                     <div class="form-group">
-                        <select name="idcurso" class="form-input none">
+                        <select name="idcurso" class="form-input none course">
                             <option value="">Curso</option>
                             @foreach(App\Utilities\Arrays::courses() as $course)
                                 <option value="{{ $course['id'] }}" {{ ($course['id'] == old('idcurso')) }}>{{ $course['nome']  }}</option>
                             @endforeach
                         </select>
                     </div>
+
+                    <input type="hidden" name="idpapel" value="2">
 
                     <div class="form-group m-t-sm">
                         <button type="submit" class="button button-success form-input">Cadastrar Conta <i class="fa fa-sign-in-alt"></i></button>
@@ -255,4 +257,5 @@
 @endsection
 
 @section('scripts')
+    @include('login.javascript.index')
 @endsection

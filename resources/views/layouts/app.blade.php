@@ -51,11 +51,21 @@
             <div class="application-body">
                 @yield('content')
 
-                @if($errors->any())
+                @if($errors->first('message'))
                     <div class="alert alert-{{ $errors->first('type') }}">
-                        <h4 style="margin:-2px 0 4px 0;"><b>Erros encontrados</b></h4>
-
                         {{ $errors->first('message') }}
+                    </div>
+                @endif
+
+                @if(count($errors) && !$errors->first('message'))
+                    <div class="alert alert-danger">
+                        <h3 style="margin:0;">Erros encontrados</h3>
+
+                        <div class="block m-l-sm m-t-md">
+                            @foreach($errors->all() as $error)
+                                <p class="m-t-sm m-b-sm">{!! $error !!}</p>
+                            @endforeach
+                        </div>
                     </div>
                 @endif
             </div>
