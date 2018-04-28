@@ -302,6 +302,23 @@ table tbody td{
 .login-form-footer{
     padding:20px;
 }
+/* Application CSS - Recovery Password Form */
+.recovery-form{
+    width:425px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    position:absolute;
+}
+.recovery-form-header{
+    padding:18px;
+}
+.recovery-form-body{
+    padding:18px;
+}
+.recovery-form-footer{
+    padding:18px;
+}
 /* Application CSS - Circle Image */
 .small-circular-image{
     width: 95px;

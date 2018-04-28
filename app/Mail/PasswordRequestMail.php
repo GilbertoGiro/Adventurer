@@ -11,6 +11,9 @@ class PasswordRequestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    /**
+     * @var array
+     */
     protected $data;
 
     /**

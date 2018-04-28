@@ -44,7 +44,7 @@ class UserService extends AbstractService{
                     'idusuario' => $new->id,
                     'token'     => bcrypt(md5(uniqid(rand()))),
                 ];
-                $recovery = $this->recovery->create($post);
+                $this->recovery->create($post);
 
                 $data['token'] = $post['token'];
 

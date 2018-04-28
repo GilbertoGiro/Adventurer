@@ -53,12 +53,10 @@
 
                 @if(count($errors))
                     <div class="alert alert-{{ (!empty($errors->first('type'))) ? $errors->first('type') : 'danger' }}">
-                        <div class="inline-block align-middle">
-                            <i class="fa fa-shield-alt" style="font-size:66px;"></i>
+                        <div class="inline-block align-middle text-right m-l-sm">
+                            <i class="fa fa-shield-alt" style="font-size:42px;"></i>
                         </div>
                         <div class="inline-block align-middle m-l-lg">
-                            <p style="margin:0;font-size:17px;"><b>Erros encontrados</b></p>
-
                             <div class="block m-t-sm" style="font-size:15px;">
                                 @if($errors->has('message'))
                                     <p class="m-t-sm m-b-sm">{!! $errors->first('message') !!}</p>
