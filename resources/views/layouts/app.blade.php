@@ -51,20 +51,23 @@
             <div class="application-body">
                 @yield('content')
 
-                @if($errors->first('message'))
-                    <div class="alert alert-{{ $errors->first('type') }}">
-                        {{ $errors->first('message') }}
-                    </div>
-                @endif
+                @if(count($errors))
+                    <div class="alert alert-{{ (!empty($errors->first('type'))) ? $errors->first('type') : 'danger' }}">
+                        <div class="inline-block align-middle">
+                            <i class="fa fa-shield-alt" style="font-size:66px;"></i>
+                        </div>
+                        <div class="inline-block align-middle m-l-lg">
+                            <p style="margin:0;font-size:17px;"><b>Erros encontrados</b></p>
 
-                @if(count($errors) && !$errors->first('message'))
-                    <div class="alert alert-danger">
-                        <h3 style="margin:0;">Erros encontrados</h3>
-
-                        <div class="block m-l-sm m-t-md">
-                            @foreach($errors->all() as $error)
-                                <p class="m-t-sm m-b-sm">{!! $error !!}</p>
-                            @endforeach
+                            <div class="block m-t-sm" style="font-size:15px;">
+                                @if($errors->has('message'))
+                                    <p class="m-t-sm m-b-sm">{!! $errors->first('message') !!}</p>
+                                @else
+                                    @foreach($errors->all() as $error)
+                                        <p class="m-t-sm m-b-sm">{!! $error !!}</p>
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -82,6 +85,9 @@
     <script src='{{ asset('fullcalendar/lib/moment.min.js') }}'></script>
     <script src='{{ asset('fullcalendar/fullcalendar.js') }}'></script>
     <script src='{{ asset('fullcalendar/locale/pt-br.js') }}'></script>
+
+    <!-- Personal Scripts -->
+    <script src="{{ asset('js/modules-configuration.js') }}"></script>
 
     @section('scripts')
     @show

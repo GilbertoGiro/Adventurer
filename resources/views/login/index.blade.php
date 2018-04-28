@@ -104,7 +104,7 @@
     <div class="p-sm text-center">
         <div class="card text-center block m-r-md" style="width:32%;">
             <div class="card-header background-weak-blue">
-                <h3 class="m-t-sm white">Já possui conta? Efetue o login aqui!</h3>
+                <h3 class="m-t-sm white dots">Já possui conta? Efetue o login aqui!</h3>
             </div>
             <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
@@ -145,7 +145,7 @@
         </div>
         <div class="card text-center block m-r-md" style="width:32%;">
             <div class="card-header background-weak-blue">
-                <h3 class="m-t-sm white">Não possui uma conta? Crie agora mesmo!</h3>
+                <h3 class="m-t-sm white dots">Não possui uma conta? Crie agora mesmo!</h3>
             </div>
             <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">
@@ -167,7 +167,7 @@
                         <select name="flexterno" class="form-input external">
                             <option value="">Aluno externo?</option>
                             @foreach(App\Utilities\Arrays::conditional() as $key => $value)
-                                <option value="{{ $value }}" {{ ($value == old('flexterno')) }}>{{ $key }}</option>
+                                <option value="{{ $value }}" {{ ($value == old('flexterno')) ? 'selected' : '' }}>{{ $key }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -176,7 +176,7 @@
                         <select name="idcurso" class="form-input none course">
                             <option value="">Curso</option>
                             @foreach(App\Utilities\Arrays::courses() as $course)
-                                <option value="{{ $course['id'] }}" {{ ($course['id'] == old('idcurso')) }}>{{ $course['nome']  }}</option>
+                                <option value="{{ $course['id'] }}" {{ ($course['id'] == old('idcurso')) ? 'selected' : '' }}>{{ $course['nome']  }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -206,7 +206,7 @@
 
         <div class="card text-center block" style="width:32%;">
             <div class="card-header background-weak-blue">
-                <h3 class="m-t-sm white">Deseja receber notificações de eventos?</h3>
+                <h3 class="m-t-sm white dots">Deseja receber notificações de eventos?</h3>
             </div>
             <div class="card-body p-sm m-t-sm">
                 <div class="small-circular-image">

@@ -254,6 +254,9 @@ table tbody td{
 .m-l-md{
     margin-left:12px;
 }
+.m-l-lg{
+    margin-left:20px;
+}
 .m-r-sm{
     margin-right:6px;
 }
@@ -381,18 +384,22 @@ table tbody td{
 }
 /* Application CSS - Alerts */
 .alert{
-    width:20%;
-    display:block;
+    width:auto;
     padding:18px;
     position:fixed;
-    border-radius:3px;
+    border-radius:4px;
     top:15px;
     right:15px;
-    animation:hide 1.5s;
+    cursor:pointer;
+    visibility:hidden;
+    animation:show 8s;
 }
 .alert-danger{
     color:#F4F4F4;
     background-color:#C44D58;
+}
+.alert-danger:hover{
+    background-color:#AA434D;
 }
 .alert-warning{
     color:#F4F4F4;
@@ -406,9 +413,12 @@ table tbody td{
     color:#F4F4F4;
     background-color:#7095E4;
 }
-@keyframes hide{
+@keyframes show{
     0%{
-        background-color:#F4F4F4;
+        visibility:visible;
+    }
+    100%{
+        visibility:visible;
     }
 }
 /* Application CSS - Tooltip */

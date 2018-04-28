@@ -26,18 +26,17 @@ class UserRequest extends FormRequest
         switch($this->method()){
             case 'POST':
                 return [
-                    'nome'    => 'required|between:1,200',
-                    'email'   => 'required|between:1,200|unique:usuario',
-                    'senha'   => 'required|between:1,200',
-                    'idcurso' => 'nullable|exists:curso,id',
-                    'idpapel' => 'exists:papel,id'
+                    'nome'      => 'required|between:1,200',
+                    'email'     => 'required|between:1,200|unique:usuario',
+                    'idcurso'   => 'nullable|exists:curso,id',
+                    'flexterno' => 'required',
+                    'idpapel'   => 'exists:papel,id'
                 ];
                 break;
             case 'PUT':
                 return [
                     'nome'    => 'required|between:1,200',
                     'email'   => 'required|between:1,200|unique:usuario',
-                    'senha'   => 'required|between:1,200',
                     'idcurso' => 'nullable|exists:curso,id',
                     'idpapel' => 'exists:papel,id'
                 ];
@@ -55,7 +54,8 @@ class UserRequest extends FormRequest
         return [
             'required' => 'O campo <b>:attribute</b> é obrigatório.',
             'between'  => 'O campo <b>:attribute</b> extrapolou o limite de caracteres permitido',
-            'exists'   => 'O <b>:attribute</b> informado não existe'
+            'exists'   => 'O <b>:attribute</b> informado não existe',
+            'unique'   => 'O :attribute informado já está sendo utilizado.'
         ];
     }
 
@@ -67,11 +67,11 @@ class UserRequest extends FormRequest
     public function attributes()
     {
         return [
-            'nome'    => 'Nome',
-            'email'   => 'E-mail',
-            'senha'   => 'Senha',
-            'idcurso' => 'Curso',
-            'idpapel' => 'Papel',
+            'nome'      => 'Nome',
+            'email'     => 'E-mail',
+            'idcurso'   => 'Curso',
+            'idpapel'   => 'Papel',
+            'flexterno' => 'Aluno externo'
         ];
     }
 }

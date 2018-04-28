@@ -43,7 +43,7 @@ class LoginController extends Controller{
         $condition = $this->service->create($request->all());
 
         if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Conta criada com sucesso', 'type' => 'success'])->withInput($request->all());
+            return redirect()->back()->withErrors(['message' => 'Conta criada com sucesso. Verifique o E-mail para confirmar sua conta', 'type' => 'success']);
         }
 
         return redirect()->back()->withErrors(['message' => 'Não foi possível criar a conta.', 'type' => 'danger'])->withInput($request->all());

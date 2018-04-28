@@ -31,6 +31,8 @@ class PasswordRequestMail extends Mailable
      */
     public function build()
     {
+        $data = $this->data;
+        
         return $this->subject('Adventurer - E-mail de Boas-Vindas')
             ->view('mail.password.request', compact('data'));
     }

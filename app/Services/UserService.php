@@ -3,18 +3,27 @@
 namespace App\Services;
 
 use App\Mail\PasswordRequestMail;
+use App\Models\Recovery;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 
 class UserService extends AbstractService{
     /**
+     * @var Recovery
+     */
+    protected $recovery;
+
+    /**
      * UserService constructor.
      *
      * @param User $user
+     * @param Recovery $recovery
      */
-    public function __construct(User $user)
+    public function __construct(User $user, Recovery $recovery)
     {
+        $this->recovery = $recovery;
+
         parent::__construct($user);
     }
 
@@ -30,7 +39,15 @@ class UserService extends AbstractService{
         try{
             $data['senha'] = bcrypt(md5(uniqid(rand())));
 
-            if($this->model->create($data)){
+            if($new = $this->model->create($data)){
+                $post = [
+                    'idusuario' => $new->id,
+                    'token'     => bcrypt(md5(uniqid(rand()))),
+                ];
+                $recovery = $this->recovery->create($post);
+
+                $data['token'] = $post['token'];
+
                 Mail::to($data['email'])->queue(new PasswordRequestMail($data));
 
                 DB::commit();

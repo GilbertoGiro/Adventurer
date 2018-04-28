@@ -18,7 +18,7 @@ class CreateUsuarioTable extends Migration
             $table->string('nome', 200);
             $table->string('email', 200);
             $table->string('senha', 200);
-            $table->integer('idcurso');
+            $table->integer('idcurso')->nullable();
             $table->integer('idpapel');
             $table->string('flemail', 1)->default('s');
             $table->string('calendia', 1)->default('s');
