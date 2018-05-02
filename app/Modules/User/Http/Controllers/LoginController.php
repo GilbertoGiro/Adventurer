@@ -78,10 +78,10 @@ class LoginController extends Controller
         $condition = $this->recoveryService->changePassword($request->all(), $token);
 
         if($condition['status'] === '00'){
-            return redirect()->back()->with(['message' => 'A senha foi alterada com sucesso', 'type' => 'success']);
+            return redirect()->back()->withErrors(['message' => 'A senha foi alterada com sucesso', 'type' => 'success']);
         }
 
-        return redirect()->back()->with(['message' => $condition['message'], 'type' => 'danger']);
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
     }
 
     /**

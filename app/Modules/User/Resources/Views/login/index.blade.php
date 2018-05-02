@@ -1,6 +1,33 @@
 @extends('user::layouts.login')
 
 @section('content')
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header background-strong-blue white">
+                <h3 class="m-t-sm">
+                    <span class="m-r-lg">
+                        Esqueceu sua senha?
+                    </span>
+
+                    <i class="fa fa-key right" style="margin-top:3px;"></i>
+                </h3>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                    {{ csrf_field() }}
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Informe seu E-mail</label>
+                        <input type="email" class="form-input" id="email">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer background-strong-blue text-right">
+                <button class="button button-success">Recuperar</button>
+            </div>
+        </div>
+    </div>
+
     <div class="login-form card">
         <div class="login-form-body">
             <div class="login-form-header background-strong-blue">
@@ -39,7 +66,7 @@
                     </div>
 
                     <div class="form-group m-t-md text-right">
-                        <button class="button button-warning m-r-sm">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
+                        <button class="button button-warning m-r-sm call-forgot-password-modal">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
                         <button type="submit" class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
                     </div>
 
@@ -48,4 +75,8 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    @include('user::login.javascript.index')
 @endsection

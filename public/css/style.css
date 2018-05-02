@@ -508,6 +508,37 @@ table tbody td{
 .dropdown .overflow-auto::-webkit-scrollbar{
     width:0;
 }
+/* Application CSS - Modal */
+.modal{
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:2;
+    position:absolute;
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-content{
+    width:35%;
+    left:50%;
+    top:50%;
+    margin-right:-50%;
+    position:absolute;
+    z-index:3;
+    background: #FFF;
+    transform: translate(-50%, -50%);
+}
+.modal-header{
+    padding:14px;
+    border-bottom:1px solid #eee;
+}
+.modal-body{
+    padding:18px;
+}
+.modal-footer{
+    padding:10px;
+    border-top:1px solid #eee;
+}
 /* Overflow-auto */
 .overflow-auto{
     overflow-y:auto;

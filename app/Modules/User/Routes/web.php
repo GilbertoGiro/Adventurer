@@ -22,8 +22,14 @@ Route::group(['prefix' => 'usuario'], function (){
         Route::get('logout', 'LoginController@logout');
     });
 
+    // Routes about Login
     Route::get('/login', 'LoginController@index');
     Route::post('/login', 'LoginController@auth');
+
+    // Routes about Recovery
     Route::get('/recuperar/{token}', 'LoginController@recovery')->where('token', '(.*)')->name('user.recovery');
     Route::post('/recuperar/{token}', 'LoginController@change')->where('token', '(.*)');
+
+    // Routes about Modal
+    Route::get('/modal/recuperacao', 'ModalController@recovery')->name('user.modal.recovery');
 });

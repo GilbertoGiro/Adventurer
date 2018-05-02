@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Models\Recovery;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class RecoveryService{
     /**
@@ -11,13 +13,20 @@ class RecoveryService{
     protected $model;
 
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * RecoveryService constructor.
      *
      * @param Recovery $model
+     * @param User $user
      */
-    public function __construct(Recovery $model)
+    public function __construct(Recovery $model, User $user)
     {
         $this->model = $model;
+        $this->user  = $user;
     }
 
     /**
@@ -50,17 +59,26 @@ class RecoveryService{
      */
     public function changePassword(array $data, $token)
     {
+        DB::beginTransaction();
         try{
-            $recovery = $this->model->all()->where('token', $token)->first();
+            $recovery = $this->model->all()->where('token', $token)->where('flutilizado', null)->first();
 
-            $data['senha'] = bcrypt($data['senha']);
+            if(empty($recovery)){
+                return ['status' => '01', 'message' => 'O token informado é inválido.'];
+            }
 
-            if($recovery->update($data)){
+            $user = $recovery->user;
+            if($user->update(['senha' => bcrypt($data['senha'])])){
+                $recovery->update(['flutilizado' => 's']);
+
+                DB::commit();
                 return ['status' => '00'];
             }
 
+            DB::rollback();
             return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada.'];
         }catch(\Exception $e){
+            DB::rollback();
             return ['status' => '01', 'message' => $e->getMessage()];
         }
     }
