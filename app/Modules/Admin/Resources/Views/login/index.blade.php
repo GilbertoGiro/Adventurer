@@ -7,7 +7,7 @@
                 <h2 class="m-t-sm m-b-sm text-center white m-b-md">Adventurer</h2>
 
                 <div class="small-circular-image background-white">
-                    <img src="{{ asset('img/adventurer.png') }}" width="135px" style="padding-left:20px;">
+                    <img src="{{ asset('img/adventurer.png') }}" width="105px" style="padding-left:8px;">
                 </div>
 
                 <p class="m-t-md m-b-md text-center white">Tudo o que você precisa... E mais um pouco!</p>
@@ -39,8 +39,8 @@
                     </div>
 
                     <div class="form-group m-t-md text-right">
-                        <button class="button button-warning m-r-sm">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
-                        <button class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
+                        <button type="button" class="button button-warning m-r-sm call-forgot-password-modal">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
+                        <button type="submit" class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
                     </div>
 
                     <input type="hidden" name="idpapel" value="1">
@@ -51,4 +51,5 @@
 @endsection
 
 @section('scripts')
+    @include('admin::login.javascript.index')
 @endsection

@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>Adventurer - Página de Login</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
         <!-- Font Awesome Javascript -->
@@ -27,5 +28,16 @@
                 </div>
             </div>
         @endif
+
+        <div class="active-modal"></div>
     </body>
+
+    <!-- Laravel Script -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <!-- Personal Scripts -->
+    <script src="{{ asset('js/modules-configuration.js') }}"></script>
+
+    @section('scripts')
+    @show
 </html>

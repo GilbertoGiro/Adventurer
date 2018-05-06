@@ -1,40 +1,13 @@
 @extends('user::layouts.login')
 
 @section('content')
-    <div class="modal">
-        <div class="modal-content">
-            <div class="modal-header background-strong-blue white">
-                <h3 class="m-t-sm">
-                    <span class="m-r-lg">
-                        Esqueceu sua senha?
-                    </span>
-
-                    <i class="fa fa-key right" style="margin-top:3px;"></i>
-                </h3>
-            </div>
-            <div class="modal-body">
-                <form action="" method="post">
-                    {{ csrf_field() }}
-
-                    <div class="form-group">
-                        <label for="email" class="form-label">Informe seu E-mail</label>
-                        <input type="email" class="form-input" id="email">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer background-strong-blue text-right">
-                <button class="button button-success">Recuperar</button>
-            </div>
-        </div>
-    </div>
-
     <div class="login-form card">
         <div class="login-form-body">
             <div class="login-form-header background-strong-blue">
                 <h2 class="m-t-sm m-b-sm text-center white m-b-md">Adventurer</h2>
 
                 <div class="small-circular-image background-white">
-                    <img src="{{ asset('img/adventurer.png') }}" width="135px" style="padding-left:20px;">
+                    <img src="{{ asset('img/adventurer.png') }}" width="105px" style="padding-left:8px;">
                 </div>
 
                 <p class="m-t-md m-b-md text-center white">Tudo o que você precisa... E mais um pouco!</p>
@@ -66,7 +39,7 @@
                     </div>
 
                     <div class="form-group m-t-md text-right">
-                        <button class="button button-warning m-r-sm call-forgot-password-modal">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
+                        <button type="button" class="button button-warning m-r-sm call-forgot-password-modal">Esqueci minha Senha <i class="fa fa-question-circle"></i></button>
                         <button type="submit" class="button button-success">Efetuar o Login <i class="fa fa-user-circle"></i></button>
                     </div>
 

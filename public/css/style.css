@@ -276,10 +276,10 @@ table tbody td{
 /* Application CSS - Login Form */
 .login-form{
     width:900px;
-    top:50%;
     left:50%;
+    top:50%;
     transform:translate(-50%, -50%);
-    position:absolute;
+    position:absolute !important;
 }
 .login-form-body{
     border-left:1px solid #e0e0e0;
@@ -304,11 +304,11 @@ table tbody td{
 }
 /* Application CSS - Recovery Password Form */
 .recovery-form{
-    width:425px;
+    width:445px;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
-    position:absolute;
+    position:absolute !important;
 }
 .recovery-form-header{
     padding:18px;
@@ -402,11 +402,13 @@ table tbody td{
 /* Application CSS - Alerts */
 .alert{
     width:auto;
+    max-width:425px;
     padding:18px;
     position:fixed;
     border-radius:4px;
     top:15px;
     right:15px;
+    word-wrap:break-word;
     cursor:pointer;
     visibility:hidden;
     animation:show 8s;
@@ -516,7 +518,8 @@ table tbody td{
     right:0;
     z-index:2;
     position:absolute;
-    background: rgba(0, 0, 0, 0.5);
+    animation:fade-in 0.5s;
+    background: rgba(0, 0, 0, 0.4);
 }
 .modal-content{
     width:35%;
@@ -526,6 +529,7 @@ table tbody td{
     position:absolute;
     z-index:3;
     background: #FFF;
+    animation:slide-center 1s;
     transform: translate(-50%, -50%);
 }
 .modal-header{
@@ -538,6 +542,26 @@ table tbody td{
 .modal-footer{
     padding:10px;
     border-top:1px solid #eee;
+}
+
+@keyframes fade-in{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
+@keyframes slide-center{
+    0%{
+        top:-50px;
+    }
+    65%{
+        top:53%;
+    }
+    100%{
+        top:50%;
+    }
 }
 /* Overflow-auto */
 .overflow-auto{

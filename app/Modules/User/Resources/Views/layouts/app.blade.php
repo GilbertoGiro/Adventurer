@@ -34,7 +34,7 @@
                 <div class="application-header-content">
                     <div class="block">
                         <div class="small-circular-image background-white">
-                            <img src="{{ asset('img/adventurer.png') }}" width="135px" style="padding-left:20px;">
+                            <img src="{{ asset('img/adventurer.png') }}" width="100px" style="padding-left:10px;">
                         </div>
 
                         <a href="" class="block no-decoration milk m-t-sm">

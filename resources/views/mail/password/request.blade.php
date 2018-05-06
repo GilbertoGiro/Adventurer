@@ -6,13 +6,13 @@
 <table style="table-layout:inherit !important;width:525px;margin-right:auto;margin-left:auto;">
     <thead>
     <tr>
-        <th colspan="2" style="height:35px;background-color:#628D6E;"></th>
+        <th colspan="2" style="height:35px;background-color:#52738F;"></th>
     </tr>
     </thead>
     <tbody>
     <tr>
-        <td style="padding:14px;text-align:center;vertical-align:center;border-bottom:1px solid #e7e7e7;margin-bottom:-20px;margin-top:-20px;">
-            <img src="{{ $message->embed(asset('img/adventurer.png')) }}">
+        <td style="padding:14px;text-align:center;vertical-align:center;border-bottom:1px solid #e7e7e7;">
+            <img src="{{ $message->embed(asset('img/adventurer.png')) }}" width="105px">
         </td>
     </tr>
     <tr>
@@ -75,7 +75,7 @@
     </tbody>
     <tfoot>
     <tr>
-        <td colspan="2" style="height:20px;background-color:#628D6E"></td>
+        <td colspan="2" style="height:20px;background-color:#52738F"></td>
     </tr>
     </tfoot>
 </table>

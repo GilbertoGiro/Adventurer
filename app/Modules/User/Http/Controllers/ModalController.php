@@ -8,10 +8,11 @@ class ModalController extends Controller{
     /**
      * Method to get Recovery Modal
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
      */
     public function recovery()
     {
-        return view('user::modal.recovery');
+        return response()->json(['html' => view('user::modal.recovery')->render()]);
     }
 }

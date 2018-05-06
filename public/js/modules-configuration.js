@@ -50,4 +50,24 @@ $(document).ready(function(){
     alert.on('click', function(){
         $(this).fadeOut();
     });
+
+    // Modal
+    $(document).on('click', '.close-modal', function(event){
+        event.preventDefault();
+        let modal = $(this).closest('.modal');
+
+        modal.fadeOut(450, function(){
+            modal.closest('.active-modal').empty();
+        });
+    });
+
+    $('.active-modal').on('click', function(event){
+        let elem = $(event.target);
+
+        if(elem.is('.modal')){
+            elem.fadeOut(450, function(){
+                elem.closest('.active-modal').empty();
+            });
+        }
+    });
 });
