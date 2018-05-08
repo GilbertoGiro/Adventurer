@@ -17,10 +17,11 @@
     </tr>
     <tr>
         <td style="text-align:left;padding:14px;border-bottom:1px solid #e7e7e7">
-            <p style="font-size:16px;font-family:'Calibri Light', sans-serif !important;margin:0;"><b>Olá, Seja
-                    bem-vindo(a)!</b></p>
+            <p style="font-size:16px;font-family:'Calibri Light', sans-serif !important;margin:0;"><b>Olá, tudo bem?</b>
+            </p>
             <p style="font-family:'Calibri Light', sans-serif !important;font-size:14px;">
-                Recebemos uma solicitação de confirmação de conta para o e-mail em questão. Para confirmar sua conta,
+                Recebemos uma solicitação de recuperação de senha para o e-mail em questão. Para confirmar cadastrar sua
+                nova senha,
                 basta <a
                         href="{{ route('user.recovery', $data['token']) }}">clicar aqui</a>. Caso não tenha solicitado
                 essa ação,

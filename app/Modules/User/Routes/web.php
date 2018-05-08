@@ -27,6 +27,7 @@ Route::group(['prefix' => 'usuario'], function (){
     Route::post('/login', 'LoginController@auth');
 
     // Routes about Recovery
+    Route::post('/recuperar', 'LoginController@request')->name('user.recovery.request');
     Route::get('/recuperar/{token}', 'LoginController@recovery')->where('token', '(.*)')->name('user.recovery');
     Route::post('/recuperar/{token}', 'LoginController@change')->where('token', '(.*)');
 

@@ -53,6 +53,23 @@ class LoginController extends Controller
     }
 
     /**
+     * Method to Request User Password Recovery
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function request(Request $request)
+    {
+        $condition = $this->recoveryService->request($request->all());
+
+        if($condition['status'] === '00'){
+            return redirect()->back()->withErrors(['message' => 'Solicitação realizada com sucesso', 'type' => 'success']);
+        }
+
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
+    }
+
+    /**
      * Method to show Recovery Password Form
      *
      * @param Request $request

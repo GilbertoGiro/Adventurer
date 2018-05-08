@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\PasswordRecoveryMail;
 use App\Models\Recovery;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class RecoveryService{
     /**
@@ -30,6 +32,39 @@ class RecoveryService{
     }
 
     /**
+     * Method to send User Change Password Request
+     *
+     * @param array $data
+     * @return array
+     */
+    public function request(array $data)
+    {
+        DB::beginTransaction();
+        try{
+            $user = $this->user->all()->where('email', $data['email'])->first();
+
+            if(empty($user)){
+                DB::rollback();
+                return ['status' => '01', 'message' => 'Usuário inexistente.'];
+            }
+
+            $post = [
+                'idusuario' => $user->id,
+                'token'     => bcrypt(md5(uniqid(rand()))),
+            ];
+            $recovery = $this->model->create($post);
+
+            Mail::to($user->email)->queue(new PasswordRecoveryMail(['token' => $recovery->token]));
+
+            DB::commit();
+            return ['status' => '00'];
+        }catch(\Exception $e){
+            DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
      * Method to check if request token is valid
      *
      * @param $token
@@ -44,7 +79,7 @@ class RecoveryService{
                 return ['status' => '00'];
             }
 
-            return ['status' => '01', 'message' => 'O token informado não é válido'];
+            return ['status' => '01', 'message' => 'O <b><u>token</u></b> informado é <b>inválido</b> <i class="fa fa-bug"></i>'];
         }catch(\Exception $e){
             return ['status' => '01', 'message' => $e->getMessage()];
         }
