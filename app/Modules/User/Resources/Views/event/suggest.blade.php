@@ -33,43 +33,43 @@
 
             <div class="card-body p-md" style="padding:6px 12px 6px 12px;">
                 <div class="steps p-sm" data-href="">
-                    <form action="" method="post" style="padding-bottom:0">
-                        <h3 class="m-t-sm header">Informações Pessoais</h3>
+                    <form action="" method="post">
+                        <div data-function="step" style="padding-bottom:0">
+                            <h3 class="m-t-sm header">Informações Pessoais</h3>
 
-                        <div class="form-group">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" class="form-input required" id="nome" placeholder="Nome">
+                            <div class="form-group">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" name="nome" class="form-input required" id="nome" placeholder="Nome" value="{{ old('nome', $user->nome) }}">
+                            </div>
+
+                            <div class="form-group m-t-md">
+                                <label for="email" class="form-label">E-mail</label>
+                                <input type="email" name="email" class="form-input required" id="email" placeholder="E-mail" value="{{ old('email', $user->email) }}">
+                            </div>
+
+                            <div class="form-group m-t-md">
+                                <label for="idcurso" class="form-label">Curso</label>
+                                <select name="idcurso" class="form-input required" id="idcurso">
+                                    <option value="">Selecione o curso</option>
+                                    @foreach(App\Utilities\Arrays::courses() as $course)
+                                        <option value="{{ $course['id'] }}" {{ old('curso', $user->idcurso) === $course['id'] ? 'selected' : '' }}>{{ $course['nome'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
-                        <div class="form-group m-t-md">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" name="email" class="form-input required" id="email" placeholder="E-mail">
-                        </div>
+                        <div data-function="step" style="padding-bottom:0">
+                            <h3 class="m-t-md header">Informações do Tema</h3>
 
-                        <div class="form-group m-t-md">
-                            <label for="curso" class="form-label">Curso</label>
-                            <select name="curso" class="form-input required" id="curso">
-                                <option value="">Selecione o curso</option>
-                                <option value="ads">Análise e Desenvolvimento de Sistemas</option>
-                                <option value="gti">Gestão da Tecnologia da Informação</option>
-                                <option value="gam">Gestão Ambiental</option>
-                                <option value="eve">Eventos</option>
-                                <option value="adm">Administração</option>
-                            </select>
-                        </div>
-                    </form>
+                            <div class="form-group">
+                                <label for="tema" class="form-label">Nome do Tema</label>
+                                <input name="tema" type="text" class="form-input required" id="tema" placeholder="Nome do Tema">
+                            </div>
 
-                    <form action="" method="post" style="padding-bottom:0">
-                        <h3 class="m-t-md header">Informações do Tema</h3>
-
-                        <div class="form-group">
-                            <label for="tema" class="form-label">Nome do Tema</label>
-                            <input name="tema" type="text" class="form-input required" id="tema" placeholder="Nome do Tema">
-                        </div>
-
-                        <div class="form-group m-t-md">
-                            <label for="descricao" class="form-label">Descrição do Tema</label>
-                            <textarea name="descricao" class="form-text-area required-summernote summernote" id="descricao" placeholder="Descrição do Tema"></textarea>
+                            <div class="form-group m-t-md">
+                                <label for="descricao" class="form-label">Descrição do Tema</label>
+                                <textarea name="descricao" class="form-text-area required-summernote summernote" id="descricao" placeholder="Descrição do Tema"></textarea>
+                            </div>
                         </div>
                     </form>
                 </div>

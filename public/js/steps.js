@@ -1,14 +1,14 @@
 $(document).ready(function(){
-    var count = 1;
-    var steps = $('.steps');
-    var tot_forms = steps.find('form').length;
+    let count = 1;
+    let steps = $('.steps');
+    let tot_forms = steps.find('div[data-function="step"]').length;
 
     // Colocando as divs que conterão as ações e os títulos das etapas em seus lugares específicos
     steps.prepend('<div class="steps-titles"></div>');
 
-    steps.find('form').each(function(){
+    steps.find('div[data-function="step"]').each(function(){
         // Colocando o título de cada uma das etapas no header da página
-        var title = $(this).find('h3').text();
+        let title = $(this).find('h3').text();
 
         $(this).find('h3').remove();
         $('.steps-titles').append('<div class="step-title-box step-' + count + '-title">' + count + 'º - ' + title + '</div>');
@@ -43,12 +43,12 @@ $(document).ready(function(){
     });
 
     $('.next').click(function(event){
-        var parent = $(this).parent().parent();
-        var actual = parent.attr('class').substring('5') * 1;
-        var next = actual + 1;
+        let parent = $(this).closest('div[data-function="step"]');
+        let actual = parent.attr('class').substring('5') * 1;
+        let next = actual + 1;
 
         $(parent).find('.required-summernote').each(function(){
-            var value = $(this).summernote('isEmpty');
+            let value = $(this).summernote('isEmpty');
 
             $(this).parent().find('.invalid-field').remove();
             $(this).parent().find('.note-frame').removeClass('warning');
@@ -59,25 +59,8 @@ $(document).ready(function(){
             }
         });
 
-        $(parent).find('select.required-multiple-select').each(function(){
-            var value = $(this).find(':selected');
-            var ms_choice = $(this).parent().find('.ms-choice');
-
-            ms_choice.removeClass('warning');
-            $(this).parent().find('.invalid-field').remove();
-
-            if(value.length === 0){
-                var condition = ms_choice.hasClass('warning');
-
-                if(!condition){
-                    ms_choice.addClass('warning');
-                    $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                }
-            }
-        });
-
         $(parent).find('.required').each(function(){
-            var value = $(this).val();
+            let value = $(this).val();
 
             $(this).removeClass('warning');
             $(this).parent().find('.invalid-field').remove();
@@ -91,6 +74,7 @@ $(document).ready(function(){
         if(parent.find('.warning').length > 0){
             event.preventDefault();
             event.stopPropagation();
+
             return false;
         }
 
@@ -102,10 +86,9 @@ $(document).ready(function(){
     });
 
     $('.previous').click(function(){
-        var next = actual + 1;
-        var parent = $(this).parent().parent();
-        var actual = parent.attr('class').substring('5') * 1;
-        var previous = actual - 1;
+        let parent = $(this).closest('div[data-function="step"]');
+        let actual = parent.attr('class').substring('5') * 1;
+        let previous = actual - 1;
 
         $('.step-' + actual + '-title').addClass('collapse');
         $('.step-' + previous + '-title').removeClass('collapse');
@@ -116,13 +99,13 @@ $(document).ready(function(){
 
     $('.steps-titles').find('.step-title-box').each(function(){
         $(this).click(function(){
-            var next = $(this).attr('class').split(/\s+/)[1].split('-')[1];
-            var actual = $('.steps-titles').find('.step-title-box').not('.collapse').attr('class').split(/\s+/)[1].split('-')[1];
-            var form = $('.step-' + actual);
+            let next = $(this).attr('class').split(/\s+/)[1].split('-')[1];
+            let actual = $('.steps-titles').find('.step-title-box').not('.collapse').attr('class').split(/\s+/)[1].split('-')[1];
+            let form = $('.step-' + actual);
 
             if(next > actual){
                 $(form).find('.required-summernote').each(function(){
-                    var value = $(this).summernote('isEmpty');
+                    let value = $(this).summernote('isEmpty');
 
                     $(this).parent().find('.invalid-field').remove();
                     $(this).parent().find('.note-frame').removeClass('warning');
@@ -133,25 +116,8 @@ $(document).ready(function(){
                     }
                 });
 
-                $(form).find('select.required-multiple-select').each(function(){
-                    var value = $(this).find(':selected');
-                    var ms_choice = $(this).parent().find('.ms-choice');
-
-                    ms_choice.removeClass('warning');
-                    $(this).parent().find('.invalid-field').remove();
-
-                    if(value.length === 0){
-                        var condition = ms_choice.hasClass('warning');
-
-                        if(!condition){
-                            ms_choice.addClass('warning');
-                            $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
-                        }
-                    }
-                });
-
                 $(form).find('.required').each(function(){
-                    var value = $(this).val();
+                    let value = $(this).val();
 
                     $(this).removeClass('warning');
                     $(this).parent().find('.invalid-field').remove();
@@ -174,7 +140,6 @@ $(document).ready(function(){
 
                 form.addClass('hidden');
                 $('.step-' + next).removeClass('hidden');
-
             }else if(actual > next){
                 $('.step-' + actual + '-title').addClass('collapse');
                 $('.step-' + next + '-title').removeClass('collapse');
@@ -187,94 +152,52 @@ $(document).ready(function(){
 
     steps.find(':input').each(function(){
         $(this).focus(function(){
-            var group = $(this).parent();
+            let group = $(this).closest('div[class="form-group"]');
 
             $(this).removeClass('warning');
             group.find('.invalid-field').remove();
         });
     });
-});
 
-function ajax_request(url, form, callback, treatment)
-{
-    treatment = treatment || false;
+    $(document).on('focus', '.note-editor', function(){
+        $(this).parent().find('.invalid-field').remove();
+        $(this).parent().find('.note-frame').removeClass('warning');
+    });
 
-    if(!treatment){
-        formTreatment(form, function(result){
-            var post = $.extend({}, result);
+    $(document).on('click', '.submit-form', function(event){
+        let parent = $(this).closest('div[data-function="step"]');
 
-            ajax_call(url, post, callback);
+        $(parent).find('.required-summernote').each(function(){
+            let value = $(this).summernote('isEmpty');
+
+            $(this).parent().find('.invalid-field').remove();
+            $(this).parent().find('.note-frame').removeClass('warning');
+
+            if(value){
+                $(this).parent().find('.note-frame').addClass('warning');
+                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+            }
         });
-    }else{
-        ajax_call(url, form, callback);
-    }
-}
 
-function ajax_call(url, post, callback)
-{
-    var list = $('.insert-errors');
+        $(parent).find('.required').each(function(){
+            let value = $(this).val();
 
-    $.ajax({
-        url: url,
-        method: 'POST',
-        data: post,
-        success: function(data){
-            if(data.status === '00'){
-                callback(data);
+            $(this).removeClass('warning');
+            $(this).parent().find('.invalid-field').remove();
+
+            if(!value || value === '' || value === '-1'){
+                $(this).addClass('warning');
+                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
             }
+        });
 
-            if(data.status === '01'){
-                list.empty();
+        if(parent.find('.warning').length > 0){
+            event.preventDefault();
+            event.stopPropagation();
 
-                list.append('<li>' + data.message + '</li>');
-
-                $('.insert-errors-alert').show();
-            }
-        },
-        error: function(response){
-            if(response && response.responseJSON.errors){
-                list.empty();
-
-                var errors = $.map(response.responseJSON.errors, function(value, index) {
-                    return [value];
-                });
-
-                if(errors instanceof Array){
-                    $.each(errors, function(index, value){
-                        list.append('<li>' + value + '</li>');
-                    });
-                }
-
-                $('.insert-errors-alert').show();
-            }
+            return false;
         }
+
+        $('form').submit();
     });
-}
-
-// Method to do the treatment in forms who has two Keys (Forms with more than one page)
-function formTreatment(form, cb)
-{
-    var post = [];
-
-    form.forEach(function(data){
-        data.forEach(function(subform){
-            if(subform.name && subform.value){
-                post[subform.name] = subform.value;
-            }else{
-                var i = 0;
-                if(subform && subform.length > 0){
-                    subform.forEach(function(value){
-                        if(!(post[value.name] instanceof Array)){
-                            post[value.name] = [];
-                        }
-
-                        post[value.name][i] = value.value;
-                        i++;
-                    });
-                }
-            }
-        });
-    });
-
-    cb(post);
-}
+});

@@ -10,5 +10,10 @@
             ],
             disableResizeEditor: true
         });
+
+        $('.submit-form').on('click', function(event){
+            event.preventDefault();
+
+        });
     });
 </script>

@@ -3,28 +3,22 @@
 namespace App\Modules\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\EventService;
 
 class EventController extends Controller{
-
-    protected $model;
-
+    /**
+     * @var EventService
+     */
     protected $service;
 
-    public function __construct()
-    {
-        // Do nothing
-    }
-
     /**
-     * Method to show Event index Page
+     * EventController constructor.
      *
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @param EventService $service
      */
-    public function suggest()
+    public function __construct(EventService $service)
     {
-        $suggest = true;
-
-        return view('user::event.suggest', compact('suggest'));
+        $this->service = $service;
     }
 
     /**

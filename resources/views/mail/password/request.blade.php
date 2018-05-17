@@ -12,7 +12,7 @@
     <tbody>
     <tr>
         <td style="padding:14px;text-align:center;vertical-align:center;border-bottom:1px solid #e7e7e7;">
-            <img src="{{ $message->embed(asset('img/adventurer.png')) }}" width="120px">
+            <img src="{{ $message->embed(asset('img/adventurer.png')) }}" width="125px">
         </td>
     </tr>
     <tr>

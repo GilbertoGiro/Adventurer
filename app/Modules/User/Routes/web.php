@@ -13,9 +13,17 @@
 
 Route::group(['prefix' => 'usuario'], function (){
     Route::group(['middleware' => 'auth:user'], function(){
+        // Routes about Dashboard
         Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
-        Route::get('sugestao-de-temas', 'EventController@suggest')->name('user.suggest');
+
+        // Routes about Themes
+        Route::get('sugestao-de-temas', 'ThemeController@suggest')->name('user.suggest');
+        Route::post('sugestao-de-temas', 'ThemeController@store');
+
+        // Routes about Events
         Route::get('lista-de-eventos', 'EventController@events')->name('user.events');
+
+        // Routes about Configuration
         Route::get('configuracoes', 'ConfigurationController@index')->name('user.configuration');
 
         // Route for Logoff
