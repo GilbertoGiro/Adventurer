@@ -50,6 +50,6 @@ class ThemeController extends Controller{
             return redirect()->back()->withErrors(['message' => 'Sugestão adicionada com sucesso.', 'type' => 'success']);
         }
 
-        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 }

@@ -63,6 +63,20 @@ class User extends Authenticatable
     }
 
     /**
+     * Method to check if Model User is Admin
+     *
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        if($this->attributes['idpapel'] === 1){
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * Overrides the method to ignore the remember token.
      *
      * @param string $key

@@ -3,16 +3,27 @@
 namespace App\Services;
 
 use App\Models\Theme;
+use App\Models\User;
+use App\Notifications\NewTheme;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ThemeService extends AbstractService{
     /**
+     * @var User
+     */
+    protected $user;
+
+    /**
      * ThemeService constructor.
      *
      * @param Theme $model
+     * @param User $user
      */
-    public function __construct(Theme $model)
+    public function __construct(Theme $model, User $user)
     {
+        $this->user = $user;
+
         parent::__construct($model);
     }
 
@@ -26,10 +37,20 @@ class ThemeService extends AbstractService{
     {
         DB::beginTransaction();
         try{
-            echo '<pre>';print_r($data);exit;
+            $data['idusuario'] = Auth::guard('user')->user()->id;
 
-            DB::commit();
-            return ['status' => '00'];
+            $new = $this->model->create($data);
+
+            if($new){
+                $admins = $this->user->all()->where('idpapel', 1);
+
+                foreach($admins as $admin){
+                    $admin->notify(new NewTheme($data));
+                }
+
+                DB::commit();
+                return ['status' => '00'];
+            }
         }catch(\Exception $e){
             DB::rollback();
             return ['status' => '01', 'message' => $e->getMessage()];

@@ -20,5 +20,6 @@ class NotificationServiceProvider extends ServiceProvider
         |--------------------------------------------------------------------------
         */
         View::composer('user::*', 'App\Composers\NotificationComposer');
+        View::composer('admin::*', 'App\Composers\NotificationComposer');
     }
 }

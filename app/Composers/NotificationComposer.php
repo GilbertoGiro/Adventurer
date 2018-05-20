@@ -16,7 +16,7 @@ class NotificationComposer
     public function compose(View $view)
     {
         if(empty($view->getData()['notifications'])){
-            $view->with('notifications', (!empty(Auth::guard('user')->user()) ? Auth::guard('user')->user()->unreadNotifications : ''));
+            $view->with('notifications', (!empty(Auth::user()) ? Auth::user()->unreadNotifications : ''));
         }
     }
 }

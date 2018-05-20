@@ -1,12 +1,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Adventurer - Usuário</title>
+        <title>Adventurer - Administrador</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!-- Personal Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/user.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
         <!-- C3 Styles -->
         <link rel="stylesheet" href="{{ asset('c3/c3.css') }}">
@@ -30,11 +30,11 @@
                 <div class="application-header-content">
                     <div class="block">
                         <div class="small-circular-image background-white">
-                            <img src="{{ asset('img/adventurer.png') }}" width="135px" style="padding-left:20px;">
+                            <img src="{{ asset('img/adventurer.png') }}" width="105px" style="padding-left:10px;">
                         </div>
 
                         <a href="" class="block no-decoration milk m-t-sm">
-                            Gilberto Giro Resende <i class="fa fa-user-circle"></i>
+                            {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i class="fa fa-user-circle"></i>
                         </a>
                     </div>
 
@@ -70,43 +70,7 @@
                         <i class="fa fa-user-circle milk"></i>
                     </div>
 
-                    <div class="inline-block m-r-md action pointer notifications dropdown">
-                        <i class="fa fa-bell milk"></i>
-
-                        <div class="dropdown-items text-left">
-                            <div class="block" style="border-bottom:1px solid #E0E0E0;padding:12px 3px 12px 3px;">
-                                <b class="block" style="font-size:18px;">Notificações</b>
-                            </div>
-
-                            <div class="notifications overflow-auto without-scroll">
-                                <div class="notification block">
-                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
-                                </div>
-
-                                <div class="notification block">
-                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
-                                </div>
-
-                                <div class="notification block">
-                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
-                                </div>
-
-                                <div class="notification block">
-                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
-                                </div>
-
-                                <div class="notification block">
-                                    Você possui um conjunto de <b>5 eventos</b> para comparecer no dia de hoje.
-                                </div>
-                            </div>
-
-                            <div class="block" style="border-top:1px solid #E0E0E0;padding:15px 3px 15px 3px;">
-                                <span class="bold" style="font-size:15px;">
-                                    © Copyright <b class="strong-blue">Adventurer</b> Reserved
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                    @include('admin::layouts.notification')
 
                     <div class="inline-block action">
                         <a href="" class="no-decoration milk">Sair <i class="fa fa-sign-out-alt"></i></a>

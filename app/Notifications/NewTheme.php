@@ -47,7 +47,7 @@ class NewTheme extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => 'Você possui uma nova sugestão de tema: <b>' . $this->data['theme'] . '</b>',
+            'message' => 'Você possui uma nova sugestão de tema: <b>' . $this->data['titulo'] . '</b>',
             'issuer'  => $this->data['nmusuario']
         ];
     }

@@ -13,9 +13,7 @@
 
 Route::group(['prefix' => 'administrador'], function(){
     Route::group(['middleware' => 'auth:admin'], function(){
-        Route::get('dashboard', function(){
-            echo '<pre>';print_r(2);exit;
-        })->name('admin.dashboard');
+        Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
 
         // Route to logout
         Route::get('logout', 'LoginController@logout');
