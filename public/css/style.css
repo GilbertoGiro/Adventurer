@@ -304,7 +304,7 @@ table tbody td{
 }
 /* Application CSS - Recovery Password Form */
 .recovery-form{
-    width:445px;
+    width:410px;
     top:50%;
     left:50%;
     transform:translate(-50%, -50%);
@@ -497,7 +497,7 @@ table tbody td{
 }
 .dropdown .dropdown-items .notifications .notification{
     padding:16px;
-    font-size:14px;
+    font-size:15px;
     cursor:pointer;
     border-bottom:1px solid #F0F0F0;
 }
@@ -589,6 +589,10 @@ table tbody td{
     white-space:nowrap;
     overflow:hidden !important;
     text-overflow:ellipsis;
+}
+/* Application CSS - Remove Style */
+.text-decoration-none{
+    text-decoration:none;
 }
 /* Application CSS - Colors */
 .milk{

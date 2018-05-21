@@ -29,86 +29,86 @@
             <div class="card-body p-md m-b-md">
                 <table>
                     <thead class="background-strong-blue white">
-                    <tr>
-                        <th class="p-md">Evento</th>
-                        <th class="p-md">Curso</th>
-                        <th class="p-md">Data</th>
-                        <th class="p-md">Ações</th>
-                    </tr>
+                        <tr>
+                            <th class="p-md">Evento</th>
+                            <th class="p-md">Curso</th>
+                            <th class="p-md">Data</th>
+                            <th class="p-md">Ações</th>
+                        </tr>
                     </thead>
                     <tbody class="text-center">
-                    <tr>
-                        <td>Gametech</td>
-                        <td>Análise e Desenvolvimento de Sistemas</td>
-                        <td>Amanhã</td>
-                        <td>
-                            <button class="button button-success circular-button tooltip">
-                                <span class="tooltiptext">Confirmar Presença</span>
+                        <tr>
+                            <td>Gametech</td>
+                            <td>Análise e Desenvolvimento de Sistemas</td>
+                            <td>Amanhã</td>
+                            <td>
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
 
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
+                                    <i class="fa fa-thumbs-up"></i>
+                                </button>
 
-                            <button class="button button-danger circular-button tooltip">
-                                <span class="tooltiptext">Cancelar Presença</span>
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
 
-                                <i class="fa fa-thumbs-down"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gametech</td>
-                        <td>Análise e Desenvolvimento de Sistemas</td>
-                        <td>Semana que vem</td>
-                        <td>
-                            <button class="button button-success circular-button tooltip">
-                                <span class="tooltiptext">Confirmar Presença</span>
+                                    <i class="fa fa-thumbs-down"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gametech</td>
+                            <td>Análise e Desenvolvimento de Sistemas</td>
+                            <td>Semana que vem</td>
+                            <td>
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
 
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
+                                    <i class="fa fa-thumbs-up"></i>
+                                </button>
 
-                            <button class="button button-danger circular-button tooltip">
-                                <span class="tooltiptext">Cancelar Presença</span>
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
 
-                                <i class="fa fa-thumbs-down"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gametech</td>
-                        <td>Análise e Desenvolvimento de Sistemas</td>
-                        <td>Semana que vem</td>
-                        <td>
-                            <button class="button button-success circular-button tooltip">
-                                <span class="tooltiptext">Confirmar Presença</span>
+                                    <i class="fa fa-thumbs-down"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gametech</td>
+                            <td>Análise e Desenvolvimento de Sistemas</td>
+                            <td>Semana que vem</td>
+                            <td>
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
 
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
+                                    <i class="fa fa-thumbs-up"></i>
+                                </button>
 
-                            <button class="button button-danger circular-button tooltip">
-                                <span class="tooltiptext">Cancelar Presença</span>
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
 
-                                <i class="fa fa-thumbs-down"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Gametech</td>
-                        <td>Análise e Desenvolvimento de Sistemas</td>
-                        <td>Mês que vem</td>
-                        <td>
-                            <button class="button button-success circular-button tooltip">
-                                <span class="tooltiptext">Confirmar Presença</span>
+                                    <i class="fa fa-thumbs-down"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gametech</td>
+                            <td>Análise e Desenvolvimento de Sistemas</td>
+                            <td>Mês que vem</td>
+                            <td>
+                                <button class="button button-success circular-button tooltip">
+                                    <span class="tooltiptext">Confirmar Presença</span>
 
-                                <i class="fa fa-thumbs-up"></i>
-                            </button>
+                                    <i class="fa fa-thumbs-up"></i>
+                                </button>
 
-                            <button class="button button-danger circular-button tooltip">
-                                <span class="tooltiptext">Cancelar Presença</span>
+                                <button class="button button-danger circular-button tooltip">
+                                    <span class="tooltiptext">Cancelar Presença</span>
 
-                                <i class="fa fa-thumbs-down"></i>
-                            </button>
-                        </td>
-                    </tr>
+                                    <i class="fa fa-thumbs-down"></i>
+                                </button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

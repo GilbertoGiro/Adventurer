@@ -4,7 +4,7 @@
             event.preventDefault();
 
             let request = $.ajax({
-                url: '{{ route('user.modal.recovery') }}',
+                url: '{{ route('admin.modal.recovery') }}',
                 method: 'GET',
                 data: {}
             });

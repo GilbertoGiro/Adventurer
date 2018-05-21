@@ -1,6 +1,6 @@
 <div class="modal">
     <div class="modal-content">
-        <form action="{{ route('user.recovery.request') }}" method="post" style="margin:0 !important;">
+        <form action="{{ route('admin.recovery.request') }}" method="post" style="margin:0 !important;">
             {{ csrf_field() }}
 
             <div class="modal-header background-strong-blue white">
