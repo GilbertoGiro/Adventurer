@@ -23,6 +23,7 @@ Route::group(['prefix' => 'administrador'], function(){
         // Routes about Users
         Route::get('usuarios', 'UserController@index')->name('admin.user');
         Route::get('usuarios/{id}', 'UserController@show')->name('admin.user.show');
+        Route::get('usuarios/edit/{id}', 'UserController@edit')->name('admin.user.edit');
 
         // Routes about Events
         Route::get('lista-de-eventos', 'EventController@index')->name('admin.event');

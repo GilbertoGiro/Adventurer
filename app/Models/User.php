@@ -63,6 +63,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Method to get related Themes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function theme()
+    {
+        return $this->hasMany(Theme::class, 'idusuario', 'id');
+    }
+
+    /**
      * Method to check if Model User is Admin
      *
      * @return bool

@@ -58,6 +58,10 @@ body{
     font-size:15px;
     list-style:none;
 }
+.application-body-header .option:last-child{
+    color:#FFFFFF;
+    font-weight:bold !important;
+}
 .application-body-header .option-icon{
     padding:12px;
     margin:0 -15px 0 -15px;

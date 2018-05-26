@@ -9,7 +9,7 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/seo-marketing/png/083-address-book.png') }}" width="70px">
+            <img src="{{ asset('img/seo-marketing/png/035-chat-2.png') }}" width="75px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
@@ -54,11 +54,13 @@
                                         </button>
                                     </a>
 
-                                    <button class="button button-success circular-button tooltip">
-                                        <span class="tooltiptext">Editar Usuário</span>
+                                    <a href="{{ route('admin.user.edit', $user->id) }}">
+                                        <button class="button button-success circular-button tooltip">
+                                            <span class="tooltiptext">Editar Usuário</span>
 
-                                        <i class="fa fa-edit"></i>
-                                    </button>
+                                            <i class="fa fa-edit"></i>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         @endforeach

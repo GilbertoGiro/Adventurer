@@ -31,53 +31,17 @@
             </div>
 
             <div class="card-body p-md">
-                <div class="inline-block align-top p-sm m-l-md">
-                    <img src="{{ asset('img/blank-profile-picture.png') }}" width="165px">
+                <div class="inline-block align-middle p-sm m-l-md">
+                    <img src="{{ asset('img/blank-profile-picture.png') }}" width="135px">
                 </div>
 
-                <div class="inline-block align-top p-md m-l-md">
+                <div class="inline-block align-middle p-md m-l-md">
                     <span class="block"><b>Nome Completo:</b> {{ $client->nome }}</span>
                     <span class="block m-t-md"><b>E-mail:</b> {{ $client->email }}</span>
-                    <span class="block m-t-md"><b>Curso:</b> {{ $client->course->nome }}</span>
+                    <span class="block m-t-md"><b>Curso:</b> {{ ($client->course) ? $client->course->nome : 'Não definido' }}</span>
                     <span class="block m-t-md"><b>Papel:</b> {{ $client->paper->nome }}</span>
                     <span class="block m-t-md"><b>Registrado em:</b> {{ (!empty($client->created_at)) ? (new \Carbon\Carbon($client->created_at))->format('d/m/Y') : 'Não informado' }}</span>
                 </div>
-            </div>
-        </div>
-
-        <div class="block card m-t-lg" style="width:100%;min-height:220px;">
-            <div class="card-header background-weak-blue white">
-                <h3 class="m-t-sm">
-                    Participações Confirmadas/Efetuadas
-
-                    <i class="fa fa-bookmark right" style="margin-top:3px;"></i>
-                </h3>
-            </div>
-
-            <div class="card-body p-md">
-                <table>
-                    <thead class="background-strong-blue white">
-                        <tr>
-                            <th>Evento</th>
-                            <th>Apresentador</th>
-                            <th>Data</th>
-                            <th>Participação Confirmada?</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if(!empty($client->participation) && count($client->participation))
-                            @foreach($client->participation as $participation)
-                                <tr>
-                                    <td></td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr class="text-center">
-                                <td colspan="3">Nenhum registro encontrado</td>
-                            </tr>
-                        @endif
-                    </tbody>
-                </table>
             </div>
         </div>
 
@@ -91,7 +55,40 @@
             </div>
 
             <div class="card-body p-md">
-                Olá mundo!
+                <table class="p-sm">
+                    <thead class="background-strong-blue white">
+                        <tr>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Criado em</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if(count($client->theme))
+                            @foreach($client->theme as $theme)
+                                <tr class="text-center">
+                                    <td>{{ $theme->titulo }}</td>
+                                    <td>{{ $theme->descricao }}</td>
+                                    <td>{{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y') }}</td>
+                                    <td>
+                                        <a href="">
+                                            <button type="button" class="button button-success circular-button tooltip">
+                                                <span class="tooltiptext">Visualizar o Tema</span>
+
+                                                <i class="fa fa-info"></i>
+                                            </button>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr class="text-center">
+                                <td colspan="4">Este usuário não sugeriu nenhum tema</td>
+                            </tr>
+                        @endif
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
