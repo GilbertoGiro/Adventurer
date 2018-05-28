@@ -3,6 +3,7 @@
 namespace App\Utilities;
 
 use App\Models\Course;
+use App\Models\Paper;
 
 class Arrays{
     /**
@@ -26,5 +27,15 @@ class Arrays{
     public static function courses()
     {
         return Course::all()->toArray();
+    }
+
+    /**
+     * Method to get Papers List
+     *
+     * @return array
+     */
+    public static function papers()
+    {
+        return Paper::all()->toArray();
     }
 }

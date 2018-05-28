@@ -34,21 +34,24 @@
                     <img src="{{ asset('img/blank-profile-picture.png') }}" width="135px">
                 </div>
 
-                <form action="" method="post" class="inline-block text-left align-top p-md m-l-md" style="width:80%;padding-bottom:0;">
+                <form method="post" class="inline-block text-left align-top p-md m-l-md" style="width:80%;padding-bottom:0;">
+                    {{ csrf_field() }}
+                    {{ method_field('PUT') }}
+
                     <div class="form-group">
                         <label for="nome" class="block form-label"><b>Nome Completo:</b></label>
-                        <input type="text" name="nome" class="form-input" value="{{ $client->nome }}" id="nome">
+                        <input type="text" name="nome" class="form-input" value="{{ old('nome', $client->nome) }}" id="nome">
                     </div>
                     <div class="form-group m-t-md">
                         <label for="email" class="block form-label"><b>E-mail:</b></label>
-                        <input type="email" name="email" class="form-input" value="{{ $client->email }}" id="email">
+                        <input type="email" name="email" class="form-input" value="{{ old('email', $client->email) }}" id="email">
                     </div>
                     <div class="form-group m-t-md">
                         <label for="idpapel" class="block form-label"><b>Papel:</b></label>
                         <select name="idpapel" class="form-input" id="idpapel">
                             <option value="">Selecione uma opção</option>
                             @foreach($papers as $paper)
-                                <option value="{{ $paper->id }}" {{ ($client->idpapel === $paper->id) ? 'selected' : '' }}>{{ $paper->nome }}</option>
+                                <option value="{{ $paper->id }}" {{ (old('idpapel', $client->idpapel) === $paper->id) ? 'selected' : '' }}>{{ $paper->nome }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -57,7 +60,7 @@
                     </div>
 
                     <div class="form-group m-t-lg text-right">
-                        <button class="button button-success">
+                        <button type="submit" class="button button-success">
                             Salvar Alterações <i class="fa fa-save"></i>
                         </button>
                     </div>

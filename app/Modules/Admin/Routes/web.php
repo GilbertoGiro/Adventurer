@@ -24,9 +24,13 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::get('usuarios', 'UserController@index')->name('admin.user');
         Route::get('usuarios/{id}', 'UserController@show')->name('admin.user.show');
         Route::get('usuarios/edit/{id}', 'UserController@edit')->name('admin.user.edit');
+        Route::put('usuarios/edit/{id}', 'UserController@update');
 
         // Routes about Events
         Route::get('lista-de-eventos', 'EventController@index')->name('admin.event');
+
+        // Routes about Themes
+        Route::get('temas', 'ThemeController@index')->name('admin.suggest');
 
         // Route to logout
         Route::get('logout', 'LoginController@logout');

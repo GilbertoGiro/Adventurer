@@ -3,17 +3,17 @@
 @section('path')
     <li class="option disabled-option inline-block">Página Inicial</li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
-    <li class="option disabled-option inline-block">Lista de Usuários</li>
+    <li class="option disabled-option inline-block">Lista de Temas</li>
 @endsection
 
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/seo-marketing/png/035-chat-2.png') }}" width="75px">
+            <img src="{{ asset('img/seo-marketing/png/091-mobile-web-1.png') }}" width="75px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
-            <h2 class="m-t-sm">Usuários - Gerenciar Informações</h2>
+            <h2 class="m-t-sm">Temas - Gerenciar Informações</h2>
         </div>
     </div>
 
@@ -64,23 +64,23 @@
                 <table>
                     <thead class="background-strong-blue white">
                         <tr>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Curso</th>
-                            <th>Papel</th>
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Enviada por</th>
+                            <th>Status</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @if(count($users['data']))
-                            @foreach($users['data'] as $user)
+                        @if(count($themes['data']))
+                            @foreach($themes['data'] as $theme)
                                 <tr class="text-center">
-                                    <td>{{ $user->nome }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ (!empty($user->course)) ? $user->course->nome : 'Não informado' }}</td>
-                                    <td>{{ $user->paper->nome }}</td>
+                                    <td>{{ $theme->titulo }}</td>
+                                    <td>{{ $theme->descricao }}</td>
+                                    <td>{{ $theme->nmusuario }}</td>
+                                    <td>{{ $theme->sttema }}</td>
                                     <td>
-                                        <a href="{{ route('admin.user.show', $user->id) }}" class="text-decoration-none">
+                                        <a href="{{ route('admin.user.show', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar Usuário</span>
 
@@ -88,7 +88,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.user.edit', $user->id) }}">
+                                        <a href="{{ route('admin.user.edit', $theme->id) }}">
                                             <button class="button button-success circular-button tooltip">
                                                 <span class="tooltiptext">Editar Usuário</span>
 
@@ -105,7 +105,7 @@
                         @endif
                         <tr>
                             <td colspan="3"></td>
-                            <td class="text-right" colspan="2">Visualizando <b>{{ $users['filter'] }}</b> de <b>{{ $users['count'] }}</b> usuários</td>
+                            <td class="text-right" colspan="2">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
                         </tr>
                     </tbody>
                 </table>

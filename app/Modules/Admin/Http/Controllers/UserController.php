@@ -3,8 +3,10 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\User\Http\Requests\UserRequest;
 use App\Services\PaperService;
 use App\Services\UserService;
+use Illuminate\Http\Request;
 
 class UserController extends Controller{
     /**
@@ -32,12 +34,13 @@ class UserController extends Controller{
     /**
      * Method to show Users List
      *
+     * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
         $user  = true;
-        $users = $this->service->all();
+        $users = $this->service->get('*', $request, 'object');
 
         return view('admin::user.index', compact('user', 'users'));
     }
@@ -69,5 +72,23 @@ class UserController extends Controller{
         $papers = $this->paperService->all();
 
         return view('admin::user.edit', compact('user', 'client', 'papers'));
+    }
+
+    /**
+     * Method to update User Information
+     *
+     * @param UserRequest $request
+     * @param $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(UserRequest $request, $id)
+    {
+        $condition = $this->service->update($request->all(), $id);
+
+        if($condition['status'] === '00'){
+            return redirect()->back()->withErrors(['message' => 'Alterações realizadas com sucesso.', 'type' => 'success']);
+        }
+
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'error'])->withInput($request->all());
     }
 }

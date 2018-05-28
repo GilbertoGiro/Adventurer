@@ -415,6 +415,7 @@ table tbody td:last-child{
     border-radius:4px;
     top:15px;
     right:15px;
+    z-index:2;
     word-wrap:break-word;
     cursor:pointer;
     visibility:hidden;

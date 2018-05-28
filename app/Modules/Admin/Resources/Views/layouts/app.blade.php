@@ -52,7 +52,7 @@
                                 <li>Lista de Eventos <i class="fa fa-cogs white"></i></li>
                             </a>
 
-                            <a href="{{ route('user.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
+                            <a href="{{ route('admin.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
                                 <li>Sugestões Recebidas <i class="fas fa-boxes white"></i></li>
                             </a>
                         </ul>

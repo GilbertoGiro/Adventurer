@@ -30,7 +30,14 @@ abstract class AbstractService{
     /**
      * @var array
      */
-    protected $filtersOrder;
+    protected $filtersOrder = [
+        'query',
+        'with',
+        'paginated',
+        'orderByAsc',
+        'orderByDesc',
+        'limit'
+    ];
 
     /**
      * Filter constructor.
@@ -40,7 +47,7 @@ abstract class AbstractService{
     protected function __construct(Model $model)
     {
         $this->model = $model;
-        $this->filtersOrder = $this->model->getFillable();
+        $this->filtersOrder = array_merge($this->model->getFillable(), $this->filtersOrder);
     }
 
     /**
@@ -58,20 +65,36 @@ abstract class AbstractService{
      *
      * @param $columns
      * @param Request $request
+     * @param string $format
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
-    public function get($columns = '*', Request $request)
+    public function get($columns, Request $request, $format = 'array')
     {
         $this->request = $request;
         $this->result  = $this->model->select($columns);
 
+        if(empty($this->request->get('paginated'))){
+            $this->request->merge(['paginated' => true]);
+        }
+
+        if(empty($this->request->get('limit'))){
+            $this->request->merge(['limit' => 15]);
+        }
+
         foreach($this->filtersOrder as $key => $value){
             $filter = $this->request->get($value);
 
-            if($this->columnExists($value) && !empty($filter)){
-                $this->where($value, $filter);
+            if(method_exists($this, $value) && !empty($filter)){
+                $this->$value($filter);
+            }else{
+                if($this->columnExists($value) && !empty($filter)){
+                    $this->where($value, $filter);
+                }
             }
         }
+
+        $array = ($format === 'array') ? $this->result->toArray() : $this->result;
+        $results = (isset($array['data'])) ? $array['data'] : $array;
 
         $this->return['data']   = (!empty($results['data'])) ? $results['data'] : $results;
         $this->return['count']  = $this->model->count();
@@ -110,18 +133,7 @@ abstract class AbstractService{
      */
     public function findBy(array $data)
     {
-        $return = $this->model->all();
-
-        foreach($data as $key => $value){
-            if(is_array($value)){
-                $return = $return->whereIn($key, $value);
-                continue;
-            }
-
-            $return = $return->where($key, $value);
-        }
-
-        return $return;
+        return $this->model->findBy($data);
     }
 
     /**
@@ -140,17 +152,14 @@ abstract class AbstractService{
      *
      * @param array $data
      * @param int $id
-     * @return array
+     * @return mixed
      */
     public function update(array $data, int $id)
     {
         $elem = $this->model->find($id);
+        $elem->update($data);
 
-        if($elem->update($data)){
-            return ['status' => '00'];
-        }
-
-        return ['status' => '01', 'message' => 'Não foi possível atualizar o registro'];
+        return $elem;
     }
 
     /**
@@ -163,10 +172,57 @@ abstract class AbstractService{
     public function delete($id)
     {
         if($this->model->delete($id)){
-            return ['status' => '00'];
+            return [];
         }
+    }
 
-        return ['status' => '01', 'message' => 'Não foi possível excluir o registro'];
+    /**
+     * Method to paginate rows
+     *
+     * @param $value
+     */
+    private function paginated($value) : void
+    {
+        $value = json_decode($value);
+
+        if($value){
+            $this->result = $this->result->paginate($this->request->get('limit'));
+
+            $this->return['page']  = $this->result->currentPage() - 1;
+            $this->return['pages'] = $this->result->lastPage();
+        }else{
+            $this->result = $this->result->get();
+        }
+    }
+
+    /**
+     * Method to get rows with some associated Table Information
+     *
+     * @param $value
+     */
+    private function with($value) : void
+    {
+        $this->result = $this->result->with($value);
+    }
+
+    /**
+     * Method to Order Rows by passed Columns
+     *
+     * @param string $value
+     */
+    private function orderByAsc(string $value) : void
+    {
+        $this->result = $this->result->sortBy($value);
+    }
+
+    /**
+     * Method to Order Rows by passed Columns
+     *
+     * @param $value
+     */
+    private function orderByDesc(string $value) : void
+    {
+        $this->result = $this->result->sortByDesc($value);
     }
 
     /**
@@ -188,16 +244,40 @@ abstract class AbstractService{
      */
     private function where($key, $value) : void
     {
-        $type = Schema::getColumnType($this->model->getTable(), $key);
-
-        if(!in_array($type, ['integer', 'boolean'])){
-            $value = (string) $value;
-
+        if(!((int) $value)){
             $this->result = $this->result->where(function($query) use ($key, $value){
                 $query->whereRaw("LOWER({$key}) LIKE LOWER(?)", '%'.$value.'%');
             });
         }else{
-            $this->result = $this->result->where($key, $value);
+            if(is_array($value)){
+                $this->result = $this->result->whereIn($key, $value);
+            }else{
+                $this->result = $this->result->where($key, $value);
+            }
+        }
+    }
+
+    /**
+     * Method to get Model Objects by passed Condition
+     *
+     * @param $value
+     */
+    private function query($value) : void
+    {
+        $columns = $this->model->getFillable();
+
+        foreach($columns as $column){
+            $type = Schema::getColumnType($this->model->getTable(), $column);
+
+            if($type != 'integer' && $type != 'boolean'){
+                if(!in_array(gettype($value), ['integer', 'boolean'])){
+                    $this->result = $this->result->orWhere($column, 'LIKE', '%' . $value . '%');
+                }
+            }else{
+                if(!in_array(gettype($value), ['string', 'text'])){
+                    $this->result = $this->result->orWhere($column, $value);
+                }
+            }
         }
     }
 }
