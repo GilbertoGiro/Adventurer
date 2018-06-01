@@ -39,6 +39,10 @@ class UserController extends Controller{
      */
     public function index(Request $request)
     {
+        if(!$request->get('orderByAsc')){
+            $request->merge(['orderByAsc' => 'nome']);
+        }
+
         $user  = true;
         $users = $this->service->get('*', $request, 'object');
 

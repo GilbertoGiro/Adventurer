@@ -31,6 +31,8 @@ Route::group(['prefix' => 'administrador'], function(){
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
+        Route::get('temas/{id}', 'ThemeController@show')->name('admin.suggest.show');
+        Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 
         // Route to logout
         Route::get('logout', 'LoginController@logout');

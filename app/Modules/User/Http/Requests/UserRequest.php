@@ -36,7 +36,7 @@ class UserRequest extends FormRequest
             case 'PUT':
                 return [
                     'nome'    => 'required|between:1,200',
-                    'email'   => 'required|between:1,200|unique:usuario',
+                    'email'   => 'required|between:1,200|unique:usuario,email,' . request('id'),
                     'idpapel' => 'exists:papel,id'
                 ];
                 break;

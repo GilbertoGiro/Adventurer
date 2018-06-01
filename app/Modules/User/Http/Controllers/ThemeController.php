@@ -52,4 +52,18 @@ class ThemeController extends Controller{
 
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
+
+    /**
+     * Method to get Theme Photo
+     *
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function image($id)
+    {
+        $theme = $this->service->find($id);
+
+        return response(file_get_contents(storage_path('app/' . $theme->photo_raw)))
+            ->header('Content-Type', 'image/png');
+    }
 }

@@ -18,7 +18,7 @@ class Theme extends Model{
      * @var array
      */
     protected $fillable = [
-        'titulo', 'descricao', 'nmusuario', 'email', 'idcurso', 'sttema', 'idusuario', 'idresponsavel'
+        'titulo', 'descricao', 'nmusuario', 'email', 'idcurso', 'sttema', 'idusuario', 'idresponsavel', 'photo'
     ];
 
     /**
@@ -49,5 +49,25 @@ class Theme extends Model{
     public function admin()
     {
         return $this->belongsTo(User::class, 'idresponsavel', 'id');
+    }
+
+    /**
+     * Method to get Photo Attribute
+     *
+     * @return string
+     */
+    public function getPhotoAttribute()
+    {
+        return env('APP_URL') . 'administrador/temas/imagem/' . $this->attributes['id'];
+    }
+
+    /**
+     * Method to get Photo Raw Attribute
+     *
+     * @return string
+     */
+    public function getPhotoRawAttribute()
+    {
+        return $this->attributes['photo'];
     }
 }

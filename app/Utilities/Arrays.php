@@ -20,6 +20,23 @@ class Arrays{
     }
 
     /**
+     * Method to get Theme Status Label by passe Status
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function themeStatusLabel($status)
+    {
+        $labels = [
+            'abe' => '<span class="gold bold">Pendente</span>',
+            'apr' => '<span class="green bold">Aprovado</span>',
+            'rep' => '<span class="red bold">Reprovado</span>'
+        ];
+
+        return $labels[$status];
+    }
+
+    /**
      * Method to get Courses list
      *
      * @return array

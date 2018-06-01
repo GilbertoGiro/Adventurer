@@ -9,17 +9,21 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/seo-marketing/png/035-chat-2.png') }}" width="75px">
+            <img src="{{ asset('img/seo-marketing/png/089-target.png') }}" width="80px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
             <h2 class="m-t-sm">Usuários - Gerenciar Informações</h2>
+
+            <span class="block" style="margin-top:-3px;margin-left:4px;">
+                Visualize aqui todas as informações referente aos <b>Usuários</b>.
+            </span>
         </div>
     </div>
 
     <div class="p-md">
         <div class="block text-center">
-            <form action="">
+            <form>
                 <div class="form-group text-left inline-block" style="width:25%;">
                     <label for="nome" class="form-label bold">Nome do Usuário</label>
                     <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome do Usuário" value="{{ request('nome') }}">
@@ -64,10 +68,10 @@
                 <table>
                     <thead class="background-strong-blue white">
                         <tr>
-                            <th>Nome</th>
-                            <th>E-mail</th>
-                            <th>Curso</th>
-                            <th>Papel</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Nome', 'nome') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('E-mail', 'email') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Curso', 'idcurso') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Papel', 'idpapel') !!}</th>
                             <th>Ações</th>
                         </tr>
                     </thead>

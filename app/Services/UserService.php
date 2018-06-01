@@ -61,4 +61,27 @@ class UserService extends AbstractService{
             return ['status' => '01', 'message' => $e->getMessage()];
         }
     }
+
+    /**
+     * Method to update User
+     *
+     * @param array $data
+     * @param int $id
+     * @return array|mixed
+     */
+    public function update(array $data, int $id)
+    {
+        try{
+            $user = $this->model->find($id);
+
+            if($user->update($data)){
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            return ['status' => '01', 'message' => 'Não foi possível criar o registro.'];
+        }catch(\Exception $e){
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
 }

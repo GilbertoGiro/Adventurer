@@ -22,7 +22,7 @@
 
     <div class="p-md">
         <div class="card block" style="width:100%;">
-            <div class="card-header background-weak-blue white">
+            <div class="card-header background-strong-blue white">
                 <h3 class="m-t-sm">
                     Informações Completas
 
@@ -46,7 +46,7 @@
         </div>
 
         <div class="block card m-t-lg" style="width:100%;">
-            <div class="card-header p-md background-weak-blue white">
+            <div class="card-header p-md background-strong-blue white">
                 <h3 class="m-t-sm">
                     Temas Sugeridos
 
@@ -56,12 +56,20 @@
 
             <div class="card-body p-md">
                 <table class="p-sm">
-                    <thead class="background-strong-blue white">
+                    <thead class="background-green white">
                         <tr>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Criado em</th>
-                            <th>Ações</th>
+                            <th>
+                                Título <i class="fa fa-book"></i>
+                            </th>
+                            <th>
+                                Descrição <i class="fa fa-comment-alt"></i>
+                            </th>
+                            <th>
+                                Criado em <i class="fa fa-calendar-check"></i>
+                            </th>
+                            <th>
+                                Ações <i class="fa fa-cogs"></i>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,8 +80,8 @@
                                     <td>{{ $theme->descricao }}</td>
                                     <td>{{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y') }}</td>
                                     <td>
-                                        <a href="">
-                                            <button type="button" class="button button-success circular-button tooltip">
+                                        <a href="{{ route('admin.suggest.show', $theme->id) }}">
+                                            <button type="button" class="button button-warning circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar o Tema</span>
 
                                                 <i class="fa fa-info"></i>

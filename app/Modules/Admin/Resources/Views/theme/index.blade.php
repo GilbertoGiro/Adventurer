@@ -9,39 +9,37 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/seo-marketing/png/091-mobile-web-1.png') }}" width="75px">
+            <img src="{{ asset('img/tasks/png/017-inbox.png') }}" width="85px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
             <h2 class="m-t-sm">Temas - Gerenciar Informações</h2>
+            <span class="block" style="margin-top:-3px;margin-left:4px;">
+                Visualize aqui todas as informações referente às <b>Sugestões de Tema</b> enviadas por usuários da aplicação
+            </span>
         </div>
     </div>
 
-    <div class="p-md">
+    <div class="p-md" style="margin-top:-4px;">
         <div class="block text-center">
-            <form action="">
+            <form>
                 <div class="form-group text-left inline-block" style="width:25%;">
-                    <label for="nome" class="form-label bold">Nome do Usuário</label>
-                    <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome do Usuário" value="{{ request('nome') }}">
+                    <label for="titulo" class="form-label bold">Título</label>
+                    <input type="text" name="titulo" class="form-input" id="titulo" placeholder="Título do Tema" value="{{ request('titulo') }}">
                 </div>
 
                 <div class="form-group text-left inline-block m-l-md" style="width:25%;">
-                    <label for="idcurso" class="form-label bold">Curso</label>
-                    <select name="idcurso" class="form-input" id="idcurso">
-                        <option value="">Selecione o Curso</option>
-                        @foreach(\App\Utilities\Arrays::courses() as $course)
-                            <option value="{{ $course['id'] }}" {{ (request('idcurso') == $course['id']) ? 'selected' : '' }}>{{ $course['nome'] }}</option>
-                        @endforeach
-                    </select>
+                    <label for="nmusuario" class="form-label bold">Usuário</label>
+                    <input type="text" name="nmusuario" class="form-input" id="nmusuario" placeholder="Nome do Usuário" value="{{ request('nmusuario') }}">
                 </div>
 
                 <div class="form-group text-left inline-block m-l-md" style="width:25%;">
-                    <label for="idpapel" class="form-label bold">Papel</label>
-                    <select name="idpapel" class="form-input" id="idpapel">
+                    <label for="sttema" class="form-label bold">Status</label>
+                    <select name="sttema" class="form-input" id="sttema">
                         <option value="">Selecione o Curso</option>
-                        @foreach(\App\Utilities\Arrays::papers() as $paper)
-                            <option value="{{ $paper['id'] }}" {{ (request('idpapel') == $paper['id']) ? 'selected' : '' }}>{{ $paper['nome'] }}</option>
-                        @endforeach
+                        <option value="abe" {{ (request('sttema') === 'abe') ? 'selected' : '' }}>Aberto</option>
+                        <option value="apr" {{ (request('sttema') === 'apr') ? 'selected' : '' }}>Aprovado</option>
+                        <option value="rep" {{ (request('sttema') === 'rep') ? 'selected' : '' }}>Reprovado</option>
                     </select>
                 </div>
 
@@ -54,7 +52,7 @@
         <div class="card block m-t-sm">
             <div class="card-header background-weak-blue white">
                 <h3 class="m-t-sm bold">
-                    Lista de Usuários
+                    Lista de Temas
 
                     <i class="fa fa-users right" style="margin-top:3px"></i>
                 </h3>
@@ -64,10 +62,10 @@
                 <table>
                     <thead class="background-strong-blue white">
                         <tr>
-                            <th>Título</th>
-                            <th>Descrição</th>
-                            <th>Enviada por</th>
-                            <th>Status</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Título', 'titulo') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Descrição', 'descricao') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Enviada por', 'nmusuario') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Status', 'sttema') !!}</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -78,21 +76,29 @@
                                     <td>{{ $theme->titulo }}</td>
                                     <td>{{ $theme->descricao }}</td>
                                     <td>{{ $theme->nmusuario }}</td>
-                                    <td>{{ $theme->sttema }}</td>
+                                    <td>{{ ($theme->sttema === 'abe') ? 'Aberto' : 'Fechado' }}</td>
                                     <td>
-                                        <a href="{{ route('admin.user.show', $theme->id) }}" class="text-decoration-none">
+                                        <a href="{{ route('admin.suggest.show', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
-                                                <span class="tooltiptext">Visualizar Usuário</span>
+                                                <span class="tooltiptext">Visualizar Tema</span>
 
-                                                <i class="fa fa-address-book"></i>
+                                                <i class="fa fa-book"></i>
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.user.edit', $theme->id) }}">
+                                        <a href="{{ route('admin.user.edit', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-success circular-button tooltip">
-                                                <span class="tooltiptext">Editar Usuário</span>
+                                                <span class="tooltiptext">Aprovar Tema</span>
 
-                                                <i class="fa fa-edit"></i>
+                                                <i class="fa fa-thumbs-up"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="{{ route('admin.user.edit', $theme->id) }}" class="text-decoration-none">
+                                            <button class="button button-danger circular-button tooltip">
+                                                <span class="tooltiptext">Reprovar Tema</span>
+
+                                                <i class="fa fa-thumbs-down"></i>
                                             </button>
                                         </a>
                                     </td>

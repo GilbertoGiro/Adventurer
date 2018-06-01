@@ -33,7 +33,7 @@
 
             <div class="card-body p-md" style="padding:6px 12px 6px 12px;">
                 <div class="steps p-sm" data-href="">
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         {{ csrf_field() }}
 
                         <div data-function="step" style="padding-bottom:0">
@@ -71,6 +71,11 @@
                             <div class="form-group m-t-md">
                                 <label for="descricao" class="form-label">Descrição do Tema</label>
                                 <textarea name="descricao" class="form-text-area required-summernote summernote" id="descricao" placeholder="Descrição do Tema">{{ old('descricao') }}</textarea>
+                            </div>
+                            
+                            <div class="form-group m-t-md">
+                                <label for="photo" class="form-label">Imagem do Tema</label>
+                                <input type="file" name="photo" class="block" style="margin-top:8px">
                             </div>
                         </div>
                     </form>
