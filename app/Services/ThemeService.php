@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Theme;
 use App\Models\User;
+use App\Notifications\ApprovedTheme;
 use App\Notifications\NewTheme;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -70,6 +71,31 @@ class ThemeService extends AbstractService{
             return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
         }catch(\Exception $e){
             DB::rollback();
+            return ['status' => '01', 'message' => $e->getMessage()];
+        }
+    }
+
+    /**
+     * Method to update Theme Information
+     *
+     * @param array $data
+     * @param int $id
+     * @return array|mixed
+     */
+    public function update(array $data, int $id)
+    {
+        try{
+            $theme = $this->find($id);
+            $admin = Auth::guard('admin')->user();
+
+            if($theme->update($data)){
+                $theme->user->notify(new ApprovedTheme(['titulo' => $theme->titulo, 'nmusuario' => $admin->nome]));
+
+                return ['status' => '00'];
+            }
+
+            return ['status' => '01', 'Não foi possível realizar a ação solicitada'];
+        }catch(\Exception $e){
             return ['status' => '01', 'message' => $e->getMessage()];
         }
     }

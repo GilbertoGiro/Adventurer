@@ -29,6 +29,7 @@ class ThemeRequest extends FormRequest
             'nmusuario' => 'required',
             'email'     => 'required',
             'idcurso'   => 'required|exists:curso,id',
+            'photo'     => 'nullable|mimes:jpeg,jpg,png,gif'
         ];
     }
 
@@ -41,7 +42,8 @@ class ThemeRequest extends FormRequest
     {
         return [
             'required' => 'O campo :attribute é obrigatório',
-            'exists'   => 'O valor informado em :attribute não é válido'
+            'exists'   => 'O valor informado em :attribute não é válido',
+            'mimes'    => 'Os tipos suportados de imagem são: jpeg,jpg,png,gif'
         ];
     }
 
@@ -58,6 +60,7 @@ class ThemeRequest extends FormRequest
             'nmusuario' => 'Nome',
             'email'     => 'E-mail',
             'idcurso'   => 'Curso',
+            'photo'     => 'Imagem do Tema'
         ];
     }
 }

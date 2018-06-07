@@ -32,6 +32,7 @@ Route::group(['prefix' => 'administrador'], function(){
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
         Route::get('temas/{id}', 'ThemeController@show')->name('admin.suggest.show');
+        Route::put('temas/{id}', 'ThemeController@update');
         Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 
         // Route to logout
@@ -49,4 +50,5 @@ Route::group(['prefix' => 'administrador'], function(){
 
     // Routes about Modal
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('admin.modal.recovery');
+    Route::get('/modal/aprovar/tema', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
 });

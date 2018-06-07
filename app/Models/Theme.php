@@ -58,6 +58,10 @@ class Theme extends Model{
      */
     public function getPhotoAttribute()
     {
+        if(empty($this->attributes['photo'])){
+            return null;
+        }
+
         return env('APP_URL') . 'administrador/temas/imagem/' . $this->attributes['id'];
     }
 

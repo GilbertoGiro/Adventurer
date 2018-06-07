@@ -79,10 +79,12 @@
                         @if(count($users['data']))
                             @foreach($users['data'] as $user)
                                 <tr class="text-center">
-                                    <td>{{ $user->nome }}</td>
+                                    <td class="bold">{{ $user->nome }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ (!empty($user->course)) ? $user->course->nome : 'Não informado' }}</td>
-                                    <td>{{ $user->paper->nome }}</td>
+                                    <td>
+                                        <span class="label background-weak-blue white">{{ $user->paper->nome }}</span>
+                                    </td>
                                     <td>
                                         <a href="{{ route('admin.user.show', $user->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
@@ -108,11 +110,12 @@
                             </tr>
                         @endif
                         <tr>
-                            <td colspan="3"></td>
-                            <td class="text-right" colspan="2">Visualizando <b>{{ $users['filter'] }}</b> de <b>{{ $users['count'] }}</b> usuários</td>
+                            <td class="text-right" colspan="5">Visualizando <b>{{ $users['filter'] }}</b> de <b>{{ $users['count'] }}</b> usuários</td>
                         </tr>
                     </tbody>
                 </table>
+
+                {{ $users['data']->links() }}
             </div>
 
             <div class="card-footer"></div>

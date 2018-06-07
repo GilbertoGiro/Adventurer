@@ -33,9 +33,9 @@ abstract class AbstractService{
     protected $filtersOrder = [
         'query',
         'with',
-        'paginated',
         'orderByAsc',
         'orderByDesc',
+        'paginated',
         'limit'
     ];
 
@@ -73,6 +73,8 @@ abstract class AbstractService{
         $this->request = $request;
         $this->result  = $this->model->select($columns);
 
+        $this->request->merge(['limit' => 6]);
+
         if(empty($this->request->get('paginated'))){
             $this->request->merge(['paginated' => true]);
         }
@@ -83,6 +85,10 @@ abstract class AbstractService{
 
         foreach($this->filtersOrder as $key => $value){
             $filter = $this->request->get($value);
+
+            if(!strcmp($value,'orderByAsc') && $this->request->get('orderByDesc')){
+                continue;
+            }
 
             if(method_exists($this, $value) && !empty($filter)){
                 $this->$value($filter);
@@ -212,7 +218,7 @@ abstract class AbstractService{
      */
     private function orderByAsc(string $value) : void
     {
-        $this->result = $this->result->sortBy($value);
+        $this->result = $this->result->orderBy($value);
     }
 
     /**
@@ -222,7 +228,7 @@ abstract class AbstractService{
      */
     private function orderByDesc(string $value) : void
     {
-        $this->result = $this->result->sortByDesc($value);
+        $this->result = $this->result->orderByDesc($value);
     }
 
     /**

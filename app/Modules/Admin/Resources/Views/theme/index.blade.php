@@ -63,7 +63,6 @@
                     <thead class="background-strong-blue white">
                         <tr>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Título', 'titulo') !!}</th>
-                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Descrição', 'descricao') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Enviada por', 'nmusuario') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Status', 'sttema') !!}</th>
                             <th>Ações</th>
@@ -73,10 +72,9 @@
                         @if(count($themes['data']))
                             @foreach($themes['data'] as $theme)
                                 <tr class="text-center">
-                                    <td>{{ $theme->titulo }}</td>
-                                    <td>{{ $theme->descricao }}</td>
+                                    <td class="bold">{{ $theme->titulo }}</td>
                                     <td>{{ $theme->nmusuario }}</td>
-                                    <td>{{ ($theme->sttema === 'abe') ? 'Aberto' : 'Fechado' }}</td>
+                                    <td>{!! ($theme->sttema !== 'abe') ? ($theme->sttema !== 'apr') ? '<span class="label white background-red">Reprovado</span>' : '<span class="label white background-green">Aprovado</span>' : '<span class="label white background-gold">Aberto</span>' !!}</td>
                                     <td>
                                         <a href="{{ route('admin.suggest.show', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
@@ -106,11 +104,11 @@
                             @endforeach
                         @else
                             <tr class="text-center">
-                                <td colspan="5">Nenhum registro encontrado</td>
+                                <td colspan="4">Nenhum registro encontrado</td>
                             </tr>
                         @endif
                         <tr>
-                            <td colspan="3"></td>
+                            <td colspan="2"></td>
                             <td class="text-right" colspan="2">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
                         </tr>
                     </tbody>

@@ -1,5 +1,6 @@
 <div class="inline-block m-r-md action pointer notifications dropdown">
     <i class="fa fa-bell milk"></i>
+    <span class="notification-count align-top inline-block">{{ count($notifications) }}</span>
 
     <div class="dropdown-items text-left">
         <div class="block" style="border-bottom:1px solid #E0E0E0;padding:12px 3px 12px 3px;">
@@ -10,7 +11,9 @@
             @if(count($notifications))
                 @foreach($notifications as $notification)
                     <div class="notification block">
-                        {{ $notification['message'] }}
+                        <span class="block">
+                            {!! $notification['data']['message'] !!} - <b>{{ $notification['data']['issuer'] }}</b>
+                        </span>
                     </div>
                 @endforeach
             @else

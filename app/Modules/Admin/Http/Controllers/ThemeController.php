@@ -37,6 +37,24 @@ class ThemeController extends Controller{
     }
 
     /**
+     * Method to Approve Theme
+     *
+     * @param Request $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, int $id)
+    {
+        $condition = $this->service->update($request->all(), $id);
+
+        if($condition['status'] === '00'){
+            return redirect()->back()->withErrors(['message' => 'Tema aprovado com sucesso', 'type' => 'success']);
+        }
+
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'success']);
+    }
+
+    /**
      * Method to get Theme Information
      *
      * @param Request $request

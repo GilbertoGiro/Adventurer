@@ -15,4 +15,15 @@ class ModalController extends Controller{
     {
         return response()->json(['html' => view('admin::modal.recovery')->render()]);
     }
+
+    /**
+     * Method to get Approve Theme Modal
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
+     */
+    public function approveTheme()
+    {
+        return response()->json(['html' => view('admin::modal.approve-theme')->render()]);
+    }
 }

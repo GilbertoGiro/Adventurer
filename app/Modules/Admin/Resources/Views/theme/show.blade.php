@@ -34,9 +34,9 @@
                 <div class="block p-md">
                     <div class="m-b-md text-center">
                         @if(empty($theme->photo))
-                            <img src="{{ asset('img/No-Image.png') }}" width="215px">
+                            <img src="{{ asset('img/no-image.png') }}" width="205px">
                         @else
-                            <img src="{{ asset($theme->photo) }}" width="215px">
+                            <img src="{{ asset($theme->photo) }}" width="185px">
                         @endif
                     </div>
 
@@ -61,6 +61,10 @@
                     </span>
 
                     <span class="block text-right m-t-lg">
+                        <a href="{{ route('admin.suggest') }}" class="button button-info left">
+                            <i class="fa fa-arrow-left"></i> Voltar a página anterior
+                        </a>
+
                         <button class="button button-warning tooltip m-r-sm">
                             <span class="tooltiptext">Notificar Usuário</span>
 
@@ -73,7 +77,7 @@
                             Reprovar <i class="fa fa-thumbs-down"></i>
                         </button>
 
-                        <button class="button button-success tooltip">
+                        <button class="button button-success tooltip approve">
                             <span class="tooltiptext">Aprovar Tema</span>
 
                             Aprovar <i class="fa fa-thumbs-up"></i>
@@ -83,7 +87,10 @@
             </div>
         </div>
     </div>
+
+    <div class="active-modal"></div>
 @endsection
 
 @section('scripts')
+    @include('admin::theme.javascript.show')
 @endsection
