@@ -48,10 +48,10 @@ class ThemeController extends Controller{
         $condition = $this->service->update($request->all(), $id);
 
         if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Tema aprovado com sucesso', 'type' => 'success']);
+            return redirect()->back()->withErrors(['message' => 'Tema atualizado com sucesso', 'type' => 'success']);
         }
 
-        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'success']);
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 
     /**

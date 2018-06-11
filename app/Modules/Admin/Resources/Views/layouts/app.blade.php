@@ -3,6 +3,7 @@
         <meta charset="UTF-8">
         <title>Adventurer - Administrador</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <link rel="icon" href="{{ asset('img/icon-top.png') }}">
 
         <!-- Personal Styles -->
         <link rel="stylesheet" href="{{ asset('css/style.css') }}">
@@ -49,7 +50,7 @@
                             </a>
 
                             <a href="{{ route('admin.event') }}" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
-                                <li>Lista de Eventos <i class="fa fa-cogs white"></i></li>
+                                <li>Lista de Eventos <i class="fa fa-gift white"></i></li>
                             </a>
 
                             <a href="{{ route('admin.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
@@ -126,6 +127,9 @@
     <script src='{{ asset('fullcalendar/lib/moment.min.js') }}'></script>
     <script src='{{ asset('fullcalendar/fullcalendar.js') }}'></script>
     <script src='{{ asset('fullcalendar/locale/pt-br.js') }}'></script>
+
+    <!-- Jquery Mask Script -->
+    <script src="{{ asset('js/jquery-mask/jquery.mask.js') }}"></script>
 
     @section('scripts')
     @show

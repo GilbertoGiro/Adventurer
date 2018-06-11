@@ -14,16 +14,16 @@ class Event extends Model{
      * @var array
      */
     protected $fillable = [
-        'id', 'nome', 'idcurso', 'endereco', 'numero', 'bairro', 'complemento', 'flaberto', 'flexterno'
+        'id', 'idtema', 'endereco', 'numero', 'bairro', 'complemento', 'flaberto', 'flexterno', 'dtprevista', 'hrinicio', 'limite', 'palestrante', 'duracao'
     ];
 
     /**
-     * Method to get related Course
+     * Method to get related Theme
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function course()
+    public function theme()
     {
-        return $this->hasOne(Course::class, 'id', 'idcurso');
+        return $this->hasOne(Theme::class, 'id', 'idtema');
     }
 }

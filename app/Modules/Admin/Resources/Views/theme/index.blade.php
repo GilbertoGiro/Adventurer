@@ -22,18 +22,18 @@
 
     <div class="p-md" style="margin-top:-4px;">
         <div class="block text-center">
-            <form>
-                <div class="form-group text-left inline-block" style="width:25%;">
+            <form class="table-fixed">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="titulo" class="form-label bold">Título</label>
                     <input type="text" name="titulo" class="form-input" id="titulo" placeholder="Título do Tema" value="{{ request('titulo') }}">
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:25%;">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="nmusuario" class="form-label bold">Usuário</label>
                     <input type="text" name="nmusuario" class="form-input" id="nmusuario" placeholder="Nome do Usuário" value="{{ request('nmusuario') }}">
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:25%;">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="sttema" class="form-label bold">Status</label>
                     <select name="sttema" class="form-input" id="sttema">
                         <option value="">Selecione o Curso</option>
@@ -43,7 +43,8 @@
                     </select>
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:20%;">
+                <div class="form-group text-left table-cell p-sm">
+                    <label class="form-label bold">Buscar</label>
                     <button type="submit" class="button button-success form-input">Buscar <i class="fa fa-search"></i></button>
                 </div>
             </form>
@@ -54,7 +55,7 @@
                 <h3 class="m-t-sm bold">
                     Lista de Temas
 
-                    <i class="fa fa-users right" style="margin-top:3px"></i>
+                    <i class="fas fa-envelope-square right" style="font-size:24px;"></i>
                 </h3>
             </div>
 
@@ -72,7 +73,7 @@
                         @if(count($themes['data']))
                             @foreach($themes['data'] as $theme)
                                 <tr class="text-center">
-                                    <td class="bold">{{ $theme->titulo }}</td>
+                                    <td>{{ $theme->titulo }}</td>
                                     <td>{{ $theme->nmusuario }}</td>
                                     <td>{!! ($theme->sttema !== 'abe') ? ($theme->sttema !== 'apr') ? '<span class="label white background-red">Reprovado</span>' : '<span class="label white background-green">Aprovado</span>' : '<span class="label white background-gold">Aberto</span>' !!}</td>
                                     <td>
@@ -108,11 +109,12 @@
                             </tr>
                         @endif
                         <tr>
-                            <td colspan="2"></td>
-                            <td class="text-right" colspan="2">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
+                            <td class="text-right" colspan="4">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
                         </tr>
                     </tbody>
                 </table>
+
+                {{ (!empty($themes['data'])) ? $themes['data']->links() : '' }}
             </div>
 
             <div class="card-footer"></div>

@@ -4,6 +4,7 @@ namespace App\Utilities;
 
 use App\Models\Course;
 use App\Models\Paper;
+use App\Models\Theme;
 
 class Arrays{
     /**
@@ -44,6 +45,16 @@ class Arrays{
     public static function courses()
     {
         return Course::all()->toArray();
+    }
+
+    /**
+     * Method to get Themes list
+     *
+     * @return array
+     */
+    public static function themes()
+    {
+        return Theme::all()->toArray();
     }
 
     /**

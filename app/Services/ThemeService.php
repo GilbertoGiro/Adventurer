@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Theme;
 use App\Models\User;
 use App\Notifications\ApprovedTheme;
+use App\Notifications\DisapproveTheme;
 use App\Notifications\NewTheme;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -89,7 +90,9 @@ class ThemeService extends AbstractService{
             $admin = Auth::guard('admin')->user();
 
             if($theme->update($data)){
-                $theme->user->notify(new ApprovedTheme(['titulo' => $theme->titulo, 'nmusuario' => $admin->nome]));
+                $information = ['titulo' => $theme->titulo, 'nmusuario' => $admin->nome];
+
+                ($data['sttema'] === 'rep') ? $theme->user->notify(new DisapproveTheme($information)) : $theme->user->notify(new ApprovedTheme($information));
 
                 return ['status' => '00'];
             }

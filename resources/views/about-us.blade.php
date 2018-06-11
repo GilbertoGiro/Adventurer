@@ -7,7 +7,7 @@
 
     <div class="block p-md">
         <div class="inline-block align-middle" style="width:10%">
-            <img src="{{ asset('img/gilberto-resende.jpg') }}" width="100%">
+            <img src="{{ asset('img/eu.png') }}" width="100%">
         </div>
         <div class="inline-block text-justify align-middle m-l-sm" style="width:85%;">
             <div class="block">

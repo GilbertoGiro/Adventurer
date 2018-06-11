@@ -26,4 +26,15 @@ class ModalController extends Controller{
     {
         return response()->json(['html' => view('admin::modal.approve-theme')->render()]);
     }
+
+    /**
+     * Method to get Disapprove Theme Modal
+     *
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \Throwable
+     */
+    public function disapproveTheme()
+    {
+        return response()->json(['html' => view('admin::modal.disapprove-theme')->render()]);
+    }
 }

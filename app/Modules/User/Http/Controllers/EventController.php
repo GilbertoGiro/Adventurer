@@ -28,8 +28,9 @@ class EventController extends Controller{
      */
     public function events()
     {
-        $event = true;
+        $event  = true;
+        $events = $this->service->getCalendarEvents();
 
-        return view('user::event.events', compact('event'));
+        return view('user::event.events', compact('event', 'events'));
     }
 }

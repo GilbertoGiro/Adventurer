@@ -27,7 +27,9 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::put('usuarios/edit/{id}', 'UserController@update');
 
         // Routes about Events
-        Route::get('lista-de-eventos', 'EventController@index')->name('admin.event');
+        Route::get('eventos', 'EventController@index')->name('admin.event');
+        Route::get('eventos/adicionar', 'EventController@create')->name('admin.event.create');
+        Route::post('eventos/adicionar', 'EventController@store');
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
@@ -51,4 +53,5 @@ Route::group(['prefix' => 'administrador'], function(){
     // Routes about Modal
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('admin.modal.recovery');
     Route::get('/modal/aprovar/tema', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
+    Route::get('/modal/reprovar/tema', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
 });

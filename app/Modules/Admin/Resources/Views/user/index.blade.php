@@ -23,13 +23,13 @@
 
     <div class="p-md">
         <div class="block text-center">
-            <form>
-                <div class="form-group text-left inline-block" style="width:25%;">
+            <form class="table-fixed">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="nome" class="form-label bold">Nome do Usuário</label>
                     <input type="text" name="nome" class="form-input" id="nome" placeholder="Nome do Usuário" value="{{ request('nome') }}">
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:25%;">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="idcurso" class="form-label bold">Curso</label>
                     <select name="idcurso" class="form-input" id="idcurso">
                         <option value="">Selecione o Curso</option>
@@ -39,7 +39,7 @@
                     </select>
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:25%;">
+                <div class="form-group text-left table-cell p-sm">
                     <label for="idpapel" class="form-label bold">Papel</label>
                     <select name="idpapel" class="form-input" id="idpapel">
                         <option value="">Selecione o Curso</option>
@@ -49,7 +49,8 @@
                     </select>
                 </div>
 
-                <div class="form-group text-left inline-block m-l-md" style="width:20%;">
+                <div class="form-group text-left table-cell p-sm">
+                    <label class="form-label bold">Buscar</label>
                     <button type="submit" class="button button-success form-input">Buscar <i class="fa fa-search"></i></button>
                 </div>
             </form>
@@ -79,7 +80,7 @@
                         @if(count($users['data']))
                             @foreach($users['data'] as $user)
                                 <tr class="text-center">
-                                    <td class="bold">{{ $user->nome }}</td>
+                                    <td>{{ $user->nome }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ (!empty($user->course)) ? $user->course->nome : 'Não informado' }}</td>
                                     <td>
@@ -115,7 +116,7 @@
                     </tbody>
                 </table>
 
-                {{ $users['data']->links() }}
+                {{ (!empty($users['data'])) ? $users['data']->links() : '' }}
             </div>
 
             <div class="card-footer"></div>
