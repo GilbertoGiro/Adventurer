@@ -20,6 +20,8 @@
     <div class="block p-md">
         <div id="events-calendar"></div>
     </div>
+
+    <div class="active-modal"></div>
 @endsection
 
 @section('scripts')

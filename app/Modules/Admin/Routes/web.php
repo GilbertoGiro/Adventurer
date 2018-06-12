@@ -52,6 +52,6 @@ Route::group(['prefix' => 'administrador'], function(){
 
     // Routes about Modal
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('admin.modal.recovery');
-    Route::get('/modal/aprovar/tema', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
-    Route::get('/modal/reprovar/tema', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
+    Route::get('/modal/tema/aprovar', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
+    Route::get('/modal/tema/reprovar', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
 });

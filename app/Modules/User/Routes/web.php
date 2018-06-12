@@ -41,4 +41,5 @@ Route::group(['prefix' => 'usuario'], function (){
 
     // Routes about Modal
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('user.modal.recovery');
+    Route::get('/modal/evento/visualizar', 'ModalController@eventInformation')->name('user.modal.event.show');
 });

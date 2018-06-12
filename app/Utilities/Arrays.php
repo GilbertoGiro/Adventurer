@@ -54,7 +54,7 @@ class Arrays{
      */
     public static function themes()
     {
-        return Theme::all()->toArray();
+        return Theme::all()->where('sttema', '=', 'apr')->toArray();
     }
 
     /**

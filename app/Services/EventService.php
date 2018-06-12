@@ -38,7 +38,7 @@ class EventService extends AbstractService{
         foreach($events as $key => $event){
             $events[$key] = [
                 'title' => $event->theme->titulo,
-                'start' => $event->dtprevista . 'T' . $event->hrinicio . ':00'
+                'start' => $event->dtprevista . 'T' . $event->hrinicio
             ];
         }
 
