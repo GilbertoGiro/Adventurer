@@ -62,6 +62,8 @@
     <div class="block">
         <div id="events-calendar"></div>
     </div>
+
+    <div class="active-modal"></div>
 @endsection
 
 @section('scripts')

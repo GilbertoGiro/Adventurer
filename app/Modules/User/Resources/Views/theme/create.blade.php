@@ -7,7 +7,9 @@
 @section('path')
     <li class="option disabled-option inline-block">Página Inicial</li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
-    <li class="option disabled-option inline-block">Sugestão de Temas</li>
+    <li class="option inline-block"><a class="milk text-decoration-none" href="{{ route('user.theme') }}">Sugestões de Temas</a></li>
+    <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
+    <li class="option disabled-option inline-block">Adicionar Sugestão de Tema</li>
 @endsection
 
 @section('content')
@@ -17,7 +19,10 @@
         </div>
 
         <div class="inline-block align-middle m-l-md">
-            <h2 class="m-t-sm">Temas - Cadastro de uma Sugestão de Tema</h2>
+            <h2 class="m-t-sm">Temas - Adicionar Sugestão de Tema</h2>
+            <span class="block" style="margin-top:-3px;margin-left:4px;">
+                Aqui você pode sugerir um tema para o <b>Coordenador/Administrador</b>.
+            </span>
         </div>
     </div>
 

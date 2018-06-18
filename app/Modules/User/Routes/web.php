@@ -17,11 +17,12 @@ Route::group(['prefix' => 'usuario'], function (){
         Route::get('dashboard', 'DashboardController@index')->name('user.dashboard');
 
         // Routes about Themes
-        Route::get('sugestao-de-temas', 'ThemeController@suggest')->name('user.suggest');
-        Route::post('sugestao-de-temas', 'ThemeController@store');
+        Route::get('temas', 'ThemeController@index')->name('user.theme');
+        Route::get('temas/adicionar', 'ThemeController@create')->name('user.theme.create');
+        Route::post('temas/adicionar', 'ThemeController@store');
 
         // Routes about Events
-        Route::get('lista-de-eventos', 'EventController@events')->name('user.events');
+        Route::get('eventos', 'EventController@index')->name('user.event');
 
         // Routes about Configuration
         Route::get('configuracoes', 'ConfigurationController@index')->name('user.configuration');

@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
-class EventController extends Controller{
+use App\Services\EventService;
 
-    public function __construct()
+class EventController extends Controller{
+    /**
+     * @var EventService
+     */
+    protected $service;
+
+    /**
+     * EventController constructor.
+     *
+     * @param EventService $service
+     */
+    public function __construct(EventService $service)
     {
-        // Do nothing
+        $this->service = $service;
     }
 
     /**
@@ -26,6 +37,8 @@ class EventController extends Controller{
      */
     public function event()
     {
-        return view('event');
+        $events = $this->service->getCalendarEvents();
+
+        return view('event', compact('events'));
     }
 }

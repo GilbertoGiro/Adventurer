@@ -17,6 +17,9 @@ class LoginController extends Controller
      */
     protected $service;
 
+    /**
+     * @var RecoveryService
+     */
     protected $recoveryService;
 
     /**

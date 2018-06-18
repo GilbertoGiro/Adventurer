@@ -26,6 +26,9 @@ a{
 b{
     font-family:'Roboto', sans-serif;
 }
+p{
+    margin-top:3px;
+}
 img{
     opacity:0.8;
 }
@@ -426,7 +429,7 @@ table tbody td:last-child{
 /* Application CSS - Alerts */
 .alert{
     width:auto;
-    max-width:425px;
+    max-width:515px;
     padding:18px;
     position:fixed;
     border-radius:4px;

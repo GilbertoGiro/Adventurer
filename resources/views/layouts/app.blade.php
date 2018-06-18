@@ -53,11 +53,11 @@
                 @yield('content')
 
                 @if(count($errors))
-                    <div class="alert alert-{{ (!empty($errors->first('type'))) ? $errors->first('type') : 'danger' }}">
-                        <div class="inline-block align-middle text-right m-l-sm">
+                    <div class="alert alert-{{ (!empty($errors->first('type'))) ? $errors->first('type') : 'danger' }} table">
+                        <div class="table-cell align-middle text-right m-l-sm">
                             <i class="fa fa-shield-alt" style="font-size:42px;"></i>
                         </div>
-                        <div class="inline-block align-middle m-l-lg">
+                        <div class="table-cell align-middle" style="padding-left:20px;">
                             <div class="block m-t-sm" style="font-size:15px;">
                                 @if($errors->has('message'))
                                     <p class="m-t-sm m-b-sm">{!! $errors->first('message') !!}</p>

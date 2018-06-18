@@ -26,11 +26,11 @@ class EventController extends Controller{
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function events()
+    public function index()
     {
         $event  = true;
         $events = $this->service->getCalendarEvents();
 
-        return view('user::event.events', compact('event', 'events'));
+        return view('user::event.index', compact('event', 'events'));
     }
 }

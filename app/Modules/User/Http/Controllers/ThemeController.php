@@ -24,16 +24,31 @@ class ThemeController extends Controller{
     }
 
     /**
+     * Method to show User Theme Suggestions List
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function index(Request $request)
+    {
+        $theme  = true;
+        $request->merge(['idusuario' => Auth::user()->id]);
+        $themes = $this->service->get('*', $request, 'object');
+
+        return view('user::theme.index', compact('theme', 'themes'));
+    }
+
+    /**
      * Method to show Theme Suggest Form
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function suggest()
+    public function create()
     {
-        $suggest = true;
-        $user    = Auth::guard('user')->user();
+        $theme = true;
+        $user  = Auth::guard('user')->user();
 
-        return view('user::event.suggest', compact('suggest', 'user'));
+        return view('user::theme.create', compact('theme', 'user'));
     }
 
     /**

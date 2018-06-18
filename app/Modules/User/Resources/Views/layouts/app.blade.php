@@ -49,11 +49,11 @@
                                 <li>Página Inicial <i class="fas fa-home white"></i></li>
                             </a>
 
-                            <a href="{{ route('user.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
+                            <a href="{{ route('user.theme') }}" class="application-header-list-item {{ (isset($theme)) ? 'active' : '' }}">
                                 <li>Sugestão de Temas <i class="fa fa-question-circle white"></i></li>
                             </a>
 
-                            <a href="{{ route('user.events') }}" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
+                            <a href="{{ route('user.event') }}" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
                                 <li>Lista de Eventos <i class="fa fa-address-book white"></i></li>
                             </a>
 

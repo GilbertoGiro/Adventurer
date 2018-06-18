@@ -1,40 +1,35 @@
 <script>
     $(document).ready(function(){
+        let events = JSON.parse('{!! json_encode($events) !!}');
+
         $('#events-calendar').fullCalendar({
             header: {
                 left   : 'prev,next',
                 center : 'title'
             },
-            events: [
-                {
-                    title  : 'Semana de Tecnologia',
-                    start  : '2018-03-18T07:30:00',
-                    allDay : true
-                },
-                {
-                    title  : 'Gametech',
-                    start  : '2018-03-19T18:00:00',
-                    end    : '2018-03-19T19:30:00'
-                },
-                {
-                    title  : 'Arduíno',
-                    start  : '2018-03-20T18:00:00',
-                    end    : '2018-03-20T19:30:00'
-                },
-                {
-                    title  : 'Python',
-                    start  : '2018-03-21T18:00:00',
-                    end    : '2018-03-21T19:30:00'
-                }
-            ],
-            dayClick: function(date, jsEvent, view){
-                var day = date.format();
-
-                console.log(day);
-            },
+            events: events,
             eventClick: function(date, jsEvent, view){
-                console.log(date);
+                let split = date.start.format().split('T');
+                let data  = {date: split[0], hour: split[1], title: date.title};
+
+                getEventInformation(data);
             }
         });
+
+        function getEventInformation(data)
+        {
+            let request = $.ajax({
+                url: '{{ route('user.modal.event.show') }}',
+                method: 'GET',
+                data: data
+            });
+
+            request
+                .then((response) => {
+                    if(response.html){
+                        $('.active-modal').html(response.html);
+                    }
+                });
+        }
     });
 </script>

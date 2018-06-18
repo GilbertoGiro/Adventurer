@@ -18,7 +18,7 @@ class Theme extends Model{
      * @var array
      */
     protected $fillable = [
-        'titulo', 'descricao', 'nmusuario', 'email', 'idcurso', 'sttema', 'idusuario', 'idresponsavel', 'photo'
+        'id', 'titulo', 'descricao', 'nmusuario', 'email', 'idcurso', 'sttema', 'idusuario', 'idresponsavel', 'photo'
     ];
 
     /**
