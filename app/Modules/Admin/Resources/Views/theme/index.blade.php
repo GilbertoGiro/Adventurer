@@ -9,7 +9,7 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/tasks/png/017-inbox.png') }}" width="85px">
+            <img src="{{ asset('img/tasks/png/017-inbox.png') }}" width="75px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="p-md" style="margin-top:-4px;">
+    <div class="p-md" style="margin-top:-20px;">
         <div class="block text-center">
             <form class="table-fixed">
                 <div class="form-group text-left table-cell p-sm">

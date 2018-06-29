@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="p-md">
+    <div class="p-md" style="margin-top:-20px;">
         <div class="block text-center">
             <form class="table-fixed">
                 <div class="form-group text-left table-cell p-sm">
@@ -53,6 +53,11 @@
                     <label class="form-label bold">Buscar</label>
                     <button type="submit" class="button button-success form-input">Buscar <i class="fa fa-search"></i></button>
                 </div>
+
+                <div class="form-group text-left table-cell p-sm">
+                    <label class="form-label bold">Adicionar</label>
+                    <button type="submit" class="button background-strong-blue white form-input">Novo Usuário <i class="fa fa-user-plus"></i></button>
+                </div>
             </form>
         </div>
 
@@ -70,7 +75,7 @@
                     <thead class="background-strong-blue white">
                         <tr>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Nome', 'nome') !!}</th>
-                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('E-mail', 'email') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Status', 'status') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Curso', 'idcurso') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Papel', 'idpapel') !!}</th>
                             <th>Ações</th>
@@ -81,7 +86,7 @@
                             @foreach($users['data'] as $user)
                                 <tr class="text-center">
                                     <td>{{ $user->nome }}</td>
-                                    <td>{{ $user->email }}</td>
+                                    <td>{!! \App\Utilities\Arrays::userStatusLabel($user->stusuario) !!}</td>
                                     <td>{{ (!empty($user->course)) ? $user->course->nome : 'Não informado' }}</td>
                                     <td>
                                         <span class="label background-weak-blue white">{{ $user->paper->nome }}</span>

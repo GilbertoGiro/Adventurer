@@ -152,7 +152,9 @@ table tbody td:last-child{
 }
 /* Application CSS - Form */
 .form-label{
+    display:block;
     font-size:17px;
+    margin-top:15px;
 }
 .form-input{
     width:100%;
@@ -175,6 +177,13 @@ table tbody td:last-child{
     color:#444 !important;
     font-family:'Raleway', sans-serif;
     border:1px solid #C0C0C0;
+}
+/* Application CSS - Validation */
+.required-field:before{
+    content:"* ";
+    color:red;
+    vertical-align:middle;
+    font-family:Arial !important;
 }
 /* Application CSS - Text Align */
 .text-justify{
@@ -377,7 +386,7 @@ table tbody td:last-child{
 }
 /* Application CSS - Font Weight */
 .bold{
-    font-weight:bold;
+    font-weight:600;
 }
 /* Application CSS - Icons Size */
 .small{
@@ -399,6 +408,7 @@ table tbody td:last-child{
     padding:12px;
     font-size:13.5px;
     border:none !important;
+    font-weight:500;
     font-family:'Raleway', sans-serif;
 }
 .button-danger{

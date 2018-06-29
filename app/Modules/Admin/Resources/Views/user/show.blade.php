@@ -35,12 +35,17 @@
                     <img src="{{ asset('img/blank-profile-picture.png') }}" width="135px">
                 </div>
 
-                <div class="inline-block align-middle p-md m-l-md">
+                <div class="inline-block align-middle p-md m-l-md m-b-sm">
                     <span class="block"><b>Nome Completo:</b> {{ $client->nome }}</span>
                     <span class="block m-t-md"><b>E-mail:</b> {{ $client->email }}</span>
                     <span class="block m-t-md"><b>Curso:</b> {{ ($client->course) ? $client->course->nome : 'Não definido' }}</span>
                     <span class="block m-t-md"><b>Papel:</b> {{ $client->paper->nome }}</span>
                     <span class="block m-t-md"><b>Registrado em:</b> {{ (!empty($client->created_at)) ? (new \Carbon\Carbon($client->created_at))->format('d/m/Y') : 'Não informado' }}</span>
+                </div>
+
+                <div class="block text-right m-r-sm m-b-sm">
+                    <button class="button button-info m-r-sm">Notificar Usuário <i class="fa fa-envelope"></i></button>
+                    <button class="button button-warning">Editar Usuário <i class="fa fa-edit"></i></button>
                 </div>
             </div>
         </div>

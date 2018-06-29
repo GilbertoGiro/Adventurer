@@ -9,7 +9,7 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/seo-marketing/png/091-mobile-web-1.png') }}" width="85px">
+            <img src="{{ asset('img/seo-marketing/png/091-mobile-web-1.png') }}" width="75px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="p-md" style="margin-top:-4px;">
+    <div class="p-md" style="margin-top:-20px;">
         <div class="block text-center">
             <form class="table-fixed">
                 <div class="form-group text-left table-cell p-sm">
@@ -54,6 +54,13 @@
                     <label class="form-label bold">Buscar</label>
                     <button type="submit" class="button button-success form-input">Buscar <i class="fa fa-search"></i></button>
                 </div>
+
+                <div class="form-group text-left table-cell p-sm">
+                    <label class="form-label bold">Adicionar</label>
+                    <a href="{{ route('admin.event.create') }}">
+                        <button type="button" class="button background-strong-blue white form-input">Novo Evento <i class="fa fa-calendar-plus"></i></button>
+                    </a>
+                </div>
             </form>
         </div>
 
@@ -67,12 +74,6 @@
             </div>
 
             <div class="card-body p-md">
-                <div class="block text-right m-b-md">
-                    <a href="{{ route('admin.event.create') }}">
-                        <button type="button" class="button button-warning">Adicionar Eventos e Palestras <i class="fa fa-gift"></i></button>
-                    </a>
-                </div>
-
                 <table>
                     <thead class="background-strong-blue white">
                         <tr>

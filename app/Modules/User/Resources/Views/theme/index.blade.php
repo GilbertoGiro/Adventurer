@@ -9,18 +9,18 @@
 @section('content')
     <div class="block p-md m-t-md">
         <div class="inline-block align-middle">
-            <img src="{{ asset('img/tasks/png/017-inbox.png') }}" width="85px">
+            <img src="{{ asset('img/tasks/png/022-whiteboard.png') }}" width="75px">
         </div>
 
         <div class="inline-block align-middle m-l-md">
-            <h2 class="m-t-sm">Temas - Gerenciar Informações</h2>
+            <h2 class="m-t-sm">Temas - Lista de Sugestões</h2>
             <span class="block" style="margin-top:-3px;margin-left:4px;">
-                Visualize aqui todas as informações referente às <b>Sugestões de Tema</b> enviadas por usuários da aplicação
+                Visualize aqui todas as informações referente as suas <b>Sugestões de Tema</b>.
             </span>
         </div>
     </div>
 
-    <div class="p-md" style="margin-top:-4px;">
+    <div class="p-md" style="margin-top:-20px;">
         <div class="block text-center">
             <form class="table-fixed">
                 <div class="form-group text-left table-cell p-sm">
@@ -51,7 +51,7 @@
                 <div class="form-group text-left table-cell p-sm">
                     <label class="form-label block bold m-b-sm">Adicionar</label>
                     <a href="{{ route('user.theme.create') }}">
-                        <button type="button" class="button button-info form-input">Nova Sugestão <i class="fa fa-microphone"></i></button>
+                        <button type="button" class="button background-strong-blue white form-input">Nova Sugestão <i class="fa fa-user-plus"></i></button>
                     </a>
                 </div>
             </form>

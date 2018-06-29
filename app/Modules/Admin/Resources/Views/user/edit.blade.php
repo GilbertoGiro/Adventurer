@@ -20,7 +20,7 @@
         </div>
     </div>
 
-    <div class="p-md">
+    <div class="p-md" style="margin-top:-10px;">
         <div class="card m-t-md" style="width:100%;">
             <div class="card-header background-weak-blue white">
                 <h3 class="m-t-sm">
@@ -38,16 +38,27 @@
                     {{ csrf_field() }}
                     {{ method_field('PUT') }}
 
-                    <div class="form-group">
-                        <label for="nome" class="block form-label"><b>Nome Completo:</b></label>
+                    <div class="form-group" style="margin-top:-10px;">
+                        <label for="nome" class="block form-label required-field">Nome Completo:</label>
                         <input type="text" name="nome" class="form-input" value="{{ old('nome', $client->nome) }}" id="nome">
                     </div>
+
                     <div class="form-group m-t-md">
-                        <label for="email" class="block form-label"><b>E-mail:</b></label>
+                        <label for="email" class="block form-label required-field">E-mail:</label>
                         <input type="email" name="email" class="form-input" value="{{ old('email', $client->email) }}" id="email">
                     </div>
+
                     <div class="form-group m-t-md">
-                        <label for="idpapel" class="block form-label"><b>Papel:</b></label>
+                        <label for="stusuario" class="block form-label required-field">Status:</label>
+                        <select name="stusuario" class="form-input" id="stusuario">
+                            <option value="">Selecione uma opção</option>
+                            <option value="ati" {{ old('stusuario', $client->stusuario) === 'ati' ? 'selected' : '' }}>Ativo</option>
+                            <option value="ina" {{ old('stusuario', $client->stusuario) === 'ina' ? 'selected' : '' }}>Inativo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group m-t-md">
+                        <label for="idpapel" class="block form-label required-field">Papel:</label>
                         <select name="idpapel" class="form-input" id="idpapel">
                             <option value="">Selecione uma opção</option>
                             @foreach($papers as $paper)
@@ -55,8 +66,9 @@
                             @endforeach
                         </select>
                     </div>
+
                     <div class="form-group m-t-md">
-                        <span class="block"><b>Registrado em:</b> {{ (!empty($client->created_at)) ? (new \Carbon\Carbon($client->created_at))->format('d/m/Y H:i:s') : 'Não informado' }}</span>
+                        <span class="block">Registrado em: {{ (!empty($client->created_at)) ? (new \Carbon\Carbon($client->created_at))->format('d/m/Y H:i:s') : 'Não informado' }}</span>
                     </div>
 
                     <div class="form-group m-t-lg text-right">

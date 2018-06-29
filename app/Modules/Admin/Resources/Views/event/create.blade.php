@@ -45,7 +45,7 @@
                             <h3 class="m-t-sm header">Informações Evento</h3>
 
                             <div class="form-group m-t-md">
-                                <label for="idtema" class="form-label"><span class="red medium">*</span>Tema</label>
+                                <label for="idtema" class="form-label required-field">Tema</label>
                                 <select name="idtema" class="form-input required" id="idtema">
                                     <option value="">Selecione o tema</option>
                                     @foreach(App\Utilities\Arrays::themes() as $theme)
@@ -55,17 +55,17 @@
                             </div>
 
                             <div class="form-group m-t-md">
-                                <label for="dtprevista" class="form-label"><span class="red medium">*</span>Data Prevista</label>
+                                <label for="dtprevista" class="form-label required-field">Data Prevista</label>
                                 <input type="date" name="dtprevista" min="{{ date('Y-m-d') }}" class="form-input required" id="dtprevista">
                             </div>
 
                             <div class="form-group m-t-md">
-                                <label for="hrinicio" class="form-label"><span class="red medium">*</span>Hora de Início</label>
+                                <label for="hrinicio" class="form-label required-field">Hora de Início</label>
                                 <input type="text" name="hrinicio" class="form-input required hour" id="hrinicio" placeholder="00:00">
                             </div>
 
                             <div class="form-group m-t-md">
-                                <label for="duracao" class="form-label"><span class="red medium">*</span>Duração</label>
+                                <label for="duracao" class="form-label required-field">Duração</label>
                                 <input type="text" name="duracao" class="form-input required hour" id="duracao" placeholder="00:00">
                             </div>
                         </div>
@@ -98,18 +98,18 @@
                             <h3 class="m-t-md header">Informação Adicional</h3>
 
                             <div class="form-group m-t-md">
-                                <label for="limite" class="form-label"><span class="red medium">*</span>Limite de Participantes</label>
+                                <label for="limite" class="form-label required-field">Limite de Participantes</label>
                                 <input name="limite" type="number" class="form-input required" id="limite" placeholder="Limite de Participantes" value="{{ old('limite') }}">
                             </div>
 
                             <div class="form-group m-t-md">
-                                <label for="palestrante" class="form-label"><span class="red medium">*</span>Palestrante</label>
+                                <label for="palestrante" class="form-label required-field">Palestrante</label>
                                 <input name="palestrante" type="text" class="form-input required" id="palestrante" placeholder="Palestrante" value="{{ old('palestrante') }}">
                             </div>
 
                             <div class="form-group m-t-md">
                                 <input name="flaberto" type="checkbox" class="required" id="flaberto" value="s" {{ (!empty(old('flaberto'))) ? 'checked' : '' }}>
-                                <label for="flaberto" class="form-label"><span class="red medium">*</span>Aberto a todos?</label>
+                                <label for="flaberto" class="form-label required-field">Aberto a todos?</label>
                             </div>
                         </div>
                     </form>

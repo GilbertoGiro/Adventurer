@@ -38,6 +38,22 @@ class Arrays{
     }
 
     /**
+     * Method to get User Status Label
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function userStatusLabel($status)
+    {
+        $labels = [
+            'ati' => '<label class="label background-green white">Ativo</label>',
+            'ina' => '<label class="label background-red white">Inativo</label>'
+        ];
+
+        return $labels[$status];
+    }
+
+    /**
      * Method to get Courses list
      *
      * @return array
