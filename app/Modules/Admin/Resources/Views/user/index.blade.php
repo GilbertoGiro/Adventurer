@@ -56,7 +56,9 @@
 
                 <div class="form-group text-left table-cell p-sm">
                     <label class="form-label bold">Adicionar</label>
-                    <button type="submit" class="button background-strong-blue white form-input">Novo Usuário <i class="fa fa-user-plus"></i></button>
+                    <a href="{{ route('admin.user.create') }}">
+                        <button type="button" class="button background-strong-blue white form-input">Novo Usuário <i class="fa fa-user-plus"></i></button>
+                    </a>
                 </div>
             </form>
         </div>

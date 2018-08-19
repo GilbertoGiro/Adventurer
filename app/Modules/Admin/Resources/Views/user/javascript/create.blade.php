@@ -8,8 +8,10 @@
 
             if(value === 'n'){
                 course.show();
+                course.find('select').addClass('required');
             }else{
                 course.hide();
+                course.find('select').removeClass('required');
             }
         });
         external.trigger('change');

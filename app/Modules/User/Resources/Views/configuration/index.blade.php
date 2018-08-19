@@ -31,22 +31,22 @@
                 <div class="p-sm">
                     <div class="block">
                         <input type="checkbox" name="flemail" value="s" id="notifyEmail">
-                        <label for="notifyEmail" class="form-label">Deseja ser notificado por <b>e-mail</b>?</label>
+                        <label for="notifyEmail" class="form-label inline-block">Deseja ser notificado por <b>e-mail</b>?</label>
                     </div>
 
                     <div class="block m-t-md">
                         <input type="checkbox" name="calendia" value="s" id="dailyCalendar">
-                        <label for="dailyCalendar" class="form-label">Deseja receber um <b>Calendário Diário</b>?</label>
+                        <label for="dailyCalendar" class="form-label inline-block">Deseja receber um <b>Calendário Diário</b>?</label>
                     </div>
 
                     <div class="block m-t-md">
                         <input type="checkbox" name="calensem" value="s" id="weekCalendar">
-                        <label for="weekCalendar" class="form-label">Deseja receber e-mails com o <b>Calendário Semanal</b>?</label>
+                        <label for="weekCalendar" class="form-label inline-block">Deseja receber e-mails com o <b>Calendário Semanal</b>?</label>
                     </div>
 
                     <div class="block m-t-md">
                         <input type="checkbox" name="calenmes" value="s" id="monthlyCalendar">
-                        <label for="monthlyCalendar" class="form-label">Deseja receber e-mails com um <b>Relatório da Atividade Mensal</b>?</label>
+                        <label for="monthlyCalendar" class="form-label inline-block">Deseja receber e-mails com um <b>Relatório da Atividade Mensal</b>?</label>
                     </div>
                 </div>
 
@@ -55,12 +55,12 @@
                 <div class="p-sm">
                     <div class="block">
                         <input type="checkbox" name="flcurso" value="s" id="newCourses">
-                        <label for="newCourses" class="form-label">Deseja ser notificado de novos <b>Eventos</b> (Seu Curso)?</label>
+                        <label for="newCourses" class="form-label inline-block">Deseja ser notificado de novos <b>Eventos</b> (Seu Curso)?</label>
                     </div>
 
                     <div class="block m-t-md">
                         <input type="checkbox" name="calendia" value="s" id="dailyCalendar">
-                        <label for="dailyCalendar" class="form-label">Não desejo ser <b>notificado</b></label>
+                        <label for="dailyCalendar" class="form-label inline-block">Não desejo ser <b>notificado</b></label>
                     </div>
                 </div>
 

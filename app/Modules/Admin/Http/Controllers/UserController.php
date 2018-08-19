@@ -50,6 +50,35 @@ class UserController extends Controller{
     }
 
     /**
+     * Method to show User Create Form
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        $user = true;
+
+        return view('admin::user.create', compact('user'));
+    }
+
+    /**
+     * Method to Create User
+     *
+     * @param UserRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(UserRequest $request)
+    {
+        $condition = $this->service->create($request->all());
+
+        if($condition['status'] === '00'){
+            return redirect()->back()->withErrors(['message' => 'Usuário criado com sucesso.', 'type' => 'success']);
+        }
+
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
+    }
+
+    /**
      * Method to show User Information
      *
      * @param $id

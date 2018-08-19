@@ -7,7 +7,8 @@ use App\Services\ThemeService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ThemeController extends Controller{
+class ThemeController extends Controller
+{
     /**
      * @var ThemeService
      */
@@ -31,7 +32,7 @@ class ThemeController extends Controller{
      */
     public function index(Request $request)
     {
-        $theme  = true;
+        $theme = true;
         $request->merge(['idusuario' => Auth::user()->id]);
         $themes = $this->service->get('*', $request, 'object');
 
@@ -46,7 +47,7 @@ class ThemeController extends Controller{
     public function create()
     {
         $theme = true;
-        $user  = Auth::guard('user')->user();
+        $user = Auth::guard('user')->user();
 
         return view('user::theme.create', compact('theme', 'user'));
     }
@@ -61,7 +62,7 @@ class ThemeController extends Controller{
     {
         $condition = $this->service->create($request->all());
 
-        if($condition['status'] === '00'){
+        if ($condition['status'] === '00') {
             return redirect()->back()->withErrors(['message' => 'Sugestão adicionada com sucesso.', 'type' => 'success']);
         }
 

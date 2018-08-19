@@ -47,6 +47,13 @@
                     <label class="form-label bold">Buscar</label>
                     <button type="submit" class="button button-success form-input">Buscar <i class="fa fa-search"></i></button>
                 </div>
+
+                <div class="form-group text-left table-cell p-sm">
+                    <label class="form-label bold">Adicionar</label>
+                    <a href="{{ route('admin.suggest.create') }}">
+                        <button type="button" class="button background-strong-blue white form-input">Novo Tema <i class="fa fa-book"></i></button>
+                    </a>
+                </div>
             </form>
         </div>
 
@@ -85,7 +92,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.user.edit', $theme->id) }}" class="text-decoration-none">
+                                        <a href="" class="text-decoration-none approve">
                                             <button class="button button-success circular-button tooltip">
                                                 <span class="tooltiptext">Aprovar Tema</span>
 
@@ -93,7 +100,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.user.edit', $theme->id) }}" class="text-decoration-none">
+                                        <a href="" class="text-decoration-none disapprove">
                                             <button class="button button-danger circular-button tooltip">
                                                 <span class="tooltiptext">Reprovar Tema</span>
 
@@ -120,8 +127,10 @@
             <div class="card-footer"></div>
         </div>
     </div>
+
+    <div class="active-modal"></div>
 @endsection
 
 @section('scripts')
-
+    @include('admin::theme.javascript.show')
 @endsection

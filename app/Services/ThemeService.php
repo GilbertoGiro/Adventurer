@@ -9,6 +9,7 @@ use App\Notifications\DisapproveTheme;
 use App\Notifications\NewTheme;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -53,7 +54,8 @@ class ThemeService extends AbstractService{
 
             if($new){
                 if(!empty($file)){
-                    Storage::disk('local')->put('theme/' . $new->id . '/tema.png', file_get_contents($file));
+                    $file = $this->prepareImage($file);
+                    Storage::disk('local')->put('theme/' . $new->id . '/tema.png', $file->encode('png'));
 
                     $new->update(['photo' => 'theme/' . $new->id . '/tema.png']);
                 }
@@ -72,7 +74,8 @@ class ThemeService extends AbstractService{
             return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
         }catch(\Exception $e){
             DB::rollback();
-            return ['status' => '01', 'message' => $e->getMessage()];
+            Log::debug($e->getMessage());
+            return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
         }
     }
 
@@ -99,7 +102,8 @@ class ThemeService extends AbstractService{
 
             return ['status' => '01', 'Não foi possível realizar a ação solicitada'];
         }catch(\Exception $e){
-            return ['status' => '01', 'message' => $e->getMessage()];
+            Log::debug($e->getMessage());
+            return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
         }
     }
 }

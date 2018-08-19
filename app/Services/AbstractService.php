@@ -5,6 +5,7 @@ namespace App\Services;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
+use Intervention\Image\Facades\Image;
 
 abstract class AbstractService{
     /**
@@ -180,6 +181,22 @@ abstract class AbstractService{
         if($this->model->delete($id)){
             return [];
         }
+    }
+
+    /**
+     * Method to prepare Image
+     *
+     * @param $file
+     * @param int $width
+     * @return mixed
+     */
+    public function prepareImage($file, $width = 135)
+    {
+        $img = Image::make($file);
+        $img->resize($width, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        return $img;
     }
 
     /**

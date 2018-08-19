@@ -22,9 +22,11 @@ Route::group(['prefix' => 'administrador'], function(){
 
         // Routes about Users
         Route::get('usuarios', 'UserController@index')->name('admin.user');
+        Route::get('usuarios/adicionar', 'UserController@create')->name('admin.user.create');
+        Route::post('usuarios/adicionar', 'UserController@store');
         Route::get('usuarios/{id}', 'UserController@show')->name('admin.user.show');
-        Route::get('usuarios/edit/{id}', 'UserController@edit')->name('admin.user.edit');
-        Route::put('usuarios/edit/{id}', 'UserController@update');
+        Route::get('usuarios/editar/{id}', 'UserController@edit')->name('admin.user.edit');
+        Route::put('usuarios/editar/{id}', 'UserController@update');
 
         // Routes about Events
         Route::get('eventos', 'EventController@index')->name('admin.event');
@@ -33,6 +35,8 @@ Route::group(['prefix' => 'administrador'], function(){
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
+        Route::get('temas/adicionar', 'ThemeController@create')->name('admin.suggest.create');
+        Route::post('temas/adicionar', 'ThemeController@store');
         Route::get('temas/{id}', 'ThemeController@show')->name('admin.suggest.show');
         Route::put('temas/{id}', 'ThemeController@update');
         Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');

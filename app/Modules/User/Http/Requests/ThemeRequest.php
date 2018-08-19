@@ -29,7 +29,7 @@ class ThemeRequest extends FormRequest
             'nmusuario' => 'required',
             'email'     => 'required',
             'idcurso'   => 'required|exists:curso,id',
-            'photo'     => 'nullable|mimes:jpeg,jpg,png,gif'
+            'photo'     => 'nullable|mimes:jpeg,jpg,png'
         ];
     }
 

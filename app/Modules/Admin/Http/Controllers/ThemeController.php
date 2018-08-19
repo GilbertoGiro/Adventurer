@@ -37,6 +37,17 @@ class ThemeController extends Controller{
     }
 
     /**
+     * Method to show Theme Create Form
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create()
+    {
+        $suggest = true;
+        return view('admin::theme.create', compact('suggest'));
+    }
+
+    /**
      * Method to Approve Theme
      *
      * @param Request $request

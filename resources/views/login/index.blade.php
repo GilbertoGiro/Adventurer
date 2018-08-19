@@ -102,7 +102,7 @@
     </div>
 
     <div class="p-sm text-center">
-        <div class="card text-center block m-r-md" style="width:32%;">
+        <div class="card text-center m-r-md" style="width:32%;">
             <div class="card-header background-weak-blue">
                 <h3 class="m-t-sm white dots">Já possui conta? Efetue o login aqui!</h3>
             </div>
@@ -143,7 +143,7 @@
                 </span>
             </div>
         </div>
-        <div class="card text-center block m-r-md" style="width:32%;">
+        <div class="card text-center m-r-md" style="width:32%;">
             <div class="card-header background-weak-blue">
                 <h3 class="m-t-sm white dots">Não possui uma conta? Crie agora mesmo!</h3>
             </div>
@@ -204,7 +204,7 @@
             </div>
         </div>
 
-        <div class="card text-center block" style="width:32%;">
+        <div class="card text-center" style="width:32%;">
             <div class="card-header background-weak-blue">
                 <h3 class="m-t-sm white dots">Deseja receber notificações de eventos?</h3>
             </div>

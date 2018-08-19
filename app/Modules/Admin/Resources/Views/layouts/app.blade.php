@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{ asset('summernote/dist/summernote-lite.css') }}">
 
         <!-- FullCalendar CSS -->
-        <link rel='stylesheet' href='{{ asset('fullcalendar/fullcalendar.css') }}' />
+        <link rel='stylesheet' href='{{ asset('fullcalendar/fullcalendar.css') }}'/>
 
         @section('styles')
         @show
@@ -35,26 +35,45 @@
                         </div>
 
                         <a href="" class="block no-decoration milk m-t-sm">
-                            {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i class="fa fa-user-circle"></i>
+                            {{ \Illuminate\Support\Facades\Auth::guard('admin')->user()->nome }} <i
+                                    class="fa fa-user-circle"></i>
                         </a>
                     </div>
 
                     <div class="block m-t-lg">
                         <ul class="application-header-list m-t-sm">
-                            <a href="{{ route('admin.dashboard') }}" class="application-header-list-item {{ (isset($dashboard)) ? 'active' : '' }}">
+                            <a href="{{ route('admin.dashboard') }}"
+                               class="application-header-list-item {{ (isset($dashboard)) ? 'active' : '' }}">
                                 <li>Página Inicial <i class="fas fa-home white"></i></li>
                             </a>
 
-                            <a href="{{ route('admin.user') }}" class="application-header-list-item {{ (isset($user)) ? 'active' : '' }}">
-                                <li>Lista de Usuários <i class="fa fa-address-book white"></i></li>
+                            <a href=""
+                               class="application-header-list-item menu-dropdown {{ (isset($user) || isset($event) || isset($suggest)) ? 'active' : '' }}"
+                               data-target="registration">
+                                <li>Cadastros Básicos <i class="fa fa-caret-down white" style="font-size:18px;"></i></li>
                             </a>
 
-                            <a href="{{ route('admin.event') }}" class="application-header-list-item {{ (isset($event)) ? 'active' : '' }}">
-                                <li>Lista de Eventos <i class="fa fa-gift white"></i></li>
-                            </a>
+                            <ul class="application-header-list-dropdown {{ (isset($user) || isset($event) || isset($suggest)) ? 'block' : '' }}"
+                                id="registration">
+                                <a href="{{ route('admin.user') }}"
+                                   class="application-header-list-item">
+                                    <li>{!! (isset($user) ? '<i class="fa fa-arrow-right"></i>' : '') !!} Usuários <i class="fas fa-users white"></i></li>
+                                </a>
 
-                            <a href="{{ route('admin.suggest') }}" class="application-header-list-item {{ (isset($suggest)) ? 'active' : '' }}">
-                                <li>Sugestões Recebidas <i class="fas fa-boxes white"></i></li>
+                                <a href="{{ route('admin.suggest') }}"
+                                   class="application-header-list-item">
+                                    <li>{!! (isset($suggest) ? '<i class="fa fa-arrow-right"></i>' : '') !!} Temas <i class="fas fa-boxes white"></i></li>
+                                </a>
+
+                                <a href="{{ route('admin.event') }}"
+                                   class="application-header-list-item">
+                                    <li>{!! (isset($event) ? '<i class="fa fa-arrow-right"></i>' : '') !!} Eventos <i class="fa fa-gift white"></i></li>
+                                </a>
+                            </ul>
+
+                            <a href="{{ route('admin.dashboard') }}"
+                               class="application-header-list-item {{ (isset($notification)) ? 'active' : '' }}">
+                                <li>Notificações <i class="fas fa-envelope-open white"></i></li>
                             </a>
                         </ul>
                     </div>
@@ -74,7 +93,8 @@
                     @include('admin::layouts.notification')
 
                     <div class="inline-block action">
-                        <a href="{{ url('administrador/logout') }}" class="no-decoration milk">Sair <i class="fa fa-sign-out-alt"></i></a>
+                        <a href="{{ url('administrador/logout') }}" class="no-decoration milk">Sair <i
+                                    class="fa fa-sign-out-alt"></i></a>
                     </div>
                 </div>
 

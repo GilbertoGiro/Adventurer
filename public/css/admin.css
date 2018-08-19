@@ -2,6 +2,14 @@
 body{
     width:100% !important;
 }
+hr{
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #E0E0E0;
+    margin:2px;
+    padding: 0;
+}
 /* Application CSS - User Module - General Configuration */
 .application{
     box-shadow:none !important;
@@ -33,6 +41,12 @@ body{
 .application-header .application-header-list .active{
     font-weight:bold;
     background-color:#6C87AB;
+}
+.application-header-content .application-header-list .application-header-list-dropdown{
+    padding:0;
+    display:none;
+    list-style:none;
+    font-size:15px !important;
 }
 .application-body{
     padding:0;

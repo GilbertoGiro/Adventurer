@@ -42,7 +42,7 @@ class UserService extends AbstractService{
             if($new = $this->model->create($data)){
                 $post = [
                     'idusuario' => $new->id,
-                    'token'     => bcrypt(md5(uniqid(rand()))),
+                    'token'     => bcrypt(md5(uniqid(rand())))
                 ];
                 $this->recovery->create($post);
 

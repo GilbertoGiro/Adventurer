@@ -45,7 +45,7 @@
 
                 <div class="block text-right m-r-sm m-b-sm">
                     <button class="button button-info m-r-sm">Notificar Usuário <i class="fa fa-envelope"></i></button>
-                    <button class="button button-warning">Editar Usuário <i class="fa fa-edit"></i></button>
+                    <a href="{{ route('admin.user.edit', $client->id) }}" class="button button-warning">Editar Usuário <i class="fa fa-edit"></i></a>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                                 Título <i class="fa fa-book"></i>
                             </th>
                             <th>
-                                Descrição <i class="fa fa-comment-alt"></i>
+                                Status <i class="fa fa-comment-alt"></i>
                             </th>
                             <th>
                                 Criado em <i class="fa fa-calendar-check"></i>
@@ -82,7 +82,7 @@
                             @foreach($client->theme as $theme)
                                 <tr class="text-center">
                                     <td>{{ $theme->titulo }}</td>
-                                    <td>{{ $theme->descricao }}</td>
+                                    <td>{!! \App\Utilities\Arrays::themeStatusLabel($theme->sttema) !!}</td>
                                     <td>{{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y') }}</td>
                                     <td>
                                         <a href="{{ route('admin.suggest.show', $theme->id) }}">

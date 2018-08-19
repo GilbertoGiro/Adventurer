@@ -28,9 +28,9 @@ class UserRequest extends FormRequest
                 return [
                     'nome'      => 'required|between:1,200',
                     'email'     => 'required|between:1,200|unique:usuario',
-                    'idcurso'   => 'nullable|exists:curso,id',
+                    'idpapel'   => 'exists:papel,id',
                     'flexterno' => 'required',
-                    'idpapel'   => 'exists:papel,id'
+                    'idcurso'   => 'required_if:flexterno,==,n|nullable|exists:curso,id',
                 ];
                 break;
             case 'PUT':
@@ -51,10 +51,11 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'O campo <b>:attribute</b> é obrigatório.',
-            'between'  => 'O campo <b>:attribute</b> extrapolou o limite de caracteres permitido',
-            'exists'   => 'O <b>:attribute</b> informado não existe',
-            'unique'   => 'O :attribute informado já está sendo utilizado.'
+            'required'    => 'O campo <b>:attribute</b> é obrigatório.',
+            'between'     => 'O campo <b>:attribute</b> extrapolou o limite de caracteres permitido',
+            'exists'      => 'O <b>:attribute</b> informado não existe',
+            'unique'      => 'O <b>:attribute</b> informado já está sendo utilizado.',
+            'required_if' => 'O campo <b>:attribute</b> é obrigatório'
         ];
     }
 

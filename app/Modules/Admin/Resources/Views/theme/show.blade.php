@@ -21,7 +21,7 @@
     </div>
 
     <div class="p-md" style="margin-top:-5px;">
-        <div class="block card m-t-sm" style="width:100%;">
+        <div class="block card m-t-sm">
             <div class="card-header background-weak-blue white">
                 <h3 class="m-t-sm">
                     Informações Completas
@@ -31,58 +31,51 @@
             </div>
 
             <div class="card-body p-md">
-                <div class="block p-md">
-                    <div class="m-b-md text-center">
+                <div class="flex" style="justify-content:inherit;">
+                    <div class="align-top m-r-lg m-l-md">
                         @if(empty($theme->photo))
-                            <img src="{{ asset('img/no-image.png') }}" width="205px">
+                            <img src="{{ asset('img/no-image.png') }}">
                         @else
-                            <img src="{{ asset($theme->photo) }}" width="185px">
+                            <img src="{{ asset($theme->photo) }}">
                         @endif
                     </div>
+                    <div class="align-top m-t-md">
+                        <div class="block m-b-md">
+                            <span class="bold">Sugerida por:</span>
+                            <a href="{{ route('admin.user.show', $theme->idusuario) }}" class="facebook-blue">{{ $theme->nmusuario }}</a>
+                        </div>
+                        <div class="block m-b-md">
+                            <span class="bold">Status:</span>
+                            {!! \App\Utilities\Arrays::themeStatusLabel($theme->sttema) !!}
+                        </div>
+                        <div class="block m-b-md">
+                            <span class="bold">Enviada em:</span> {{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y H:i:s') }}
+                        </div>
+                        <div class="block text-justify">
+                            <span class="block bold m-b-sm">Descrição:</span>
+                            {!! $theme->descricao !!}
+                        </div>
+                    </div>
+                </div>
 
-                    <span class="block m-t-md">
-                        <label class="form-label bold">Sugerida por:</label> <a href="{{ route('admin.user.show', $theme->idusuario) }}" class="facebook-blue">{{ $theme->nmusuario }}</a>
-                    </span>
+                <div class="block text-right m-t-lg">
+                    <button class="button button-warning tooltip m-r-sm">
+                        <span class="tooltiptext">Notificar Usuário</span>
 
-                    <span class="block m-t-md">
-                        <label class="form-label bold">Curso:</label> {{ $theme->course->nome }}
-                    </span>
+                        Notificar Usuário <i class="fa fa-envelope"></i>
+                    </button>
 
-                    <span class="block m-t-md">
-                        <label class="form-label bold">Status:</label> {!! \App\Utilities\Arrays::themeStatusLabel($theme->sttema) !!}
-                    </span>
+                    <button class="button button-danger tooltip m-r-sm disapprove {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
+                        <span class="tooltiptext">Reprovar Tema</span>
 
-                    <span class="block m-t-md text-justify">
-                        <label class="form-label bold">Descrição:</label> {!! $theme->descricao !!}
-                    </span>
+                        Reprovar <i class="fa fa-thumbs-down"></i>
+                    </button>
 
-                    <span class="block m-t-md">
-                        <label class="form-label bold">Enviada em:</label> {{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y H:i:s') }}
-                    </span>
+                    <button class="button button-success tooltip approve {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
+                        <span class="tooltiptext">Aprovar Tema</span>
 
-                    <span class="block text-right m-t-lg">
-                        <a href="{{ route('admin.suggest') }}" class="button button-info left">
-                            <i class="fa fa-arrow-left"></i> Voltar a página anterior
-                        </a>
-
-                        <button class="button button-warning tooltip m-r-sm">
-                            <span class="tooltiptext">Notificar Usuário</span>
-
-                            Notificar Usuário <i class="fa fa-envelope"></i>
-                        </button>
-
-                        <button class="button button-danger tooltip m-r-sm disapprove {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
-                            <span class="tooltiptext">Reprovar Tema</span>
-
-                            Reprovar <i class="fa fa-thumbs-down"></i>
-                        </button>
-
-                        <button class="button button-success tooltip approve {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
-                            <span class="tooltiptext">Aprovar Tema</span>
-
-                            Aprovar <i class="fa fa-thumbs-up"></i>
-                        </button>
-                    </span>
+                        Aprovar <i class="fa fa-thumbs-up"></i>
+                    </button>
                 </div>
             </div>
         </div>
