@@ -71,7 +71,7 @@
                                 </a>
                             </ul>
 
-                            <a href="{{ route('admin.dashboard') }}"
+                            <a href="{{ route('admin.notification') }}"
                                class="application-header-list-item {{ (isset($notification)) ? 'active' : '' }}">
                                 <li>Notificações <i class="fas fa-envelope-open white"></i></li>
                             </a>
@@ -101,12 +101,25 @@
                 <div class="application-body-content p-md">
                     @yield('content')
 
+                    @if(session()->has('success'))
+                        <div class="alert alert-success">
+                            <div class="inline-block align-middle text-right m-l-sm">
+                                <i class="fa fa-check m-l-sm" style="font-size:35px;"></i>
+                            </div>
+                            <div class="inline-block align-middle m-l-md" style="max-width:80%;margin-top:-4px !important;">
+                                <div class="block" style="font-size:15px;">
+                                    <span class="block">{!! session()->get('success') !!}</span>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+
                     @if(count($errors))
                         <div class="alert alert-{{ (!empty($errors->first('type'))) ? $errors->first('type') : 'danger' }}">
                             <div class="inline-block align-middle text-right m-l-sm">
-                                <i class="fa fa-shield-alt" style="font-size:42px;"></i>
+                                <i class="fa fa-shield-alt" style="font-size:40px;"></i>
                             </div>
-                            <div class="inline-block align-middle m-l-lg">
+                            <div class="inline-block align-middle m-l-lg" style="max-width:80%;margin-top:-4px !important;">
                                 <div class="block m-t-sm" style="font-size:15px;">
                                     @if($errors->has('message'))
                                         <p class="m-t-sm m-b-sm">{!! $errors->first('message') !!}</p>

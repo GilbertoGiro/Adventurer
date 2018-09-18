@@ -41,9 +41,9 @@ class ThemeRequest extends FormRequest
     public function messages()
     {
         return [
-            'required' => 'O campo :attribute é obrigatório',
-            'exists'   => 'O valor informado em :attribute não é válido',
-            'mimes'    => 'Os tipos suportados de imagem são: jpeg,jpg,png,gif'
+            'required' => 'O campo <b>:attribute</b> é obrigatório',
+            'exists'   => 'O valor informado em <b>:attribute</b> não é válido',
+            'mimes'    => 'Os tipos suportados de imagem são: <b>jpeg,jpg,png</b>'
         ];
     }
 

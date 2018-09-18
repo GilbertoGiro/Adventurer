@@ -41,11 +41,9 @@ class LoginController extends Controller{
     public function store(UserRequest $request)
     {
         $condition = $this->service->create($request->all());
-
         if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Conta criada com sucesso. Verifique o E-mail para confirmar sua conta', 'type' => 'success']);
+            return redirect()->back()->with('success', 'Verifique seu e-mail para confirmar a conta');
         }
-
         return redirect()->back()->withErrors(['message' => 'Não foi possível criar a conta.', 'type' => 'danger'])->withInput($request->all());
     }
 }

@@ -59,6 +59,18 @@ $(document).ready(function(){
             }
         });
 
+        $(parent).find('.required-selectize').each(function(){
+            let value = $(this).val();
+
+            $(this).parent().find('.invalid-field').remove();
+            $(this).parent().find('.note-frame').removeClass('warning');
+
+            if(value){
+                $(this).parent().find('.note-frame').addClass('warning');
+                $(this).parent().append('<p class="invalid-field">Este campo é obrigatório!</p>');
+            }
+        });
+
         $(parent).find('.required').each(function(){
             let value = $(this).val();
 

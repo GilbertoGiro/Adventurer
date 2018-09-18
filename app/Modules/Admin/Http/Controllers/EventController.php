@@ -32,7 +32,6 @@ class EventController extends Controller{
     {
         $event  = true;
         $events = $this->service->get('*', $request, 'object');
-
         return view('admin::event.index', compact('event', 'events'));
     }
 
@@ -44,7 +43,6 @@ class EventController extends Controller{
     public function create()
     {
         $event = true;
-
         return view('admin::event.create', compact('event'));
     }
 
@@ -57,11 +55,9 @@ class EventController extends Controller{
     public function store(Request $request)
     {
         $condition = $this->service->create($request->all());
-
         if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Evento cadastrado com sucesso', 'type' => 'success']);
+            return redirect()->back()->with('success', 'Evento cadastrado com sucesso');
         }
-
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 }

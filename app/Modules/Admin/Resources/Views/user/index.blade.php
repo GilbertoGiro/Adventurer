@@ -42,7 +42,7 @@
                 <div class="form-group text-left table-cell p-sm">
                     <label for="idpapel" class="form-label bold">Papel</label>
                     <select name="idpapel" class="form-input" id="idpapel">
-                        <option value="">Selecione o Curso</option>
+                        <option value="">Selecione o Papel</option>
                         @foreach(\App\Utilities\Arrays::papers() as $paper)
                             <option value="{{ $paper['id'] }}" {{ (request('idpapel') == $paper['id']) ? 'selected' : '' }}>{{ $paper['nome'] }}</option>
                         @endforeach

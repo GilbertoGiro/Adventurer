@@ -73,6 +73,7 @@
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Título', 'titulo') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Enviada por', 'nmusuario') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Status', 'sttema') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Criado em', 'created_at') !!}</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -83,6 +84,7 @@
                                     <td>{{ $theme->titulo }}</td>
                                     <td>{{ $theme->nmusuario }}</td>
                                     <td>{!! ($theme->sttema !== 'abe') ? ($theme->sttema !== 'apr') ? '<span class="label white background-red">Reprovado</span>' : '<span class="label white background-green">Aprovado</span>' : '<span class="label white background-gold">Aberto</span>' !!}</td>
+                                    <td>{{ (new \Carbon\Carbon($theme->created_at))->format('d/m/Y') }}</td>
                                     <td>
                                         <a href="{{ route('admin.suggest.show', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
@@ -92,31 +94,33 @@
                                             </button>
                                         </a>
 
-                                        <a href="" class="text-decoration-none approve">
-                                            <button class="button button-success circular-button tooltip">
-                                                <span class="tooltiptext">Aprovar Tema</span>
+                                        @if($theme->sttema === 'abe')
+                                            <a href="" class="text-decoration-none approve">
+                                                <button class="button button-success circular-button tooltip">
+                                                    <span class="tooltiptext">Aprovar Tema</span>
 
-                                                <i class="fa fa-thumbs-up"></i>
-                                            </button>
-                                        </a>
+                                                    <i class="fa fa-thumbs-up"></i>
+                                                </button>
+                                            </a>
 
-                                        <a href="" class="text-decoration-none disapprove">
-                                            <button class="button button-danger circular-button tooltip">
-                                                <span class="tooltiptext">Reprovar Tema</span>
+                                            <a href="" class="text-decoration-none disapprove">
+                                                <button class="button button-danger circular-button tooltip">
+                                                    <span class="tooltiptext">Reprovar Tema</span>
 
-                                                <i class="fa fa-thumbs-down"></i>
-                                            </button>
-                                        </a>
+                                                    <i class="fa fa-thumbs-down"></i>
+                                                </button>
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
                         @else
                             <tr class="text-center">
-                                <td colspan="4">Nenhum registro encontrado</td>
+                                <td colspan="5">Nenhum registro encontrado</td>
                             </tr>
                         @endif
                         <tr>
-                            <td class="text-right" colspan="4">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
+                            <td class="text-right" colspan="5">Visualizando <b>{{ $themes['filter'] }}</b> de <b>{{ $themes['count'] }}</b> temas</td>
                         </tr>
                     </tbody>
                 </table>

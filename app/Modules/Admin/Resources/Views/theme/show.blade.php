@@ -34,9 +34,9 @@
                 <div class="flex" style="justify-content:inherit;">
                     <div class="align-top m-r-lg m-l-md">
                         @if(empty($theme->photo))
-                            <img src="{{ asset('img/no-image.png') }}">
+                            <img src="{{ asset('img/no-image.png') }}" class="m-t-sm">
                         @else
-                            <img src="{{ asset($theme->photo) }}">
+                            <img src="{{ asset($theme->photo) }}" class="m-t-sm">
                         @endif
                     </div>
                     <div class="align-top m-t-md">

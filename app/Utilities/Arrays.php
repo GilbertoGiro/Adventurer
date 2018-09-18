@@ -5,6 +5,7 @@ namespace App\Utilities;
 use App\Models\Course;
 use App\Models\Paper;
 use App\Models\Theme;
+use App\Models\User;
 
 class Arrays{
     /**
@@ -17,6 +18,19 @@ class Arrays{
         return [
             'Sim' => 's',
             'Não' => 'n'
+        ];
+    }
+
+    /**
+     * Method to get Status list
+     *
+     * @return array
+     */
+    public static function status()
+    {
+        return [
+            'ati' => 'Ativo',
+            'ina' => 'Inativo'
         ];
     }
 
@@ -54,6 +68,22 @@ class Arrays{
     }
 
     /**
+     * Method to get Notification Status Label
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function notificationStatusLabel($status)
+    {
+        $labels = [
+            'ati' => '<label class="label background-green white">Ativo</label>',
+            'ina' => '<label class="label background-red white">Inativo</label>'
+        ];
+
+        return $labels[$status];
+    }
+
+    /**
      * Method to get Courses list
      *
      * @return array
@@ -81,5 +111,15 @@ class Arrays{
     public static function papers()
     {
         return Paper::all()->toArray();
+    }
+
+    /**
+     * Method to get Admins List
+     *
+     * @return array
+     */
+    public static function admins()
+    {
+        return User::all()->where('idpapel', 1)->where('stusuario', 'ati')->toArray();
     }
 }

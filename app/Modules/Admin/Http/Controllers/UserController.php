@@ -8,7 +8,8 @@ use App\Services\PaperService;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
-class UserController extends Controller{
+class UserController extends Controller
+{
     /**
      * @var UserService
      */
@@ -27,7 +28,7 @@ class UserController extends Controller{
      */
     public function __construct(UserService $service, PaperService $paperService)
     {
-        $this->service      = $service;
+        $this->service = $service;
         $this->paperService = $paperService;
     }
 
@@ -39,11 +40,11 @@ class UserController extends Controller{
      */
     public function index(Request $request)
     {
-        if(!$request->get('orderByAsc')){
+        if (!$request->get('orderByAsc')) {
             $request->merge(['orderByAsc' => 'nome']);
         }
 
-        $user  = true;
+        $user = true;
         $users = $this->service->get('*', $request, 'object');
 
         return view('admin::user.index', compact('user', 'users'));
@@ -70,11 +71,9 @@ class UserController extends Controller{
     public function store(UserRequest $request)
     {
         $condition = $this->service->create($request->all());
-
-        if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Usuário criado com sucesso.', 'type' => 'success']);
+        if ($condition['status'] === '00') {
+            return redirect()->back()->with('success', 'Usuário criado com sucesso.');
         }
-
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 
@@ -86,7 +85,7 @@ class UserController extends Controller{
      */
     public function show($id)
     {
-        $user   = true;
+        $user = true;
         $client = $this->service->find($id);
 
         return view('admin::user.show', compact('user', 'client'));
@@ -100,7 +99,7 @@ class UserController extends Controller{
      */
     public function edit($id)
     {
-        $user   = true;
+        $user = true;
         $client = $this->service->find($id);
         $papers = $this->paperService->all();
 
@@ -117,11 +116,9 @@ class UserController extends Controller{
     public function update(UserRequest $request, $id)
     {
         $condition = $this->service->update($request->all(), $id);
-
-        if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Alterações realizadas com sucesso.', 'type' => 'success']);
+        if ($condition['status'] === '00') {
+            return redirect()->back()->with('success', 'Alterações realizadas com sucesso.');
         }
-
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 }

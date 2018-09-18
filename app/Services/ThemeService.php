@@ -80,6 +80,48 @@ class ThemeService extends AbstractService{
     }
 
     /**
+     * Create Theme without Approve
+     *
+     * @param array $data
+     * @return array
+     */
+    public function createWithoutApprove(array $data)
+    {
+        DB::beginTransaction();
+        try{
+            $data['idusuario'] = Auth::guard('admin')->user()->id;
+            $data['idresponsavel'] = $data['idusuario'];
+
+            if(!empty($data['photo'])){
+                $file = $data['photo'];
+
+                unset($data['photo']);
+            }
+
+            $new = $this->model->create($data);
+
+            if($new){
+                if(!empty($file)){
+                    $file = $this->prepareImage($file);
+                    Storage::disk('local')->put('theme/' . $new->id . '/tema.png', $file->encode('png'));
+
+                    $new->update(['photo' => 'theme/' . $new->id . '/tema.png']);
+                }
+
+                DB::commit();
+                return ['status' => '00'];
+            }
+
+            DB::rollback();
+            return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
+        }catch(\Exception $e){
+            DB::rollback();
+            Log::debug($e->getMessage());
+            return ['status' => '01', 'message' => 'Não foi possível realizar a ação solicitada'];
+        }
+    }
+
+    /**
      * Method to update Theme Information
      *
      * @param array $data

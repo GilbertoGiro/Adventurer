@@ -632,6 +632,20 @@ table tbody td:last-child{
 .text-decoration-none{
     text-decoration:none;
 }
+/* Application CSS - Select2 */
+.select2-selection{
+    font-size:14px !important;
+    height:auto !important;
+    padding: 6px !important;
+    border-radius: 0 !important;
+    border: 1px solid #c0c0c0 !important;
+}
+.select2-selection__arrow{
+    height:38px !important;
+}
+.select2-results__options{
+    font-size:14px !important;
+}
 /* Application CSS - Colors */
 .milk{
     color:#F4F4F4 !important;

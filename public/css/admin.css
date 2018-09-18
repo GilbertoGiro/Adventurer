@@ -96,3 +96,6 @@ hr{
 .note-editor{
     margin-top:8px;
 }
+.note-editor.note-frame{
+    border:1px solid #C0C0C0 !important;
+}

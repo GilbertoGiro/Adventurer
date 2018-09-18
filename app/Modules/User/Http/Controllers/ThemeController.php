@@ -61,11 +61,9 @@ class ThemeController extends Controller
     public function store(Request $request)
     {
         $condition = $this->service->create($request->all());
-
         if ($condition['status'] === '00') {
-            return redirect()->back()->withErrors(['message' => 'Sugestão adicionada com sucesso.', 'type' => 'success']);
+            return redirect()->back()->with('success', 'Sugestão adicionada com sucesso');
         }
-
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 

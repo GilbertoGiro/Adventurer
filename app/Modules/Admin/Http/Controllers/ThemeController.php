@@ -3,8 +3,10 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Admin\Http\Requests\ThemeRequest;
 use App\Services\ThemeService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ThemeController extends Controller{
     /**
@@ -44,7 +46,23 @@ class ThemeController extends Controller{
     public function create()
     {
         $suggest = true;
-        return view('admin::theme.create', compact('suggest'));
+        $admin = Auth::guard('admin')->user();
+        return view('admin::theme.create', compact('suggest', 'admin'));
+    }
+
+    /**
+     * Method to Create an Theme
+     *
+     * @param ThemeRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(ThemeRequest $request)
+    {
+        $condition = $this->service->createWithoutApprove($request->all());
+        if($condition['status'] === '00'){
+            return redirect()->back()->with('success', 'Tema atualizado com sucesso');
+        }
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 
     /**
@@ -57,11 +75,9 @@ class ThemeController extends Controller{
     public function update(Request $request, int $id)
     {
         $condition = $this->service->update($request->all(), $id);
-
         if($condition['status'] === '00'){
-            return redirect()->back()->withErrors(['message' => 'Tema atualizado com sucesso', 'type' => 'success']);
+            return redirect()->back()->with('success', 'Tema atualizado com sucesso');
         }
-
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 

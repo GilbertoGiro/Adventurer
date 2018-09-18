@@ -41,6 +41,11 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::put('temas/{id}', 'ThemeController@update');
         Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 
+        // Routes about Notification
+        Route::get('notificacoes', 'NotificationController@index')->name('admin.notification');
+        Route::get('notificacoes/adicionar', 'NotificationController@create')->name('admin.notification.create');
+        Route::post('notificacoes/adicionar', 'NotificationController@store');
+
         // Route to logout
         Route::get('logout', 'LoginController@logout');
     });

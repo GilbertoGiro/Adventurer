@@ -2,6 +2,7 @@
 
 @section('styles')
     <link rel="stylesheet" href="{{ asset('css/steps.css') }}">
+    <link href="{{ asset('select2/dist/css/select2.css') }}" rel="stylesheet"/>
 @endsection
 
 @section('path')
@@ -46,7 +47,7 @@
 
                             <div class="form-group m-t-md">
                                 <label for="idtema" class="form-label required-field">Tema</label>
-                                <select name="idtema" class="form-input required" id="idtema">
+                                <select name="idtema" class="form-input required-selectize" id="idtema">
                                     <option value="">Selecione o tema</option>
                                     @foreach(App\Utilities\Arrays::themes() as $theme)
                                         <option value="{{ $theme['id'] }}" {{ old('idtema') === $theme['id'] ? 'selected' : '' }}>{{ $theme['titulo'] }}</option>
@@ -120,6 +121,7 @@
 @endsection
 
 @section('scripts')
+    <script src="{{ asset('select2/dist/js/select2.js') }}"></script>
     <script src="{{ asset('js/steps.js') }}"></script>
     @include('admin::event.javascript.create')
 @endsection
