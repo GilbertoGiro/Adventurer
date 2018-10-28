@@ -6,9 +6,11 @@ use App\Mail\PasswordRequestMail;
 use App\Models\Recovery;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
-class UserService extends AbstractService{
+class UserService extends AbstractService
+{
     /**
      * @var Recovery
      */
@@ -36,13 +38,13 @@ class UserService extends AbstractService{
     public function create(array $data)
     {
         DB::beginTransaction();
-        try{
+        try {
             $data['senha'] = bcrypt(md5(uniqid(rand())));
 
-            if($new = $this->model->create($data)){
+            if ($new = $this->model->create($data)) {
                 $post = [
                     'idusuario' => $new->id,
-                    'token'     => bcrypt(md5(uniqid(rand())))
+                    'token' => bcrypt(md5(uniqid(rand())))
                 ];
                 $this->recovery->create($post);
 
@@ -56,9 +58,10 @@ class UserService extends AbstractService{
 
             DB::rollBack();
             return ['status' => '01', 'message' => 'Não foi possível criar o registro.'];
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             DB::rollBack();
-            return ['status' => '01', 'message' => $e->getMessage()];
+            Log::debug($e->getMessage());
+            return ['status' => '01', 'message' => 'Não foi possível criar o registro.'];
         }
     }
 
@@ -71,16 +74,13 @@ class UserService extends AbstractService{
      */
     public function update(array $data, int $id)
     {
-        try{
+        try {
             $user = $this->model->find($id);
-
-            if($user->update($data)){
-                DB::commit();
+            if ($user->update($data)) {
                 return ['status' => '00'];
             }
-
             return ['status' => '01', 'message' => 'Não foi possível criar o registro.'];
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return ['status' => '01', 'message' => $e->getMessage()];
         }
     }

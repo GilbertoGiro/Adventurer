@@ -3,8 +3,26 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\ThemeService;
+use Illuminate\Http\Request;
 
-class ModalController extends Controller{
+class ModalController extends Controller
+{
+    /**
+     * @var ThemeService
+     */
+    protected $theme;
+
+    /**
+     * ModalController constructor.
+     *
+     * @param ThemeService $theme
+     */
+    public function __construct(ThemeService $theme)
+    {
+        $this->theme = $theme;
+    }
+
     /**
      * Method to get Recovery Modal
      *
@@ -19,22 +37,26 @@ class ModalController extends Controller{
     /**
      * Method to get Approve Theme Modal
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Throwable
      */
-    public function approveTheme()
+    public function approveTheme(Request $request)
     {
-        return response()->json(['html' => view('admin::modal.approve-theme')->render()]);
+        $theme = $this->theme->find($request->get('id'));
+        return response()->json(['html' => view('admin::modal.approve-theme', compact('theme'))->render()]);
     }
 
     /**
      * Method to get Disapprove Theme Modal
      *
+     * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      * @throws \Throwable
      */
-    public function disapproveTheme()
+    public function disapproveTheme(Request $request)
     {
-        return response()->json(['html' => view('admin::modal.disapprove-theme')->render()]);
+        $theme = $this->theme->find($request->get('id'));
+        return response()->json(['html' => view('admin::modal.disapprove-theme', compact('theme'))->render()]);
     }
 }

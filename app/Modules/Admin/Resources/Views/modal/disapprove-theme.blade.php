@@ -1,6 +1,6 @@
 <div class="modal">
     <div class="modal-content">
-        <form method="post" style="margin:0 !important;">
+        <form action="{{ url('administrador/temas/') . '/' . $theme->id }}" method="post" style="margin:0 !important;">
             {{ csrf_field() }}
             {{ method_field('PUT') }}
 

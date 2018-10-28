@@ -62,4 +62,46 @@ class NotificationController extends Controller
         }
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
+
+    /**
+     * Method to show Edit Notification Form
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(int $id)
+    {
+        $notification = true;
+        $notify = $this->service->find($id);
+        return view('admin::notification.edit', compact('notification', 'notify'));
+    }
+
+    /**
+     * Method to update Notification
+     *
+     * @param NotificationRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(NotificationRequest $request, int $id)
+    {
+        $condition = $this->service->update($request->all(), $id);
+        if ($condition['status'] === '00') {
+            return redirect()->back()->with('success', 'Notificação atualizada com sucesso');
+        }
+        return redirect()->back()->withErrors(['message' => $condition['message']]);
+    }
+
+    /**
+     * Method to show Notification Information
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show(int $id)
+    {
+        $notification = true;
+        $notify = $this->service->find($id);
+        return view('admin::notification.show', compact('notification', 'notify'));
+    }
 }

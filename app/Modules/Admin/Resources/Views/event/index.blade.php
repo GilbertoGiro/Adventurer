@@ -93,7 +93,7 @@
                                     <td>{{ (new \Carbon\Carbon($event->dtprevista))->format('d/m/Y') }}</td>
                                     <td>{{ $event->duracao }}</td>
                                     <td>
-                                        <a href="{{ route('admin.suggest.show', $event->id) }}" class="text-decoration-none">
+                                        <a href="" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar Evento</span>
 
@@ -101,7 +101,15 @@
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.suggest.show', $event->id) }}" class="text-decoration-none">
+                                        <a href="" class="text-decoration-none">
+                                            <button class="button button-warning circular-button tooltip">
+                                                <span class="tooltiptext">Editar Evento</span>
+
+                                                <i class="fa fa-edit"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="" class="text-decoration-none">
                                             <button class="button button-danger circular-button tooltip">
                                                 <span class="tooltiptext">Notificar Participantes</span>
 

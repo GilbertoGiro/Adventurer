@@ -7,7 +7,8 @@ use App\Models\User;
 use App\Notifications\NewEvent;
 use Illuminate\Support\Facades\Auth;
 
-class EventService extends AbstractService{
+class EventService extends AbstractService
+{
     /**
      * @var User
      */
@@ -22,7 +23,6 @@ class EventService extends AbstractService{
     public function __construct(Event $model, User $user)
     {
         $this->user = $user;
-
         parent::__construct($model);
     }
 
@@ -35,7 +35,7 @@ class EventService extends AbstractService{
     {
         $events = $this->model::with('theme')->get();
 
-        foreach($events as $key => $event){
+        foreach ($events as $key => $event) {
             $events[$key] = [
                 'title' => $event->theme->titulo,
                 'start' => $event->dtprevista . 'T' . $event->hrinicio
@@ -53,29 +53,26 @@ class EventService extends AbstractService{
      */
     public function create(array $data)
     {
-        try{
-            $admin             = Auth::guard('admin')->user();
+        try {
+            $admin = Auth::guard('admin')->user();
             $data['flexterno'] = (!empty($data['endereco'])) ? 's' : 'n';
-            $data['flaberto']  = (!empty($data['flaberto'])) ? 's' : 'n';
+            $data['flaberto'] = (!empty($data['flaberto'])) ? 's' : 'n';
 
             $new = $this->model->create($data);
-
-            if($new->id){
+            if ($new->id) {
                 $users = $this->user->all()->where('idcurso', $new->theme->idcurso);
-                $post  = [
-                    'titulo'    => $new->theme->titulo,
+                $post = [
+                    'titulo' => $new->theme->titulo,
                     'nmusuario' => $admin->nome
                 ];
 
-                foreach($users as $user){
+                foreach ($users as $user) {
                     $user->notify(new NewEvent($post));
                 }
-
                 return ['status' => '00'];
             }
-
             return ['status' => '01', 'message' => 'Ocorreu um erro durante a criação do registro'];
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return ['status' => '01', 'message' => $e->getMessage()];
         }
     }

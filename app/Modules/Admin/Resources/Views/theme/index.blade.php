@@ -95,7 +95,7 @@
                                         </a>
 
                                         @if($theme->sttema === 'abe')
-                                            <a href="" class="text-decoration-none approve">
+                                            <a href="" class="text-decoration-none approve" data-id="{{ $theme->id }}">
                                                 <button class="button button-success circular-button tooltip">
                                                     <span class="tooltiptext">Aprovar Tema</span>
 
@@ -103,7 +103,7 @@
                                                 </button>
                                             </a>
 
-                                            <a href="" class="text-decoration-none disapprove">
+                                            <a href="" class="text-decoration-none disapprove" data-id="{{ $theme->id }}">
                                                 <button class="button button-danger circular-button tooltip">
                                                     <span class="tooltiptext">Reprovar Tema</span>
 

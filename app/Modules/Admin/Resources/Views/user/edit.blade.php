@@ -57,7 +57,7 @@
                             </div>
 
                             <div class="form-group m-t-md">
-                                <label for="idcurso" class="block form-label required-field">Curso:</label>
+                                <label for="idcurso" class="block form-label">Curso:</label>
                                 <select name="idcurso" class="form-input" id="idcurso">
                                     <option value="">Selecione uma opção</option>
                                     @foreach(\App\Utilities\Arrays::courses() as $course)

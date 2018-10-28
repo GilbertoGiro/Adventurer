@@ -90,7 +90,7 @@
                                     <td>{{ $notification->user->nome }}</td>
                                     <td>{!! \App\Utilities\Arrays::notificationStatusLabel($notification->stnotificacao) !!}</td>
                                     <td>
-                                        <a href="" class="text-decoration-none">
+                                        <a href="{{ route('admin.notification.show', $notification->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar Notificação</span>
 
@@ -98,7 +98,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="" class="text-decoration-none">
+                                        <a href="{{ route('admin.notification.edit', $notification->id) }}" class="text-decoration-none">
                                             <button class="button button-warning circular-button tooltip">
                                                 <span class="tooltiptext">Editar Notificação</span>
 

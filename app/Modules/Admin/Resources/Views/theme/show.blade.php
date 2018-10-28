@@ -65,13 +65,13 @@
                         Notificar Usuário <i class="fa fa-envelope"></i>
                     </button>
 
-                    <button class="button button-danger tooltip m-r-sm disapprove {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
+                    <button class="button button-danger tooltip m-r-sm disapprove {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }} data-id="{{ $theme->id }}">
                         <span class="tooltiptext">Reprovar Tema</span>
 
                         Reprovar <i class="fa fa-thumbs-down"></i>
                     </button>
 
-                    <button class="button button-success tooltip approve {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }}>
+                    <button class="button button-success tooltip approve {{ $theme->sttema !== 'abe' ? 'disabled-button' : '' }}" {{ $theme->sttema !== 'abe' ? 'disabled' : '' }} data-id="{{ $theme->id }}">
                         <span class="tooltiptext">Aprovar Tema</span>
 
                         Aprovar <i class="fa fa-thumbs-up"></i>

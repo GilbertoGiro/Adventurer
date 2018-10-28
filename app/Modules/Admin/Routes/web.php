@@ -43,8 +43,11 @@ Route::group(['prefix' => 'administrador'], function(){
 
         // Routes about Notification
         Route::get('notificacoes', 'NotificationController@index')->name('admin.notification');
+        Route::get('notificacoes/{id}', 'NotificationController@show')->name('admin.notification.show');
         Route::get('notificacoes/adicionar', 'NotificationController@create')->name('admin.notification.create');
         Route::post('notificacoes/adicionar', 'NotificationController@store');
+        Route::get('notificacoes/editar/{id}', 'NotificationController@edit')->name('admin.notification.edit');
+        Route::put('notificacoes/editar/{id}', 'NotificationController@update');
 
         // Route to logout
         Route::get('logout', 'LoginController@logout');
