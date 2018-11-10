@@ -124,7 +124,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="" class="text-decoration-none">
+                                        <a href="" class="text-decoration-none cancel-event" data-id="{{ $event->id }}">
                                             <button class="button button-danger circular-button tooltip">
                                                 <span class="tooltiptext">Cancelar Evento</span>
 

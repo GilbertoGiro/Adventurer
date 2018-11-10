@@ -35,6 +35,7 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::get('eventos/{id}', 'EventController@show')->name('admin.event.show');
         Route::get('eventos/editar/{id}', 'EventController@edit')->name('admin.event.edit');
         Route::put('eventos/editar/{id}', 'EventController@update');
+        Route::post('eventos/{id}/cancelar', 'EventController@cancel')->name('admin.event.cancel');
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
@@ -71,4 +72,5 @@ Route::group(['prefix' => 'administrador'], function(){
     Route::get('/modal/tema/aprovar', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
     Route::get('/modal/tema/reprovar', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
     Route::get('/modal/evento/notificar', 'ModalController@eventParticipantsNotification')->name('admin.modal.notify.event');
+    Route::get('/modal/evento/cancelar', 'ModalController@cancelEvent')->name('admin.modal.cancel.event');
 });

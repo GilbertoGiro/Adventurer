@@ -7,6 +7,13 @@
             event_id = $(this).attr('data-id');
             notifyParticipantsModal();
         });
+
+        $('.cancel-event').on('click', function (event) {
+            event.preventDefault();
+
+            let id = $(this).attr('data-id');
+            cancelEventModal(id);
+        });
     });
 
     $(document).on('click', '.notify-participants-confirm', function (event) {
@@ -15,6 +22,24 @@
         notification_id = $('#notification_id').find(':selected').val();
         notify();
     });
+
+    // Method to get Cancel Event Modal
+    function cancelEventModal(id)
+    {
+        let request = $.ajax({
+            url: '{{ route('admin.modal.cancel.event') }}',
+            method: 'GET',
+            data: {
+                id: id
+            }
+        });
+        request
+            .then((response) => {
+                if (response.html) {
+                    $('.active-modal').html(response.html);
+                }
+            });
+    }
 
     // Method to get notify participants modal
     function notifyParticipantsModal() {

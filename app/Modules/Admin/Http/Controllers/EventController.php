@@ -104,4 +104,19 @@ class EventController extends Controller
         $episode = $this->service->find($id);
         return view('admin::event.show', compact('event', 'episode'));
     }
+
+    /**
+     * Method to cancel Event
+     *
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function cancel(int $id)
+    {
+        $condition = $this->service->cancel($id);
+        if ($condition['status'] === '00') {
+            return redirect()->back()->with('success', 'Evento cancelado com sucesso');
+        }
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
+    }
 }
