@@ -132,6 +132,8 @@
                             </div>
                         </div>
                     @endif
+
+                    <div class="notification-container"></div>
                 </div>
             </div>
         </div>
@@ -163,6 +165,9 @@
 
     <!-- Jquery Mask Script -->
     <script src="{{ asset('js/jquery-mask/jquery.mask.js') }}"></script>
+
+    <!-- Functions Script -->
+    <script src="{{ asset('js/functions.js') }}"></script>
 
     @section('scripts')
     @show

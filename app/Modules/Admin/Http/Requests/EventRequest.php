@@ -23,14 +23,30 @@ class EventRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'idtema'      => 'required|exists:tema,id',
-            'duracao'     => 'required',
-            'dtprevista'  => 'required|date',
-            'hrinicio'    => 'required',
-            'limite'      => 'required|integer',
-            'palestrante' => 'required|string',
-        ];
+        $return = [];
+        switch (request()->method()) {
+            case 'POST':
+                $return = [
+                    'idtema' => 'required|exists:tema,id',
+                    'duracao' => 'required',
+                    'dtprevista' => 'required|date',
+                    'hrinicio' => 'required',
+                    'limite' => 'required|integer',
+                    'palestrante' => 'required|string',
+                ];
+                break;
+            case 'PUT':
+                $return = [
+                    'idtema' => 'nullable|exists:tema,id',
+                    'duracao' => 'required',
+                    'dtprevista' => 'required|date',
+                    'hrinicio' => 'required',
+                    'limite' => 'required|integer',
+                    'palestrante' => 'required|string',
+                ];
+                break;
+        }
+        return $return;
     }
 
 
@@ -43,9 +59,9 @@ class EventRequest extends FormRequest
     {
         return [
             'required' => 'O campo <b>:attribute</b> é obrigatório.',
-            'exists'   => 'O campo <b>:attribute</b> contém um valor inválido',
-            'integer'  => 'O campo <b>:attribute</b> deve conter um número',
-            'string'   => 'O campo <b>:attribute</b> deve conter um texto'
+            'exists' => 'O campo <b>:attribute</b> contém um valor inválido',
+            'integer' => 'O campo <b>:attribute</b> deve conter um número',
+            'string' => 'O campo <b>:attribute</b> deve conter um texto'
         ];
     }
 
@@ -57,12 +73,12 @@ class EventRequest extends FormRequest
     public function attributes()
     {
         return [
-            'idtema'      => 'Tema',
-            'duracao'     => 'Duração',
-            'flaberto'    => 'Aberto a todos?',
-            'dtprevista'  => 'Data Prevista',
-            'hrinicio'    => 'Hora de Início',
-            'limite'      => 'Limite de Participantes',
+            'idtema' => 'Tema',
+            'duracao' => 'Duração',
+            'flaberto' => 'Aberto a todos?',
+            'dtprevista' => 'Data Prevista',
+            'hrinicio' => 'Hora de Início',
+            'limite' => 'Limite de Participantes',
             'palestrante' => 'Palestrante',
         ];
     }

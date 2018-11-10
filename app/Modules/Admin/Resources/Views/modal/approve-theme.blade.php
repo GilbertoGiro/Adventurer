@@ -22,13 +22,15 @@
 
                 <div class="inline-block align-middle" style="width:65%;">
                     <div class="block small text-justify m-b-md">
-                        Lembre-se de que ao realizar essa ação, a mesma não poderá ser desfeita, sendo possível apenas <b class="red">inativar</b> o tema aprovado.
+                        Lembre-se de que ao realizar essa ação, a mesma não poderá ser desfeita, sendo possível apenas
+                        <b class="red">inativar</b> o tema aprovado.
                     </div>
                 </div>
             </div>
 
-            <div class="modal-footer background-strong-blue text-right">
-                <button type="button" class="button button-danger m-r-sm close-modal">Cancelar <i class="fa fa-times"></i></button>
+            <div class="modal-footer text-right">
+                <button type="button" class="button button-danger m-r-sm close-modal">Cancelar <i
+                            class="fa fa-times"></i></button>
                 <button type="submit" class="button button-success">Confirmar <i class="fa fa-check"></i></button>
             </div>
 

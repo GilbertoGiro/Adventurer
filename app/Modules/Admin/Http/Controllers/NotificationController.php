@@ -89,7 +89,7 @@ class NotificationController extends Controller
         if ($condition['status'] === '00') {
             return redirect()->back()->with('success', 'Notificação atualizada com sucesso');
         }
-        return redirect()->back()->withErrors(['message' => $condition['message']]);
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
     }
 
     /**
@@ -103,5 +103,21 @@ class NotificationController extends Controller
         $notification = true;
         $notify = $this->service->find($id);
         return view('admin::notification.show', compact('notification', 'notify'));
+    }
+
+    /**
+     * Method to notify Event Participants
+     *
+     * @param int $notification
+     * @param int $event
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function notify(int $notification, int $event)
+    {
+        $condition = $this->service->notify($notification, $event);
+        if ($condition['status'] === '00') {
+            return response()->json('Participantes notificados com sucesso.', 200);
+        }
+        return response()->json($condition['message'], 500);
     }
 }

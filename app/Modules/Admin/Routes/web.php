@@ -32,6 +32,9 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::get('eventos', 'EventController@index')->name('admin.event');
         Route::get('eventos/adicionar', 'EventController@create')->name('admin.event.create');
         Route::post('eventos/adicionar', 'EventController@store');
+        Route::get('eventos/{id}', 'EventController@show')->name('admin.event.show');
+        Route::get('eventos/editar/{id}', 'EventController@edit')->name('admin.event.edit');
+        Route::put('eventos/editar/{id}', 'EventController@update');
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
@@ -42,6 +45,7 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 
         // Routes about Notification
+        Route::post('notificacoes/{notification}/enviar/{event}', 'NotificationController@notify');
         Route::get('notificacoes', 'NotificationController@index')->name('admin.notification');
         Route::get('notificacoes/{id}', 'NotificationController@show')->name('admin.notification.show');
         Route::get('notificacoes/adicionar', 'NotificationController@create')->name('admin.notification.create');
@@ -66,4 +70,5 @@ Route::group(['prefix' => 'administrador'], function(){
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('admin.modal.recovery');
     Route::get('/modal/tema/aprovar', 'ModalController@approveTheme')->name('admin.modal.approve.theme');
     Route::get('/modal/tema/reprovar', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
+    Route::get('/modal/evento/notificar', 'ModalController@eventParticipantsNotification')->name('admin.modal.notify.event');
 });

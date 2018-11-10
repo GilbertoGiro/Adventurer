@@ -5,7 +5,7 @@
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
     <li class="option inline-block"><a class="milk text-decoration-none" href="{{ route('admin.notification') }}">Notificações</a></li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
-    <li class="option disabled-option inline-block">Editar Notificação</li>
+    <li class="option disabled-option inline-block">{{ $notify->titulo }}</li>
 @endsection
 
 @section('content')

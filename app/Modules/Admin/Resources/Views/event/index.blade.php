@@ -35,8 +35,13 @@
                 </div>
 
                 <div class="form-group text-left table-cell p-sm">
-                    <label for="palestrante" class="form-label bold">Palestrante</label>
-                    <input type="text" name="palestrante" class="form-input" id="palestrante" placeholder="Palestrante">
+                    <label for="stevento" class="form-label bold">Status</label>
+                    <select name="stevento" class="form-input" id="stevento">
+                        <option value="">Selecione uma opção</option>
+                        @foreach(\App\Utilities\Arrays::eventStatus() as $key => $value)
+                            <option value="{{ $key }}" {{ (request('stevento') === $key) ? 'selected' : '' }}>{{ $value }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group text-left table-cell p-sm">
@@ -79,6 +84,7 @@
                         <tr>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Tema', 'idtema') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Palestrante', 'palestrante') !!}</th>
+                            <th>{!! \App\Utilities\Tables::makeOrderedColumn('Status', 'stevento') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Data Prevista', 'dtprevista') !!}</th>
                             <th>{!! \App\Utilities\Tables::makeOrderedColumn('Duração', 'duracao') !!}</th>
                             <th>Ações</th>
@@ -90,10 +96,11 @@
                                 <tr class="text-center">
                                     <td>{{ $event->theme->titulo }}</td>
                                     <td>{{ $event->palestrante }}</td>
+                                    <td>{!! \App\Utilities\Arrays::eventStatusLabel($event->stevento) !!}</td>
                                     <td>{{ (new \Carbon\Carbon($event->dtprevista))->format('d/m/Y') }}</td>
                                     <td>{{ $event->duracao }}</td>
                                     <td>
-                                        <a href="" class="text-decoration-none">
+                                        <a href="{{ route('admin.event.show', $event->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar Evento</span>
 
@@ -101,7 +108,7 @@
                                             </button>
                                         </a>
 
-                                        <a href="" class="text-decoration-none">
+                                        <a href="{{ route('admin.event.edit', $event->id) }}" class="text-decoration-none">
                                             <button class="button button-warning circular-button tooltip">
                                                 <span class="tooltiptext">Editar Evento</span>
 
@@ -109,11 +116,19 @@
                                             </button>
                                         </a>
 
-                                        <a href="" class="text-decoration-none">
-                                            <button class="button button-danger circular-button tooltip">
+                                        <a href="" class="text-decoration-none notify-participants" data-id="{{ $event->id }}">
+                                            <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Notificar Participantes</span>
 
                                                 <i class="fa fa-phone"></i>
+                                            </button>
+                                        </a>
+
+                                        <a href="" class="text-decoration-none">
+                                            <button class="button button-danger circular-button tooltip">
+                                                <span class="tooltiptext">Cancelar Evento</span>
+
+                                                <i class="fa fa-trash"></i>
                                             </button>
                                         </a>
                                     </td>
@@ -121,11 +136,11 @@
                             @endforeach
                         @else
                             <tr class="text-center">
-                                <td colspan="5">Nenhum registro encontrado</td>
+                                <td colspan="6">Nenhum registro encontrado</td>
                             </tr>
                         @endif
                         <tr>
-                            <td class="text-right" colspan="5">Visualizando <b>{{ $events['filter'] }}</b> de <b>{{ $events['count'] }}</b> eventos</td>
+                            <td class="text-right" colspan="6">Visualizando <b>{{ $events['filter'] }}</b> de <b>{{ $events['count'] }}</b> eventos</td>
                         </tr>
                     </tbody>
                 </table>
@@ -136,8 +151,9 @@
             <div class="card-footer"></div>
         </div>
     </div>
+    <div class="active-modal"></div>
 @endsection
 
 @section('scripts')
-
+    @include('admin::event.javascript.index')
 @endsection

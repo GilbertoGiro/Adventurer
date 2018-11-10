@@ -35,7 +35,21 @@ class Arrays{
     }
 
     /**
-     * Method to get Theme Status Label by passe Status
+     * Method to get available Event Status
+     *
+     * @return array
+     */
+    public static function eventStatus()
+    {
+        return [
+            'abe' => 'Aberto',
+            'fec' => 'Fechado',
+            'can' => 'Cancelado'
+        ];
+    }
+
+    /**
+     * Method to get Theme Status Label
      *
      * @param $status
      * @return mixed
@@ -79,7 +93,38 @@ class Arrays{
             'ati' => '<label class="label background-green white">Ativo</label>',
             'ina' => '<label class="label background-red white">Inativo</label>'
         ];
+        return $labels[$status];
+    }
 
+    /**
+     * Method to get Event Status Label
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function eventStatusLabel($status)
+    {
+        $labels = [
+            'abe' => '<label class="label background-green white">Aberto</label>',
+            'fec' => '<label class="label background-red white">Fechado</label>',
+            'can' => '<label class="label background-red white">Cancelado</label>'
+        ];
+        return $labels[$status];
+    }
+
+    /**
+     * Method to get Theme Status Text
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function eventStatusText($status)
+    {
+        $labels = [
+            'abe' => '<span class="gold bold">Aberto</span>',
+            'fec' => '<span class="green bold">Fechado</span>',
+            'can' => '<span class="red bold">Cancelado</span>'
+        ];
         return $labels[$status];
     }
 

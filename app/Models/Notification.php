@@ -18,6 +18,17 @@ class Notification extends Model{
     ];
 
     /**
+     * Method to add Active Scope
+     *
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('stnotificacao', 'ati');
+    }
+
+    /**
      * Method to get related User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

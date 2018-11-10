@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model{
+class Event extends Model
+{
     /**
      * @var string
      */
@@ -14,7 +15,8 @@ class Event extends Model{
      * @var array
      */
     protected $fillable = [
-        'id', 'idtema', 'endereco', 'numero', 'bairro', 'complemento', 'flaberto', 'flexterno', 'dtprevista', 'hrinicio', 'limite', 'palestrante', 'duracao'
+        'id', 'idtema', 'endereco', 'numero', 'bairro', 'complemento', 'flaberto', 'flexterno',
+        'dtprevista', 'hrinicio', 'limite', 'palestrante', 'duracao', 'stevento'
     ];
 
     /**
@@ -25,5 +27,15 @@ class Event extends Model{
     public function theme()
     {
         return $this->hasOne(Theme::class, 'id', 'idtema');
+    }
+
+    /**
+     * Method to get related Inscriptions
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function inscriptions()
+    {
+        return $this->hasMany(Inscription::class, 'idevento', 'id');
     }
 }

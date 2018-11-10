@@ -3,10 +3,12 @@
 namespace App\Modules\Admin\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Admin\Http\Requests\EventRequest;
 use App\Services\EventService;
 use Illuminate\Http\Request;
 
-class EventController extends Controller{
+class EventController extends Controller
+{
     /**
      * @var EventService
      */
@@ -30,7 +32,7 @@ class EventController extends Controller{
      */
     public function index(Request $request)
     {
-        $event  = true;
+        $event = true;
         $events = $this->service->get('*', $request, 'object');
         return view('admin::event.index', compact('event', 'events'));
     }
@@ -49,15 +51,57 @@ class EventController extends Controller{
     /**
      * Method to create Event
      *
-     * @param Request $request
+     * @param EventRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
         $condition = $this->service->create($request->all());
-        if($condition['status'] === '00'){
+        if ($condition['status'] === '00') {
             return redirect()->back()->with('success', 'Evento cadastrado com sucesso');
         }
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
+    }
+
+    /**
+     * Method to show Event Information
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function edit(int $id)
+    {
+        $event = true;
+        $episode = $this->service->find($id);
+        return view('admin::event.edit', compact('event', 'episode'));
+    }
+
+    /**
+     * Method to update Event
+     *
+     * @param EventRequest $request
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(EventRequest $request, int $id)
+    {
+        $condition = $this->service->update($request->all(), $id);
+        if ($condition['status'] === '00') {
+            return redirect()->back()->with('success', 'Evento atualizado com sucesso');
+        }
+        return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger'])->withInput($request->all());
+    }
+
+    /**
+     * Method to show Event
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show(int $id)
+    {
+        $event = true;
+        $episode = $this->service->find($id);
+        return view('admin::event.show', compact('event', 'episode'));
     }
 }

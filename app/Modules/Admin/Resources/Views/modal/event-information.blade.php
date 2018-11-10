@@ -47,7 +47,7 @@
                 </div>
             </div>
 
-            <div class="modal-footer text-right background-strong-blue white">
+            <div class="modal-footer text-right">
                 <button type="button" class="button button-danger m-r-sm close-modal">Fechar <i class="fa fa-times"></i></button>
             </div>
 
