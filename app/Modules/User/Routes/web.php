@@ -18,14 +18,20 @@ Route::group(['prefix' => 'usuario'], function (){
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('user.theme');
+        Route::get('temas/{id}', 'ThemeController@show')->name('user.theme.show');
         Route::get('temas/adicionar', 'ThemeController@create')->name('user.theme.create');
         Route::post('temas/adicionar', 'ThemeController@store');
 
         // Routes about Events
         Route::get('eventos', 'EventController@index')->name('user.event');
+        Route::get('eventos/{id}', 'EventController@show')->name('user.event.show');
+        Route::post('eventos/{id}', 'EventController@apply');
 
         // Routes about Configuration
         Route::get('configuracoes', 'ConfigurationController@index')->name('user.configuration');
+
+        // Routes about Ajax Requests
+        Route::get('ajax/evento/informacoes', 'AjaxController@getEventByDate')->name('user.ajax.event.show');
 
         // Route for Logoff
         Route::get('logout', 'LoginController@logout');
@@ -42,5 +48,5 @@ Route::group(['prefix' => 'usuario'], function (){
 
     // Routes about Modal
     Route::get('/modal/recuperacao', 'ModalController@recovery')->name('user.modal.recovery');
-    Route::get('/modal/evento/visualizar', 'ModalController@eventInformation')->name('user.modal.event.show');
+    Route::get('/modal/evento/inscrever', 'ModalController@applyParticipant')->name('user.modal.event.apply');
 });

@@ -30,7 +30,7 @@
                     </div>
                 </div>
             </div>
-            <div class="modal-footer background-strong-blue text-right">
+            <div class="modal-footer text-right">
                 <button type="button" class="button button-danger m-r-sm close-modal">Cancelar <i class="fa fa-times"></i></button>
                 <button type="submit" class="button button-success">Recuperar <i class="fa fa-shield-alt"></i></button>
             </div>

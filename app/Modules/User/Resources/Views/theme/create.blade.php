@@ -92,5 +92,5 @@
 
 @section('scripts')
     <script src="{{ asset('js/steps.js') }}"></script>
-    @include('user::event.javascript.suggest')
+    @include('user::theme.javascript.suggest')
 @endsection

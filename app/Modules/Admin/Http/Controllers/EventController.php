@@ -106,6 +106,18 @@ class EventController extends Controller
     }
 
     /**
+     * Method to show Participation Requests
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function request(int $id)
+    {
+        $event = $this->service->find($id);
+        return view('admin::event.request', compact('event'));
+    }
+
+    /**
      * Method to cancel Event
      *
      * @param int $id

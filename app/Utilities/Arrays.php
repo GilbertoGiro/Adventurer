@@ -113,6 +113,22 @@ class Arrays{
     }
 
     /**
+     * Method to get Inscription Status Label
+     *
+     * @param $status
+     * @return mixed
+     */
+    public static function inscriptionStatusLabel($status)
+    {
+        $labels = [
+            'ati' => '<label class="label background-gold white">Aberto</label>',
+            'apr' => '<label class="label background-green white">Aprovado</label>',
+            'rep' => '<label class="label background-red white">Reprovado</label>'
+        ];
+        return $labels[$status];
+    }
+
+    /**
      * Method to get Theme Status Text
      *
      * @param $status

@@ -140,7 +140,15 @@ abstract class AbstractService{
      */
     public function findBy(array $data)
     {
-        return $this->model->findBy($data);
+        $return = $this->model->all();
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                $return = $return->whereIn($key, $value);
+                continue;
+            }
+            $return = $return->where($key, $value);
+        }
+        return $return->first();
     }
 
     /**

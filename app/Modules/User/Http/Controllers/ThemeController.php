@@ -68,6 +68,18 @@ class ThemeController extends Controller
     }
 
     /**
+     * Method to show Theme information
+     *
+     * @param int $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show(int $id)
+    {
+        $theme = $this->service->find($id);
+        return view('user::theme.show', compact('theme'));
+    }
+
+    /**
      * Method to get Theme Photo
      *
      * @param $id
@@ -76,7 +88,6 @@ class ThemeController extends Controller
     public function image($id)
     {
         $theme = $this->service->find($id);
-
         return response(file_get_contents(storage_path('app/' . $theme->photo_raw)))
             ->header('Content-Type', 'image/png');
     }

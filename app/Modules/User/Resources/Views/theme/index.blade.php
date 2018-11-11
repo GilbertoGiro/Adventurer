@@ -84,7 +84,7 @@
                                     <td>{{ $theme->nmusuario }}</td>
                                     <td>{!! ($theme->sttema !== 'abe') ? ($theme->sttema !== 'apr') ? '<span class="label white background-red">Reprovado</span>' : '<span class="label white background-green">Aprovado</span>' : '<span class="label white background-gold">Aberto</span>' !!}</td>
                                     <td>
-                                        <a href="{{ route('admin.suggest.show', $theme->id) }}" class="text-decoration-none">
+                                        <a href="{{ route('user.theme.show', $theme->id) }}" class="text-decoration-none">
                                             <button class="button button-info circular-button tooltip">
                                                 <span class="tooltiptext">Visualizar Tema</span>
 

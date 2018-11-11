@@ -4,9 +4,13 @@ namespace App\Services;
 
 use App\Mail\CancelEventMail;
 use App\Models\Event;
+use App\Models\Inscription;
+use App\Models\Theme;
 use App\Models\User;
 use App\Notifications\NewEvent;
+use App\Notifications\NewParticipant;
 use App\Notifications\UpdatedEvent;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -20,14 +24,29 @@ class EventService extends AbstractService
     protected $user;
 
     /**
+     * @var Theme
+     */
+    protected $theme;
+
+    /**
+     * @var Inscription
+     */
+    protected $inscription;
+
+    /**
      * EventService constructor.
      *
      * @param Event $model
      * @param User $user
+     * @param Theme $theme
+     * @param Inscription $inscription
      */
-    public function __construct(Event $model, User $user)
+    public function __construct(Event $model, User $user, Theme $theme,
+                                Inscription $inscription)
     {
         $this->user = $user;
+        $this->theme = $theme;
+        $this->inscription = $inscription;
         parent::__construct($model);
     }
 
@@ -38,7 +57,7 @@ class EventService extends AbstractService
      */
     public function getCalendarEvents()
     {
-        $events = $this->model::with('theme')->get();
+        $events = $this->model::with('theme')->where('stevento', 'abe')->get();
         foreach ($events as $key => $event) {
             $events[$key] = [
                 'title' => $event->theme->titulo,
@@ -46,6 +65,32 @@ class EventService extends AbstractService
             ];
         }
         return $events;
+    }
+
+    /**
+     * Method to get Event by date and hour
+     *
+     * @param array $data
+     * @return array
+     */
+    public function getEventByDate(array $data)
+    {
+        try {
+            // Formatting date
+            $date = (new Carbon($data['date']))->format('Y-m-d');
+            $hour = (new Carbon($data['hour']))->format('H:i');
+
+            // Searching relations on database
+            $theme = $this->theme::where('titulo', $data['title'])->first();
+            $event = $this->model::where('dtprevista', $date)->where('hrinicio', $hour)
+                ->where('idtema', $theme->id)->first();
+            if ($event) {
+                return ['status' => '00', 'event' => $event];
+            }
+            return ['status' => '01', 'message' => 'Não foi possível encontrar o evento'];
+        } catch (\Exception $e) {
+            return ['status' => '01', 'message' => 'Não foi possível encontrar o evento'];
+        }
     }
 
     /**
@@ -110,6 +155,44 @@ class EventService extends AbstractService
         } catch (\Exception $e) {
             Log::debug($e->getMessage());
             return ['status' => '01', 'message' => 'Ocorreu um erro durante a atualização do registro'];
+        }
+    }
+
+    /**
+     * Method to apply Participant
+     *
+     * @param $data
+     * @param int $id
+     * @return array
+     */
+    public function applyParticipant(array $data, int $id)
+    {
+        DB::beginTransaction();
+        try {
+            // Prepare params
+            $user = Auth::guard('user')->user();
+            $data['idusuario'] = ($user) ? $user->id : null;
+            $data['idevento'] = $id;
+
+            // Apply Participant
+            if ($this->inscription->create($data)) {
+                $event = $this->model->find($id);
+                $admins = $this->user::where('idpapel', 1)->get();
+                foreach ($admins as $admin) {
+                    $admin->notify(new NewParticipant([
+                        'nmusuario' => ($user) ? $user->nome : $data['nmusuario'],
+                        'titulo' => $event->theme->titulo
+                    ]));
+                }
+                DB::commit();
+                return ['status' => '00'];
+            }
+            DB::rollback();
+            return ['status' => '01', 'message' => 'Não foi possível realizar a solicitação'];
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::debug($e->getMessage());
+            return ['status' => '01', 'message' => 'Não foi possível realizar a solicitação'];
         }
     }
 

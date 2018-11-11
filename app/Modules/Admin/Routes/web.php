@@ -11,12 +11,12 @@
 |
 */
 
-Route::group(['prefix' => 'administrador'], function(){
-    Route::get('/', function(){
+Route::group(['prefix' => 'administrador'], function () {
+    Route::get('/', function () {
         return redirect()->to('administrador/login');
     });
 
-    Route::group(['middleware' => 'auth:admin'], function(){
+    Route::group(['middleware' => 'auth:admin'], function () {
         // Routes about Dashboard
         Route::get('dashboard', 'DashboardController@index')->name('admin.dashboard');
 
@@ -36,6 +36,7 @@ Route::group(['prefix' => 'administrador'], function(){
         Route::get('eventos/editar/{id}', 'EventController@edit')->name('admin.event.edit');
         Route::put('eventos/editar/{id}', 'EventController@update');
         Route::post('eventos/{id}/cancelar', 'EventController@cancel')->name('admin.event.cancel');
+        Route::get('eventos/{id}/solicitacoes', 'EventController@request')->name('admin.event.request');
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');

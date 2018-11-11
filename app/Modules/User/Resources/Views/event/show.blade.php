@@ -1,16 +1,17 @@
-@extends('admin::layouts.app')
+@extends('user::layouts.app')
 
 @section('path')
     <li class="option disabled-option inline-block">Página Inicial</li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
-    <li class="option inline-block"><a class="milk text-decoration-none" href="{{ route('admin.event') }}">Lista de
+    <li class="option inline-block"><a class="milk text-decoration-none" href="{{ route('user.event') }}">Lista de
             Eventos</a></li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
     <li class="option disabled-option inline-block">{{ $episode->theme->titulo }}</li>
 @endsection
 
 @php
-    $theme = $episode->theme;
+    $subject = $episode->theme;
+    $crowded = ($episode->inscriptions()->where('stinscricao', '!=', 'rep')->count()) > $episode->limite;
 @endphp
 
 @section('content')
@@ -20,7 +21,7 @@
         </div>
 
         <div class="inline-block align-middle m-l-md">
-            <h2 class="m-t-sm">Eventos - Gerenciar Informações</h2>
+            <h2 class="m-t-sm">Evento - Informações Gerais</h2>
             <span class="block" style="margin-top:-3px;margin-left:4px;">
                 Visualize aqui todas as informações referente ao <b>Evento</b> selecionado
             </span>
@@ -40,10 +41,10 @@
             <div class="card-body p-md">
                 <div class="flex" style="justify-content:inherit;">
                     <div class="align-top m-r-lg m-l-md">
-                        @if(empty($theme->photo))
+                        @if(empty($subject->photo))
                             <img src="{{ asset('img/no-image.png') }}" class="m-t-sm">
                         @else
-                            <img src="{{ asset($theme->photo) }}" class="m-t-sm">
+                            <img src="{{ asset($subject->photo) }}" class="m-t-sm">
                         @endif
                     </div>
                     <div class="align-top m-t-md">
@@ -64,19 +65,28 @@
                         </div>
                         <div class="block text-justify">
                             <span class="block bold m-b-sm">Descrição do Tema:</span>
-                            {!! $theme->descricao !!}
+                            {!! $subject->descricao !!}
                         </div>
                     </div>
                 </div>
 
                 <div class="block text-right m-t-lg">
-                    <button class="button button-warning notify-participants m-r-sm {{ ($episode->stevento !== 'abe') ? 'disabled-button' : '' }}" {{ ($episode->stevento !== 'abe') ? 'disabled' : '' }} data-id="{{ $episode->id }}">
-                        Notificar Participantes <i class="fa fa-envelope"></i>
-                    </button>
+                    <a href="{{ route('user.event') }}" class="button button-warning m-r-sm">
+                        <i class="fa fa-arrow-left"></i> Voltar para o Calendário
+                    </a>
 
-                    <button class="button button-danger cancel-event m-r-sm {{ ($episode->stevento !== 'abe') ? 'disabled-button' : '' }}" {{ ($episode->stevento !== 'abe') ? 'disabled' : ''  }} data-id="{{ $episode->id }}">
-                        Cancelar Evento <i class="fa fa-trash"></i>
-                    </button>
+                    @if($inscription || $crowded)
+                        <button class="button button-success m-r-sm apply-participant disabled-button tooltip" disabled>
+                            <span class="tooltiptext">
+                                Inscrito <i class="fa fa-check"></i>
+                            </span>
+                            Solicitar Participação <i class="fa fa-thumbs-up"></i>
+                        </button>
+                    @else
+                        <button class="button button-success m-r-sm apply-participant" data-id="{{ $episode->id }}">
+                            Solicitar Participação <i class="fa fa-thumbs-up"></i>
+                        </button>
+                    @endif
                 </div>
             </div>
         </div>
@@ -85,5 +95,5 @@
 @endsection
 
 @section('scripts')
-    @include('admin::event.javascript.index')
+    @include('user::event.javascript.show')
 @endsection

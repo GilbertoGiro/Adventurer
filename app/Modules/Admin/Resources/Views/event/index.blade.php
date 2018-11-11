@@ -108,29 +108,41 @@
                                             </button>
                                         </a>
 
-                                        <a href="{{ route('admin.event.edit', $event->id) }}" class="text-decoration-none">
-                                            <button class="button button-warning circular-button tooltip">
-                                                <span class="tooltiptext">Editar Evento</span>
+                                        @if($event->stevento !== 'can')
+                                            <a href="{{ route('admin.event.edit', $event->id) }}" class="text-decoration-none">
+                                                <button class="button button-warning circular-button tooltip">
+                                                    <span class="tooltiptext">Editar Evento</span>
 
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                        </a>
+                                                    <i class="fa fa-edit"></i>
+                                                </button>
+                                            </a>
+                                        @endif
 
-                                        <a href="" class="text-decoration-none notify-participants" data-id="{{ $event->id }}">
-                                            <button class="button button-info circular-button tooltip">
-                                                <span class="tooltiptext">Notificar Participantes</span>
+                                        @if($event->stevento === 'abe')
+                                            <a href="" class="text-decoration-none notify-participants" data-id="{{ $event->id }}">
+                                                <button class="button button-info circular-button tooltip">
+                                                    <span class="tooltiptext">Notificar Participantes</span>
 
-                                                <i class="fa fa-phone"></i>
-                                            </button>
-                                        </a>
+                                                    <i class="fa fa-phone"></i>
+                                                </button>
+                                            </a>
 
-                                        <a href="" class="text-decoration-none cancel-event" data-id="{{ $event->id }}">
-                                            <button class="button button-danger circular-button tooltip">
-                                                <span class="tooltiptext">Cancelar Evento</span>
+                                            <a href="" class="text-decoration-none cancel-event" data-id="{{ $event->id }}">
+                                                <button class="button button-danger circular-button tooltip">
+                                                    <span class="tooltiptext">Cancelar Evento</span>
 
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                        </a>
+                                                    <i class="fa fa-trash"></i>
+                                                </button>
+                                            </a>
+
+                                            <a href="{{ route('admin.event.request', $event->id) }}" class="text-decoration-none">
+                                                <button class="button button-info circular-button tooltip">
+                                                    <span class="tooltiptext">Solicitações de Participação</span>
+
+                                                    <i class="fa fa-users"></i>
+                                                </button>
+                                            </a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach

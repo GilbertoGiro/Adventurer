@@ -17,7 +17,7 @@
         </div>
     </div>
 
-    <div class="block p-md">
+    <div class="block p-md" style="width:100%;">
         <div id="events-calendar"></div>
     </div>
 
@@ -25,5 +25,5 @@
 @endsection
 
 @section('scripts')
-    @include('user::event.javascript.events')
+    @include('user::event.javascript.index')
 @endsection
