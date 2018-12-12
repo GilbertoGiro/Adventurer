@@ -16,6 +16,10 @@ class Address
         $number = ($event->numero) ? $event->numero : 1760;
         $neighborhood = ($event->bairro) ? $event->bairro : 'Centro';
         $complement = ($event->complemento) ? $event->complemento : '';
-        return $address . ', ' . $number . ' - ' . $neighborhood . ' - ' . $complement;
+        $result = $address . ', ' . $number . ' - ' . $neighborhood;
+        if ($complement) {
+            $result .= ' - ' . $complement;
+        }
+        return $result;
     }
 }

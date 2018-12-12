@@ -62,6 +62,17 @@ abstract class AbstractService{
     }
 
     /**
+     * Method to get all Model Objects Limited
+     *
+     * @param int $limit
+     * @return mixed
+     */
+    public function limit(int $limit)
+    {
+        return $this->model->limit($limit)->get();
+    }
+
+    /**
      * Method to get all records based in Request Information
      *
      * @param $columns

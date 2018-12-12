@@ -18,9 +18,9 @@ Route::group(['prefix' => 'usuario'], function (){
 
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('user.theme');
-        Route::get('temas/{id}', 'ThemeController@show')->name('user.theme.show');
         Route::get('temas/adicionar', 'ThemeController@create')->name('user.theme.create');
         Route::post('temas/adicionar', 'ThemeController@store');
+        Route::get('temas/{id}', 'ThemeController@show')->name('user.theme.show');
 
         // Routes about Events
         Route::get('eventos', 'EventController@index')->name('user.event');

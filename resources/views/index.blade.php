@@ -7,124 +7,52 @@
         </div>
         <div class="inline-block align-middle">
             <h2 class="roboto">Principais Eventos em Andamento</h2>
-            <span class="block">Encontre aqui todos os eventos que encontram-se como <span class="green"><b>disponíveis</b></span> de maneira simples e prática.</span>
+            <span class="block">Encontre aqui todos os eventos que encontram-se como <span
+                        class="green"><b>disponíveis</b></span> de maneira simples e prática.</span>
         </div>
     </div>
 
-    <div class="block m-b-lg text-center most-important-events-list">
-        <div class="event-box shadow inline-block align-top">
-            <div class="event-box-header white">
-                <span class="dots"><b>Semana de Tecnologia</b></span>
-            </div>
-            <div class="event-box-body">
-                <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
-                </div>
-                <div class="block m-t-md">
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Participantes:</b> 45 usuários
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Duração:</b> 2 horas
-                    </span>
+    @if(count($events))
+        @foreach($events as $event)
+            <div class="block m-b-lg text-center most-important-events-list">
+                <div class="event-box shadow inline-block align-top">
+                    <div class="event-box-header white">
+                        <span class="dots"><b>{{ $event->theme->titulo }}</b></span>
+                    </div>
+                    <div class="event-box-body">
+                        <div class="small-circular-image">
+                            <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
+                        </div>
+                        <div class="block m-t-md">
+                            <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                                <b>Palestrante:</b> {{ $event->palestrante }}
+                            </span>
 
-                    <span class="block margin-center m-b-md">
-                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="event-box shadow inline-block align-top">
-            <div class="event-box-header white">
-                <span class="dots"><b>Gametech</b></span>
-            </div>
-            <div class="event-box-body">
-                <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
-                </div>
-                <div class="block m-t-md">
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Participantes:</b> 45 usuários
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Duração:</b> 2 horas
-                    </span>
+                            <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                                <b>Situação:</b> <span class="green"><b>{!! \App\Utilities\Arrays::eventStatusText($event->stevento) !!}</b></span>
+                            </span>
 
-                    <span class="block margin-center m-b-md">
-                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="event-box shadow inline-block align-top">
-            <div class="event-box-header white">
-                <span class="dots"><b>Grupo de Arduíno</b></span>
-            </div>
-            <div class="event-box-body">
-                <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
-                </div>
-                <div class="block m-t-md">
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Participantes:</b> 45 usuários
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Duração:</b> 2 horas
-                    </span>
+                            <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                                <b>Participantes:</b> {{ $event->limite }} pessoas
+                            </span>
 
-                    <span class="block margin-center m-b-md">
-                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
-                    </span>
-                </div>
-            </div>
-        </div>
-        <div class="event-box shadow inline-block align-top">
-            <div class="event-box-header white">
-                <span class="dots"><b>Aprendendo Python</b></span>
-            </div>
-            <div class="event-box-body">
-                <div class="small-circular-image">
-                    <img src="{{ asset('img/event/png/026-conference.png') }}" width="70px">
-                </div>
-                <div class="block m-t-md">
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Palestrante:</b> Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende e Gilberto Giro Resende
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Situação:</b> <span class="green"><b>Disponível</b></span>
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Participantes:</b> 45 usuários
-                    </span>
-                    <span class="block dots margin-center m-b-md" style="max-width:80%;">
-                        <b>Duração:</b> 2 horas
-                    </span>
+                            <span class="block dots margin-center m-b-md" style="max-width:80%;">
+                                <b>Duração:</b> {{ $event->duracao }} horas
+                            </span>
 
-                    <span class="block margin-center m-b-md">
-                        <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
-                    </span>
+                            <span class="block margin-center m-b-md">
+                                <a href="" class="facebook-blue">Mais informações <i class="fa fa-info-circle"></i></a>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
+        @endforeach
+    @else
+        <div class="text-center m-t-lg m-b-lg background-weak-blue white p-md" style="border-radius:4px;">
+            Nenhum evento encontrado na base de dados.
         </div>
-    </div>
+    @endif
 
     <div class="block m-b-lg">
         <div class="inline-block align-middle m-r-md">
@@ -132,14 +60,16 @@
         </div>
         <div class="inline-block align-middle">
             <h2 class="roboto">Eventos Disponíveis nessa Semana</h2>
-            <span class="block">Encontre aqui todos os eventos que encontram-se como <span class="green"><b>disponíveis</b></span> de maneira simples e prática.</span>
+            <span class="block">Encontre aqui todos os eventos que encontram-se como <span
+                        class="green"><b>disponíveis</b></span> de maneira simples e prática.</span>
         </div>
     </div>
     <div class="events-calendar-configuration align-top">
         <div id="events-calendar"></div>
     </div>
     <div class="event-information inline-block align-top">
-        <h2 class="roboto dots">Semana de Tecnologia - Faculdade de Tecnologia de Jundiaí Faculdade de Tecnologia de Jundiaí Faculdade de Tecnologia de Jundiaí</h2>
+        <h2 class="roboto dots">Semana de Tecnologia - Faculdade de Tecnologia de Jundiaí Faculdade de Tecnologia de
+            Jundiaí Faculdade de Tecnologia de Jundiaí</h2>
 
         <div class="block p-sm text-justify">
             <span class="block">
@@ -178,7 +108,8 @@
                 </div>
 
                 <div class="form-group m-t-md">
-                    <button type="submit" class="button button-success form-input">Submeter Inscrição <i class="fa fa-graduation-cap"></i></button>
+                    <button type="submit" class="button button-success form-input">Submeter Inscrição <i
+                                class="fa fa-graduation-cap"></i></button>
                 </div>
             </form>
         </div>

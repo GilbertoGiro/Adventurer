@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
-class IndexController extends Controller{
+use App\Services\EventService;
+
+class IndexController extends Controller
+{
+    /**
+     * @var EventService
+     */
+    protected $eventService;
+
     /**
      * IndexController constructor.
+     *
+     * @param EventService $eventService
      */
-    public function __construct()
+    public function __construct(EventService $eventService)
     {
-        // Do nothing
+        $this->eventService = $eventService;
     }
 
     /**
@@ -18,7 +28,8 @@ class IndexController extends Controller{
      */
     public function index()
     {
-        return view('index');
+        $events = $this->eventService->limit(4);
+        return view('index', compact('events'));
     }
 
     /**

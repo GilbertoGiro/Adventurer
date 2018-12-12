@@ -3,18 +3,10 @@
 namespace App\Modules\User\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
-class DashboardController extends Controller{
-
-    protected $service;
-
-    protected $model;
-
-    public function __construct()
-    {
-        // Do nothing
-    }
-
+class DashboardController extends Controller
+{
     /**
      * Method to show index Page
      *
@@ -23,7 +15,7 @@ class DashboardController extends Controller{
     public function index()
     {
         $dashboard = true;
-
-        return view('user::dashboard.index', compact('dashboard'));
+        $user = Auth::guard('user')->user();
+        return view('user::dashboard.index', compact('dashboard', 'user'));
     }
 }

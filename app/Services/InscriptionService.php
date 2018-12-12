@@ -20,4 +20,24 @@ class InscriptionService extends AbstractService
     {
         parent::__construct($model);
     }
+
+    /**
+     * Method to update Inscription
+     *
+     * @param array $data
+     * @param int $id
+     * @return array|mixed
+     */
+    public function update(array $data, int $id)
+    {
+        try {
+            $inscription = $this->model->find($id);
+            if ($inscription->update($data)) {
+                return ['status' => '00'];
+            }
+            return ['status' => '01'];
+        } catch (\Exception $e) {
+            return ['status' => '01'];
+        }
+    }
 }

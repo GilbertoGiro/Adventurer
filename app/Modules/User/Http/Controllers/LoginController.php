@@ -44,7 +44,7 @@ class LoginController extends Controller
     public function auth(Request $request)
     {
         $data = $request->only(['email', 'password', 'idpapel']);
-        if(Auth::guard('user')->attempt($data)){
+        if (Auth::guard('user')->attempt($data)) {
             return redirect()->route('user.dashboard');
         }
         return redirect()->back()->withErrors(['message' => 'As credenciais não estão corretas.', 'type' => 'danger'])->withInput($request->except('password'));
@@ -59,7 +59,7 @@ class LoginController extends Controller
     public function request(Request $request)
     {
         $condition = $this->recoveryService->request($request->all());
-        if($condition['status'] === '00'){
+        if ($condition['status'] === '00') {
             return redirect()->back()->with('success', 'Solicitação realizada com sucesso');
         }
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
@@ -75,7 +75,6 @@ class LoginController extends Controller
     public function recovery(Request $request, $token)
     {
         $condition = $this->recoveryService->checkToken($token);
-
         return view('user::password.recovery', compact('condition'));
     }
 
@@ -89,8 +88,8 @@ class LoginController extends Controller
     public function change(RecoveryRequest $request, $token)
     {
         $condition = $this->recoveryService->changePassword($request->all(), $token);
-        if($condition['status'] === '00'){
-            return redirect()->back()->with('success', 'A senha foi alterada com sucesso');
+        if ($condition['status'] === '00') {
+            return redirect()->route('web.login')->with('success', 'A senha foi alterada com sucesso');
         }
         return redirect()->back()->withErrors(['message' => $condition['message'], 'type' => 'danger']);
     }
@@ -103,7 +102,6 @@ class LoginController extends Controller
     public function logout()
     {
         Auth::guard('user')->logout();
-
         return redirect()->to('usuario/login');
     }
 }

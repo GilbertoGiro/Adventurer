@@ -73,16 +73,25 @@ class User extends Authenticatable
     }
 
     /**
+     * Method to get related Events
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function events()
+    {
+        return $this->hasMany(Inscription::class, 'idusuario', 'id')->where('stinscricao', 'apr');
+    }
+
+    /**
      * Method to check if Model User is Admin
      *
      * @return bool
      */
     public function isAdmin()
     {
-        if($this->attributes['idpapel'] === 1){
+        if ($this->attributes['idpapel'] === 1) {
             return true;
         }
-
         return false;
     }
 
@@ -96,8 +105,7 @@ class User extends Authenticatable
     public function setAttribute($key, $value)
     {
         $isRememberTokenAttribute = $key == $this->getRememberTokenName();
-        if (!$isRememberTokenAttribute)
-        {
+        if (!$isRememberTokenAttribute) {
             parent::setAttribute($key, $value);
         }
     }

@@ -33,82 +33,25 @@
                             <th class="p-md">Evento</th>
                             <th class="p-md">Curso</th>
                             <th class="p-md">Data</th>
-                            <th class="p-md">Ações</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
-                        <tr>
-                            <td>Gametech</td>
-                            <td>Análise e Desenvolvimento de Sistemas</td>
-                            <td>Amanhã</td>
-                            <td>
-                                <button class="button button-success circular-button tooltip">
-                                    <span class="tooltiptext">Confirmar Presença</span>
-
-                                    <i class="fa fa-thumbs-up"></i>
-                                </button>
-
-                                <button class="button button-danger circular-button tooltip">
-                                    <span class="tooltiptext">Cancelar Presença</span>
-
-                                    <i class="fa fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Gametech</td>
-                            <td>Análise e Desenvolvimento de Sistemas</td>
-                            <td>Semana que vem</td>
-                            <td>
-                                <button class="button button-success circular-button tooltip">
-                                    <span class="tooltiptext">Confirmar Presença</span>
-
-                                    <i class="fa fa-thumbs-up"></i>
-                                </button>
-
-                                <button class="button button-danger circular-button tooltip">
-                                    <span class="tooltiptext">Cancelar Presença</span>
-
-                                    <i class="fa fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Gametech</td>
-                            <td>Análise e Desenvolvimento de Sistemas</td>
-                            <td>Semana que vem</td>
-                            <td>
-                                <button class="button button-success circular-button tooltip">
-                                    <span class="tooltiptext">Confirmar Presença</span>
-
-                                    <i class="fa fa-thumbs-up"></i>
-                                </button>
-
-                                <button class="button button-danger circular-button tooltip">
-                                    <span class="tooltiptext">Cancelar Presença</span>
-
-                                    <i class="fa fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Gametech</td>
-                            <td>Análise e Desenvolvimento de Sistemas</td>
-                            <td>Mês que vem</td>
-                            <td>
-                                <button class="button button-success circular-button tooltip">
-                                    <span class="tooltiptext">Confirmar Presença</span>
-
-                                    <i class="fa fa-thumbs-up"></i>
-                                </button>
-
-                                <button class="button button-danger circular-button tooltip">
-                                    <span class="tooltiptext">Cancelar Presença</span>
-
-                                    <i class="fa fa-thumbs-down"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        @if($user->events()->count())
+                            @foreach($user->events as $inscription)
+                                @php
+                                    $relation = $inscription->event->theme;
+                                @endphp
+                                <tr>
+                                    <td>{{ $relation->titulo }}</td>
+                                    <td>{{ $relation->course->nome }}</td>
+                                    <td>{{ (new \Carbon\Carbon($inscription->event->dtprevista))->format('d/m/Y') }}</td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr>
+                                <td>Nenhum evento encontrado na base de dados</td>
+                            </tr>
+                        @endif
                     </tbody>
                 </table>
             </div>

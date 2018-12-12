@@ -3,7 +3,9 @@
 @section('path')
     <li class="option disabled-option inline-block">Página Inicial</li>
     <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
-    <li class="option disabled-option inline-block">Lista de Eventos</li>
+    <li class="option inline-block"><a class="milk text-decoration-none" href="{{ route('admin.event') }}">Lista de Eventos</a></li>
+    <li class="option-arrow white inline-block"><i class="fa fa-arrow-right"></i></li>
+    <li class="option disabled-option inline-block">Solicitações de Participação</li>
 @endsection
 
 @php
@@ -44,40 +46,47 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($event->inscriptions as $inscription)
-                            <tr class="text-center">
-                                <td>
-                                    {{ $inscription->user->nome }}
-                                </td>
-                                <td>
-                                    {{ $inscription->user->email }}
-                                </td>
-                                <td>
-                                    {{ ($inscription->user) ? ($inscription->user->flexterno === 'n') ? 'Sim' : 'Não' : 'Não' }}
-                                </td>
-                                <td>
-                                    {!! \App\Utilities\Arrays::inscriptionStatusLabel($inscription->stinscricao) !!}
-                                </td>
-                                <td>
-                                    <button class="button button-success circular-button tooltip">
-                                        <span class="tooltiptext">Aprovar</span>
-                                        <i class="fa fa-thumbs-up"></i>
-                                    </button>
+                        @if($event->inscriptions()->count())
+                            @foreach($event->inscriptions as $inscription)
+                                <tr class="text-center">
+                                    <td>
+                                        {{ $inscription->user->nome }}
+                                    </td>
+                                    <td>
+                                        {{ $inscription->user->email }}
+                                    </td>
+                                    <td>
+                                        {{ ($inscription->user) ? ($inscription->user->flexterno === 'n') ? 'Sim' : 'Não' : 'Não' }}
+                                    </td>
+                                    <td>
+                                        {!! \App\Utilities\Arrays::inscriptionStatusLabel($inscription->stinscricao) !!}
+                                    </td>
+                                    <td>
+                                        <form action="{{ route('admin.inscription.update', $inscription->id) }}" method="POST">
+                                            {{ csrf_field() }}
+                                            {{ method_field('PUT') }}
 
-                                    <button class="button button-danger circular-button tooltip">
-                                        <span class="tooltiptext">Reprovar</span>
-                                        <i class="fa fa-thumbs-down"></i>
-                                    </button>
-                                </td>
+                                            <button name="stinscricao" class="button button-success circular-button tooltip {{ ($inscription->stinscricao !== 'ati') ? 'disabled-button' : '' }}" value="apr" {{ ($inscription->stinscricao !== 'ati') ? 'disabled' : '' }}>
+                                                <span class="tooltiptext">Aprovar</span>
+                                                <i class="fa fa-thumbs-up"></i>
+                                            </button>
+
+                                            <button name="stinscricao" class="button button-danger circular-button tooltip {{ ($inscription->stinscricao !== 'ati') ? 'disabled-button' : '' }}" value="rep" {{ ($inscription->stinscricao !== 'ati') ? 'disabled' : '' }}>
+                                                <span class="tooltiptext">Reprovar</span>
+                                                <i class="fa fa-thumbs-down"></i>
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+                            <tr class="text-center">
+                                <td colspan="5">Nenhuma solicitação disponível na base de dados.</td>
                             </tr>
-                        @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    @include('admin::event.javascript.index')
 @endsection

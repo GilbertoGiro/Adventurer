@@ -38,13 +38,15 @@ Route::group(['prefix' => 'administrador'], function () {
         Route::post('eventos/{id}/cancelar', 'EventController@cancel')->name('admin.event.cancel');
         Route::get('eventos/{id}/solicitacoes', 'EventController@request')->name('admin.event.request');
 
+        // Routes about Inscription
+        Route::put('inscricao/{id}', 'InscriptionController@update')->name('admin.inscription.update');
+
         // Routes about Themes
         Route::get('temas', 'ThemeController@index')->name('admin.suggest');
         Route::get('temas/adicionar', 'ThemeController@create')->name('admin.suggest.create');
         Route::post('temas/adicionar', 'ThemeController@store');
         Route::get('temas/{id}', 'ThemeController@show')->name('admin.suggest.show');
         Route::put('temas/{id}', 'ThemeController@update');
-        Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 
         // Routes about Notification
         Route::post('notificacoes/{notification}/enviar/{event}', 'NotificationController@notify');
@@ -74,4 +76,7 @@ Route::group(['prefix' => 'administrador'], function () {
     Route::get('/modal/tema/reprovar', 'ModalController@disapproveTheme')->name('admin.modal.disapprove.theme');
     Route::get('/modal/evento/notificar', 'ModalController@eventParticipantsNotification')->name('admin.modal.notify.event');
     Route::get('/modal/evento/cancelar', 'ModalController@cancelEvent')->name('admin.modal.cancel.event');
+
+    // Routes about Images
+    Route::get('temas/imagem/{id}', 'ThemeController@image')->name('admin.suggest.image');
 });

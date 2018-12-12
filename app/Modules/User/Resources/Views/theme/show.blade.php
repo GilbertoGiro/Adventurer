@@ -42,7 +42,9 @@
                     <div class="align-top m-t-md">
                         <div class="block m-b-md">
                             <span class="bold">Sugerida por:</span>
-                            <a href="{{ route('admin.user.show', $theme->idusuario) }}" class="facebook-blue">{{ $theme->nmusuario }}</a>
+                            <span class="facebook-blue">
+                                {{ $theme->nmusuario }}
+                            </span>
                         </div>
                         <div class="block m-b-md">
                             <span class="bold">Status:</span>

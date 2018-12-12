@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Theme extends Model{
+class Theme extends Model
+{
     /**
      * Database Table
      *
@@ -58,10 +59,9 @@ class Theme extends Model{
      */
     public function getPhotoAttribute()
     {
-        if(empty($this->attributes['photo'])){
+        if (empty($this->attributes['photo'])) {
             return null;
         }
-
         return env('APP_URL') . 'administrador/temas/imagem/' . $this->attributes['id'];
     }
 
